@@ -1,5 +1,5 @@
 body {
-    font-family: "Courier New", monospace;
+    font-family: "Roboto Mono", monospace;
     background-color: #000;
     color: #00FF00; /* Green text for hacker-like effect */
     margin: 0;
@@ -11,7 +11,7 @@ header {
     color: #00FF00;
     text-align: center;
     padding: 1em;
-    border-bottom: 2px solid #00FF00;
+    border-bottom: 2px solid #193200;
 }
 
 nav ul {
@@ -36,9 +36,10 @@ nav ul li a:hover {
 }
 
 section {
-    margin: 20px;
+    margin: 20px auto;
     padding: 15px;
-    border: 2px solid #00FF00;
+    border: 2px solid #193200;
+    max-width: 800px;
 }
 
 footer {
@@ -49,7 +50,7 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
-    border-top: 2px solid #00FF00;
+    border-top: 2px solid #193200;
 }
 
 footer a {
