@@ -13,48 +13,29 @@
       margin: 0;
     }
 
-    .door-container {
-      position: relative;
-      width: 50vw;
-      max-width: 650px;
+    #door {
       cursor: pointer;
+      width: 40vw;
+      transition: transform 0.5s ease;
     }
 
-    .door-container img {
-      width: 100%;
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      transition: opacity 1s ease; /* fade effect */
-    }
-
-    #door_open {
-      opacity: 0; /* start invisible */
-    }
-
-    .door-container:hover img {
+    #door:hover {
       transform: scale(1.1);
-      transition: transform 0.5s ease, opacity 1s ease;
     }
   </style>
 </head>
 <body>
-  <div class="door-container" onclick="openDoor()">
-    <img id="door_closed" src="assets/door_closed.png" alt="Door Closed">
-    <img id="door_open" src="assets/door_open.png" alt="Door Open">
-  </div>
+  <!-- Door image -->
+  <img id="door" src="assets/door_closed.png" alt="Door" onclick="openDoor()">
 
   <script>
     function openDoor() {
-      const closed = document.getElementById("door_closed");
-      const open = document.getElementById("door_open");
+      const door = document.getElementById("door");
 
-      // fade out closed, fade in open
-      closed.style.opacity = 0;
-      open.style.opacity = 1;
+      // Swap the image to the open door
+      door.src = "assets/door_open.png";
 
-      // wait 1 second, then go to homepage
+      // Wait 1 second, then go to homepage
       setTimeout(() => {
         window.location.href = "home.html";
       }, 1000);
