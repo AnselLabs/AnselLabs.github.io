@@ -6,20 +6,9 @@
     <title>Ansel.Labs</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        body {
-            font-family: "Roboto Mono", monospace;
-            text-align: center;
-        }
-
-        header, footer {
-            background-color: #0c1900; /* very dark background */
-            padding: 1em;
-        }
-
         .blinking {
             animation: blink 1s step-end infinite;
         }
-
         @keyframes blink {
             50% { opacity: 0; }
         }
@@ -27,11 +16,7 @@
 </head>
 <body class="homepage">
 
-    <header>
-        <h1 class="blinking">Ansel.Labs</h1>
-        <p>Where microchips meet marker pens and musings</p>
-    </header>
-
+    <!-- Sidebar Navigation -->
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -44,20 +29,28 @@
         </ul>
     </nav>
 
-    <main>
-        <section>
-            <h2>Highlights</h2>
-            <p>
-                I’m Ansel — an electrical engineer, Linux tinkerer, and lifelong artist.  
-                This site is my little lab where circuits, sketches, code, and poems all share the same bench.
-            </p>
-            <p>Explore some of my projects and creations through the selection below.</p>
-        </section>
-    </main>
+    <!-- Main Content -->
+    <div class="content">
+        <header>
+            <h1 class="blinking">Ansel.Labs</h1>
+            <p>Where microchips meet marker pens and musings</p>
+        </header>
 
-    <footer>
-        <p>Made by Ansel • <a href="https://github.com/AnselLabs">GitHub</a></p>
-    </footer>
+        <main>
+            <section>
+                <h2>Highlights</h2>
+                <p>
+                    I’m Ansel — an electrical engineer, Linux tinkerer, and lifelong artist.
+                    This site is my little lab where circuits, sketches, code, and poems all share the same bench.
+                </p>
+                <p>Explore some of my projects and creations through the selection below.</p>
+            </section>
+        </main>
+
+        <footer>
+            <p>Made by Ansel • <a href="https://github.com/AnselLabs">GitHub</a></p>
+        </footer>
+    </div>
 
 </body>
 </html>
