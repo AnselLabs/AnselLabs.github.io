@@ -1,51 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Enter</title>
+  <style>
+    body {
+      background: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    #door {
+      cursor: pointer;
+      width: 250px;
+      transition: transform 0.5s ease;
+    }
+    #door:hover {
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Portfolio</h1>
-        <p>This is my personal website where I showcase coding, art, and writing projects.</p>
-    </header>
+  <!-- Note the 'assets/' folder in the src paths -->
+  <img id="door" src="assets/door_closed.png" alt="Door" onclick="openDoor()">
 
-    <nav>
-        <ul>
-            <li><a href="#coding">Coding Projects</a></li>
-            <li><a href="#art">Art Portfolio</a></li>
-            <li><a href="#writing">Writing Samples</a></li>
-        </ul>
-    </nav>
-
-    <section id="coding">
-        <h2>Coding Projects</h2>
-        <p>Here are some of my coding projects:</p>
-        <ul>
-            <li><a href="https://github.com/username/project1">Project 1</a></li>
-            <li><a href="https://github.com/username/project2">Project 2</a></li>
-        </ul>
-    </section>
-
-    <section id="art">
-        <h2>Art Portfolio</h2>
-        <p>Here are some of my art pieces:</p>
-        <img src="assets/logo.png" alt="Art piece">
-    </section>
-
-    <section id="writing">
-        <h2>Writing Samples</h2>
-        <p>Check out my writing:</p>
-        <ul>
-            <li><a href="writing/sample1.md">Sample 1</a></li>
-            <li><a href="writing/sample2.md">Sample 2</a></li>
-        </ul>
-    </section>
-
-    <footer>
-        <p>Made by Ansel. Check out my GitHub: <a href="https://github.com/AnselLabs">AnselLabs</a></p>
-    </footer>
+  <script>
+    function openDoor() {
+      const door = document.getElementById("door");
+      // swap the image to the open door
+      door.src = "assets/door_open.png";
+      // wait 1 second, then go to homepage
+      setTimeout(() => {
+        window.location.href = "home.html";
+      }, 1000);
+    }
+  </script>
 </body>
 </html>
