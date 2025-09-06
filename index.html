@@ -15,12 +15,12 @@
 
     #door {
       cursor: pointer;
-      width: 40vw;
+      width: 35vw;
       transition: transform 0.5s ease;
     }
 
     #door:hover {
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
   </style>
 </head>
@@ -32,13 +32,26 @@
     function openDoor() {
       const door = document.getElementById("door");
 
-      // Swap the image to the open door
-      door.src = "assets/door_open.png";
+      // Define the sequence of images and timing (ms)
+      const frames = [
+        "assets/door2.png",
+        "assets/door3.png",
+        "assets/door_open.png"
+      ];
+      const totalDuration = 1000; // total 1 second
+      const frameDuration = totalDuration / frames.length; // ~333ms per frame
 
-      // Wait 1 second, then go to homepage
+      // Animate each frame in sequence
+      frames.forEach((src, index) => {
+        setTimeout(() => {
+          door.src = src;
+        }, frameDuration * index);
+      });
+
+      // After 1 second, go to homepage
       setTimeout(() => {
         window.location.href = "home.html";
-      }, 1000);
+      }, totalDuration);
     }
   </script>
 </body>
