@@ -7,12 +7,14 @@ body {
     color: #00FF00;
     margin: 0;
     padding: 0;
+    height: 100%;
     display: flex; /* allows vertical nav + main side by side */
 }
 
 header {
     background-color: #0c1900;
     color: #00FF00;
+    width: 100%;
     text-align: center;
     padding: 1em;
     border-bottom: 2px solid #193200;
@@ -71,6 +73,7 @@ section {
 footer {
     background-color: #0c1900;
     color: #00FF00;
+    width: 100%;
     text-align: center;
     padding: 1em;
     border-top: 2px solid #193200;

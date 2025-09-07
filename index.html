@@ -15,12 +15,12 @@
 
     #door {
       cursor: pointer;
-      width: 35vw;
+      width: 30vw;
       transition: transform 0.5s ease;
     }
 
     #door:hover {
-      transform: scale(1.05);
+      transform: scale(1.02);
     }
   </style>
 </head>
@@ -33,21 +33,25 @@
       const door = document.getElementById("door");
 
       // Sequence timings
-      const frame1 = 250; // door2
+      const frame1 = 100; // door2
       const frame2 = 250; // door3
-      const frame3 = 500; // door_open
+      const frame3 = 400; // door4
+      const frame4 = 550; // door5
+      const frame5 = 850; // door_open
 
       // Animate frames
       setTimeout(() => { door.src = "assets/door2.png"; }, frame1);
       setTimeout(() => { door.src = "assets/door3.png"; }, frame1 + frame2);
+      setTimeout(() => { door.src = "assets/door4.png"; }, frame1 + frame2 + frame3);
+      setTimeout(() => { door.src = "assets/door5.png"; }, frame1 + frame2 + frame3 + frame4);
       setTimeout(() => { 
         door.src = "assets/door_open.png"; 
-      }, frame1 + frame2 + 0); // immediately after door3
+      }, frame1 + frame2 + frame3 + frame4 + 0); // immediately after door3
 
       // Redirect after total duration
       setTimeout(() => {
         window.location.href = "home.html";
-      }, frame1 + frame2 + frame3);
+      }, frame1 + frame2 + frame3 + frame4 + frame5);
     }
   </script>
 </body>
