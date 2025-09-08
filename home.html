@@ -12,6 +12,24 @@
         @keyframes blink {
             50% { opacity: 0; }
         }
+
+        /* Minimal Hangman styling */
+        #hangman {
+            margin-top: 2rem;
+            font-family: monospace;
+        }
+        #hangman input {
+            width: 1.5rem;
+            text-align: center;
+            font-size: 1rem;
+        }
+        #hangman button {
+            margin-left: 0.5rem;
+        }
+        #hangman-word {
+            font-size: 1.5rem;
+            letter-spacing: 0.2em;
+        }
     </style>
 </head>
 <body class="homepage">
@@ -38,16 +56,29 @@
     </header>
 
     <main>
+      <!-- Bio Section -->
       <section>
-        <h2>Highlights</h2>
+        <h2>About Me</h2>
         <p>
-          I’m Ansel — an electrical engineer, Linux tinkerer, and lifelong artist.
-          This site is my little lab where circuits, sketches, code, and poems all share the same bench.
+          Hey, I’m Ansel (he/him) — lifelong gamer, oil painter, and tinkerer of all sorts.
+          Recently, I’ve been diving headfirst into sculpting and miniature painting for RPGs — dice, dragons, and tiny worlds fuel my curiosity.
+          When I’m not coding circuits or painting canvases, you might find me exploring new game mechanics, writing poetry, or experimenting with Linux setups.
         </p>
         <p>
-          Explore some of my projects and creations through the selection below.
+          This is my little creative lab — a mix of art, code, and whimsy. Stick around and see what sparks your imagination.
         </p>
       </section>
+
+      <!-- Hangman Game Section -->
+      <section id="hangman">
+        <h2>Hangman</h2>
+        <p>Guess the word:</p>
+        <div id="hangman-word">_ _ _ _ _ _ _ _ _</div>
+        <input type="text" id="letter-input" maxlength="1" autofocus>
+        <button onclick="guessLetter()">Guess</button>
+        <p id="hangman-message"></p>
+      </section>
+
     </main>
 
     <footer>
@@ -56,5 +87,61 @@
 
   </div>
 
+  <script>
+  // Hangman game logic
+  const secretWord = "BRAINDEAD";
+  let displayWord = Array(secretWord.length).fill("_");
+  const guessedLetters = [];
+  const maxGuesses = 5;        // Maximum allowed incorrect guesses
+  let remainingGuesses = maxGuesses;
+
+  function updateDisplay() {
+    document.getElementById("hangman-word").textContent = displayWord.join(" ");
+  }
+
+  function guessLetter() {
+    const input = document.getElementById("letter-input");
+    const letter = input.value.toUpperCase();
+    input.value = "";
+    if (!letter || guessedLetters.includes(letter)) return;
+    guessedLetters.push(letter);
+
+    let correct = false;
+    for (let i = 0; i < secretWord.length; i++) {
+      if (secretWord[i] === letter) {
+        displayWord[i] = letter;
+        correct = true;
+      }
+    }
+
+    updateDisplay();
+
+    const messageEl = document.getElementById("hangman-message");
+
+    if (!correct) {
+      remainingGuesses--;
+      if (remainingGuesses <= 0) {
+        messageEl.textContent = `Game over! The word was "${secretWord}".`;
+        document.getElementById("letter-input").disabled = true;
+        return;
+      } else {
+        messageEl.textContent = `Nope! ${remainingGuesses} guesses left.`;
+      }
+    } else {
+      messageEl.textContent = "";
+    }
+
+    if (!displayWord.includes("_")) {
+      messageEl.textContent = "You got it!";
+      document.getElementById("letter-input").disabled = true;
+    }
+  }
+
+  updateDisplay();
+</script>
+
+
 </body>
 </html>
+
+

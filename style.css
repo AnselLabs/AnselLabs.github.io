@@ -1,8 +1,9 @@
 body {
     font-family: "Roboto Mono", monospace;
     background-color: #000;
-    background-image: linear-gradient(0deg, rgba(0,255,0,0.1) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(0,255,0,0.1) 1px, transparent 1px);
+    background-image: 
+        linear-gradient(0deg, rgba(0,255,0,0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,0,0.1) 1px, transparent 1px);
     background-size: 40px 40px;
     color: #00FF00;
     margin: 0;
@@ -11,37 +12,35 @@ body {
     display: flex;
 }
 
-/* Sidebar stays fixed width */
+/* --- Sidebar Navigation --- */
 nav {
     width: 100px;
     background-color: #0c1900;
     border-right: 2px solid #193200;
     min-height: 100vh;
-
-    display: flex;               /* use flexbox */
-    justify-content: center;     /* center vertically */
-    align-items: center;         /* horizontal alignment */
-
-    color: #00FF00;              /* make all nav text green */
+    display: flex;
+    justify-content: center; /* center vertically */
+    align-items: center;     /* horizontal alignment */
+    color: #00FF00;
 }
 
 nav ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
     margin: 0;
     text-align: left;
 }
 
 nav ul li a {
-    color: #00FF00;              /* make links green */
-    text-decoration: none;
-    font-weight: bold;
     display: block;
     padding: 8px;
     border-radius: 5px;
+    color: #00FF00;
+    font-weight: bold;
+    text-decoration: none;
 }
 
-/* Wrap the rest of the site in a vertical column */
+/* --- Main Content Wrapper --- */
 .content {
     flex: 1;
     display: flex;
@@ -49,9 +48,9 @@ nav ul li a {
     min-height: 100vh;
 }
 
-/* Header stretches across */
+/* --- Header --- */
 header {
-    background-color: #000000;
+    background-color: #000;
     color: #00FF00;
     width: 100%;
     text-align: center;
@@ -59,19 +58,56 @@ header {
     border-bottom: 2px solid #193200;
 }
 
-/* Main grows to fill space */
+/* --- Main --- */
 main {
     flex: 1;
     text-align: center;
     padding: 20px;
 }
 
-/* Footer sticks full width */
+/* --- Footer --- */
 footer {
-    background-color: #000000;
+    background-color: #000;
     color: #00FF00;
     width: 100%;
     text-align: center;
     padding: 1em;
     border-top: 2px solid #193200;
+}
+
+/* --- Hangman Styles --- */
+#hangman {
+    font-family: monospace;
+    margin-top: 2rem;
+}
+
+#hangman-word {
+    font-size: 1.5rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 2rem; /* space below underscores */
+}
+
+#hangman input {
+    width: 1.5rem;
+    text-align: center;
+    font-size: 1rem;
+    background-color: #000;
+    color: #00FF00;
+    border: 2px solid #00FF00;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+}
+
+#hangman button {
+    background-color: #0c1900;
+    color: #00FF00;
+    border: 2px solid #00FF00;
+    padding: 0.3rem 0.7rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "Roboto Mono", monospace;
+}
+
+#hangman button:hover {
+    background-color: #193200; /* subtle hover effect */
 }
