@@ -3,37 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title> <!-- Change title for each page -->
+    <title>Ansel.Labs</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .blinking {
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+    </style>
 </head>
-<body class="homepage">
+<body class="games">
+
+  <!-- Sidebar Navigation -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="art.html">Art</a></li>
+      <li><a href="poetry.html">Poetry</a></li>
+      <li><a href="coding.html">Coding</a></li>
+      <li><a href="games.html">Games</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content Wrapper -->
+  <div class="content">
 
     <header>
-        <h1 class="blinking">Ansel.Labs</h1>
-        <p>Where circuits, sketches, and words live side by side.</p>
+      <h1 class="blinking">Games</h1>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="art.html">Art</a></li>
-            <li><a href="poetry.html">Poetry</a></li>
-            <li><a href="coding.html">Coding</a></li>
-            <li><a href="games.html">Games</a></li>
-            <li><a href="blog.html">Blog</a></li>
-        </ul>
-    </nav>
-
     <main>
-        <section>
-            <h2>Page Title</h2>
-            <p>This page is currently blank.</p>
-        </section>
+      <section>
+        <h2>Hello World</h2>
+        <p>
+          I’m Ansel — an electrical engineer, Linux tinkerer, and lifelong artist.
+          This site is my little lab where circuits, sketches, code, and poems all share the same bench.
+        </p>
+        <p>
+          Explore some of my projects and creations through the selection below.
+        </p>
+      </section>
     </main>
 
     <footer>
-        <p>Made by Ansel • <a href="https://github.com/AnselLabs">GitHub</a></p>
+      <p>Made by Ansel • <a href="https://github.com/AnselLabs">GitHub</a></p>
     </footer>
+
+  </div>
 
 </body>
 </html>

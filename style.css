@@ -13,13 +13,32 @@ body {
 
 /* Sidebar stays fixed width */
 nav {
-    width: 200px;
+    width: 100px;
     background-color: #0c1900;
     border-right: 2px solid #193200;
     min-height: 100vh;
-    padding-top: 20px;
-    position: sticky;
-    top: 0;
+
+    display: flex;               /* use flexbox */
+    justify-content: center;     /* center vertically */
+    align-items: center;         /* horizontal alignment */
+
+    color: #00FF00;              /* make all nav text green */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+nav ul li a {
+    color: #00FF00;              /* make links green */
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    padding: 8px;
+    border-radius: 5px;
 }
 
 /* Wrap the rest of the site in a vertical column */
@@ -32,7 +51,7 @@ nav {
 
 /* Header stretches across */
 header {
-    background-color: #0c1900;
+    background-color: #000000;
     color: #00FF00;
     width: 100%;
     text-align: center;
@@ -49,7 +68,7 @@ main {
 
 /* Footer sticks full width */
 footer {
-    background-color: #0c1900;
+    background-color: #000000;
     color: #00FF00;
     width: 100%;
     text-align: center;
