@@ -1,139 +1,247 @@
 body {
+
     font-family: "Roboto Mono", monospace;
+
     background-color: #000;
+
     background-image: 
+
         linear-gradient(0deg, rgba(0,255,0,0.1) 1px, transparent 1px),
+
         linear-gradient(90deg, rgba(0,255,0,0.1) 1px, transparent 1px);
+
     background-size: 40px 40px;
+
     color: #00FF00;
+
     margin: 0;
+
     padding: 0;
+
     min-height: 100vh; /* allow full screen */
+
     display: flex;
+
 }
+
+
 
 /* --- Sidebar Navigation --- */
+
 nav {
-    width: 120px;                   /* a little wider for the image */
+
+    width: 100px;
+
     background-color: #0c1900;
+
     border-right: 2px solid #193200;
+
     min-height: 100vh;
+
     display: flex;
-    flex-direction: column;         /* stack items vertically */
-    justify-content: space-between; /* nav at top, image centered/bottom */
+
+    justify-content: center; /* center vertically */
+
+    align-items: center;     /* horizontal alignment */
+
     color: #00FF00;
-    padding: 1rem 0;
+
 }
 
-/* nav links */
+
+
 nav ul {
+
     list-style: none;
+
     padding: 0;
+
     margin: 0;
+
+    text-align: left;
+
 }
+
+
 
 nav ul li a {
+
     display: block;
+
     padding: 8px;
+
     border-radius: 5px;
+
     color: #00FF00;
+
     font-weight: bold;
+
     text-decoration: none;
+
 }
 
-nav ul li a:hover {
-    background-color: #193200;
-}
 
-/* sidebar image */
-.nav-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;                /* lets it float in vertical center */
-}
-
-.nav-image img {
-    max-width: 80px;
-    height: auto;
-    border-radius: 8px;     /* optional rounded corners */
-}
 
 /* --- Main Content Wrapper --- */
+
 .content {
+
     flex: 1;
+
     display: flex;
+
     flex-direction: column; /* stack header, main, footer vertically */
+
     min-height: 100vh;
+
 }
+
+
 
 /* --- Header --- */
+
 header {
+
     background-color: #000;
+
     color: #00FF00;
+
     width: 100%;
+
     text-align: center;
+
     padding: 1em;
+
     border-bottom: 2px solid #193200;
+
 }
+
+
 
 /* --- Main --- */
+
 main {
+
     flex: 1;
+
     text-align: center;
+
     padding: 20px;
+
 }
+
+
 
 /* --- Footer --- */
+
 footer {
+
     background-color: #000;
+
     color: #00FF00;
+
     width: 100%;
+
     text-align: center;
+
     padding: 1em;
+
     border-top: 2px solid #193200;
+
 }
+
+
 
 /* --- Hangman Styles --- */
+
 #hangman {
+
     font-family: monospace;
+
     margin-top: 2rem;
+
 }
+
+
 
 #hangman-word {
+
     font-size: 1.5rem;
+
     letter-spacing: 0.2em;
+
     margin-bottom: 2rem; /* space below underscores */
+
 }
+
+
 
 #hangman input {
+
     width: 1.5rem;
+
     text-align: center;
+
     font-size: 1rem;
+
     background-color: #000;
+
     color: #00FF00;
+
     border: 2px solid #00FF00;
+
     border-radius: 4px;
+
     margin-right: 0.5rem;
+
 }
+
+
 
 #hangman button {
+
     background-color: #0c1900;
+
     color: #00FF00;
+
     border: 2px solid #00FF00;
+
     padding: 0.3rem 0.7rem;
+
     border-radius: 4px;
+
     cursor: pointer;
+
     font-family: "Roboto Mono", monospace;
+
 }
+
+
 
 #hangman button:hover {
+
     background-color: #193200; /* subtle hover effect */
+
 }
 
+
+
 .about-section {
+
+
+  max-width: 850px;   /* adjust width as you like */
+
+
   max-width: 1100px;   /* adjust width as you like */
+
   margin: 0 auto;     /* centers the section */
+
+
+  text-align: left;   /* keeps text aligned neatly */
+
+
   text-align: center;   /* keeps text aligned neatly */
+
   line-height: 1.6;   /* makes reading easier */
+
 }
