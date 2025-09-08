@@ -1,142 +1,319 @@
-<!DOCTYPE html>
-<html lang="en">
+<HTML>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ansel.Labs</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        .blinking {
-            animation: blink 1s step-end infinite;
-        }
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
+<title>itinerae: radioactive </title>
+<link rel="shortcut icon" href="https://files.catbox.moe/m5tyiv.png"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        /* Minimal Hangman styling */
-        #hangman {
-            margin-top: 2rem;
-            font-family: monospace;
-        }
-        #hangman input {
-            width: 1.5rem;
-            text-align: center;
-            font-size: 1rem;
-        }
-        #hangman button {
-            margin-left: 0.5rem;
-        }
-        #hangman-word {
-            font-size: 1.5rem;
-            letter-spacing: 0.2em;
-        }
-    </style>
-</head>
-<body class="homepage">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
 
-  <!-- Sidebar Navigation -->
-  <nav>
-    <div class="nav-top">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="art.html">Art</a></li>
-      <li><a href="poetry.html">Poetry</a></li>
-      <li><a href="coding.html">Coding</a></li>
-      <li><a href="games.html">Games</a></li>
-      <li><a href="blog.html">Blog</a></li>
-    </ul>
-    </div>
-  </nav>
+<style type="text/css">
+body {
+    background-color: #000;
+    background-image: 
+        linear-gradient(0deg, rgba(0,255,0,0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,0,0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+    color: #00FF00;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}  
 
-  <!-- Main Content Wrapper -->
-  <div class="content">
+table {
+font-family:"Goldman", courier new;
+font-size:11px;
+line-height:13px;
+letter-spacing: 1px;
+color:#458c3a;}
 
-    <header>
-      <h1 class="blinking">Ansel.Labs</h1>
-      <p>Where microchips meet marker pens and musings</p>
-    </header>
+b {color:#00FF00;font-weight:normal;}
 
-    <main>
-      <!-- Bio Section -->
-      <section class="about-section">
-        <h2>About Me</h2>
-        <p>
-          Hey, I’m Ansel (he/him) — lifelong gamer, oil painter, and tinkerer of all sorts.
-          Recently, I’ve been diving headfirst into sculpting and miniature painting for RPGs — dice, dragons, and tiny worlds fuel my curiosity.
-          When I’m not coding circuits or painting canvases, you might find me exploring new game mechanics, writing poetry, or experimenting with Linux setups.
-        </p>
-      </section>
+a:link, a:visited, a:active { 
+color:green;text-decoration:none;}
+a:hover {color:#00FF00;}
+  
+img {border:0;}
+  
+::-webkit-scrollbar-thumb {
+background-color: green;  
+border-radius: 3px;}
+::-webkit-scrollbar {
+width: 5px; height: 0px; 
+background: transparent;}
 
-      <!-- Hangman Game Section -->
-      <section id="hangman">
-        <h2>Hangman</h2>
-        <p>Guess the word:</p>
-        <div id="hangman-word">_ _ _ _ _ _ _ _ _</div>
-        <input type="text" id="letter-input" maxlength="1" autofocus>
-        <button onclick="guessLetter()">Guess</button>
-        <p id="hangman-message"></p>
-      </section>
+.title {
+display:inline-block;
+background:#051105;
+color:green;
+font-family:'orbitron';
+font-size:10px;
+text-transform:uppercase;
+line-height:10px;
+letter-spacing:3px;
+border-top-left-radius:3px;border-top-right-radius:3px;
+border:1px solid #113711;
+border-bottom:1px dotted green;
+padding:4px;}
 
-    </main>
+.navigation a { 
+display:inline-block;
+background:; 
+padding-left:10px;
+padding-right:10px;
+font:9px 'orbitron';
+text-transform:uppercase;
+font-weight:bold;
+border-top-left-radius:0px;border-top-right-radius:0px;
+line-height:12px;
+color:green;}
+      
+.navigation a:hover {
+color:#00FF00;}
 
-  </div>
+.sitename {background:#111;width:90%;font-family:'orbitron';font-size:30px;letter-spacing:10px;color:green;line-height:20px;border-radius:15px;}
+.top {background: #000; border: 1px solid #123E12;border-bottom: 0px;border-top-left-radius:15px;border-top-right-radius:15px;}
+.navigation {background:#0B250B;border-bottom: 1px dotted #123E12;}
+.left {background: #000; border-right: 1px dotted #123E12;border-left: 1px solid #123E12;}
+.middle {background: #000;border-right:1px dotted #113711;}
+.right {background: #000;border-right: 1px solid #113711;}
+.footer {background: #000; border: 1px solid #123E12; border-top: 1px dotted #123E12;line-height:30px;}
+.box {background:#051105;border:1px solid #113711;border-top:2px solid #111;border-radius:3px;
+border-top-left-radius:0px;padding:4px;padding-left:8px;padding-top:8px;margin-bottom:8px;}
+#news {background:#000;font-size:9px;}
+textarea {background:#000;border:1px solid #123E12;color:#458c3a;font:10px 'goldman';letter-spacing:1px;margin-bottom:5px;}
+</style>
 
-  <script>
-  // Hangman game logic
-  const secretWord = "BRAINDEAD";
-  let displayWord = Array(secretWord.length).fill("_");
-  const guessedLetters = [];
-  const maxGuesses = 5;        // Maximum allowed incorrect guesses
-  let remainingGuesses = maxGuesses;
+<script type="text/javascript">
+// <![CDATA[
+var news=Array("Hey there ! Cookies not included (yet).", "Cats approve this website !");
+var cursor="_";
+var delay=8;
 
-  function updateDisplay() {
-    document.getElementById("hangman-word").textContent = displayWord.join(" ");
+var newsp, cursp, flash, item=0;
+
+if (typeof('addRVLoadEvent')!='function') function addRVLoadEvent(funky) {
+  var oldonload=window.onload;
+  if (typeof(oldonload)!='function') window.onload=funky;
+  else window.onload=function() {
+    if (oldonload) oldonload();
+    funky();
   }
+}
 
-  function guessLetter() {
-    const input = document.getElementById("letter-input");
-    const letter = input.value.toUpperCase();
-    input.value = "";
-    if (!letter || guessedLetters.includes(letter)) return;
-    guessedLetters.push(letter);
+addRVLoadEvent(teleprint);
 
-    let correct = false;
-    for (let i = 0; i < secretWord.length; i++) {
-      if (secretWord[i] === letter) {
-        displayWord[i] = letter;
-        correct = true;
-      }
-    }
+function teleprint () { if (document.getElementById) {
+  var span=document.getElementById("news");
+  while (span.childNodes.length) span.removeChild(span.childNodes[0]);
+  delay*=1000;
+  newsp=document.createElement("span");
+  cursp=document.createElement("span");
+  cursp.appendChild(document.createTextNode(String.fromCharCode(160)+cursor));
+  span.appendChild(newsp);
+  span.appendChild(cursp);
+  ticker();
+}}
 
-    updateDisplay();
+function ticker() {
+  var i;
+  while (newsp.childNodes.length) newsp.removeChild(newsp.childNodes[0]);
+  newsp.appendChild(document.createTextNode(news[item].substring(0,1)));
+  for (i=1; i<news[item].length; i++) setTimeout('newsp.firstChild.nodeValue="'+news[item].substring(0, i+1)+'"', 100*i);
+  if (news[item].indexOf("www")!=-1) setTimeout('linkit('+item+')', 100*i);
+  setTimeout('flash=setInterval("cursp.style.visibility=(cursp.style.visibility==\'visible\')?\'hidden\':\'visible\'", 234)', 100*i)
+  setTimeout('clearInterval(flash)', delay);
+  setTimeout('cursp.style.visibility="visible"', delay);
+  setTimeout('ticker()', delay);
+  item=++item%news.length;
+}
 
-    const messageEl = document.getElementById("hangman-message");
+function linkit(q) {
+  var a,p,e,l;
+  p=news[q].indexOf("www");
+  e=news[q].indexOf(" ", p);
+  if (e==-1) e=news[q].length;
+  l=news[q].substring(p, e);
+  while (newsp.childNodes.length) newsp.removeChild(newsp.childNodes[0]);
+  newsp.appendChild(document.createTextNode(news[q].substring(0, p)));
+  a=document.createElement("a");
+  a.href="http://"+l;
+  a.appendChild(document.createTextNode(l));
+  newsp.appendChild(a);
+  newsp.appendChild(document.createTextNode(news[q].substring(e)));
+}
+// ]]>
+</script>
+</head>
 
-    if (!correct) {
-      remainingGuesses--;
-      if (remainingGuesses <= 0) {
-        messageEl.textContent = `Game over! The word was "${secretWord}".`;
-        document.getElementById("letter-input").disabled = true;
-        return;
-      } else {
-        messageEl.textContent = `Nope! ${remainingGuesses} guesses left.`;
-      }
-    } else {
-      messageEl.textContent = "";
-    }
+<body>
 
-    if (!displayWord.includes("_")) {
-      messageEl.textContent = "You got it!";
-      document.getElementById("letter-input").disabled = true;
+<br><br><br>
+
+<center>
+<table  width="700" cellpadding="8" cellspacing="0"> 
+<tr>
+<td class="top" height="110"> 
+<center>
+<div class="sitename">_ ansel.labs _</div> <br>
+<span id="news"></span>
+</center>
+</td>
+</tr>
+</table>
+
+<!-- NAVIGATION -->
+<table width="700" cellpadding="4" cellspacing="0"> 
+<tr>
+<td class="navigation" height="20"> 
+<center>
+<nav>
+  <div class="nav-top">
+    <ul style="list-style:none; margin:0; padding:0;">
+      <li style="display:inline; margin-right:8px;"><a href="index.html">Home</a></li>
+      <li style="display:inline; margin-right:8px;"><a href="about.html">About</a></li>
+      <li style="display:inline; margin-right:8px;"><a href="art.html">Art</a></li>
+      <li style="display:inline; margin-right:8px;"><a href="poetry.html">Poetry</a></li>
+      <li style="display:inline; margin-right:8px;"><a href="coding.html">Coding</a></li>
+      <li style="display:inline; margin-right:8px;"><a href="games.html">Games</a></li>
+      <li style="display:inline;"><a href="blog.html">Blog</a></li>
+    </ul>
+  </div>
+</nav>
+</center>
+</td>
+</tr>
+</table>
+
+<table width="700" cellpadding="8" cellspacing="0">
+<tr>
+<td class="left" width="200" valign="top">
+
+<div class="title">001. bio </div>
+<div class="box">
+Hey, I’m Ansel (he/him) — lifelong gamer, oil painter, and tinkerer of all sorts. Recently, I’ve been diving headfirst into sculpting and miniature painting for RPGs — dice, dragons, and tiny worlds fuel my curiosity. When I’m not coding circuits or painting canvases, you might find me exploring new game mechanics, writing poetry, or experimenting with Linux setups.  <br>
+</div>
+
+<div class="title">002. title </div>
+<div class="box">
+blah blah blah blah blah blah blah
+</div>
+
+<div class="title">003. title </div>
+<div class="box">
+blah blah blah blah blah blah blah
+</div>
+
+<br>
+  
+</td>
+
+<td class="middle" width="300" valign="top">
+<div class="title">001. Hangman </div>
+<div class="box">
+  <!-- Hangman Game Section -->
+  <div id="hangman">
+    <p>Guess the word:</p>
+    <div id="hangman-word">_ _ _ _ _ _ _ _ _</div>
+    <input type="text" id="letter-input" maxlength="1" autofocus>
+    <button onclick="guessLetter()">Guess</button>
+    <p id="hangman-message"></p>
+  </div>
+</div>
+
+<div class="title">002. title </div>
+<div class="box">
+blah blah blah blah blah blah blah
+</div>
+
+<div class="title">003. title </div>
+<div class="box">
+blah blah blah blah blah blah blah
+</div>
+</td>
+
+<td class="right" width="200" valign="top">
+<div class="title">001. title </div>
+<div class="box">
+blah blah blah blah blah blah blah
+</div>
+
+<center><img src="https://files.catbox.moe/agkzq4.png" width="150" alt="bunny2"></center><br>
+
+<div class="title">002. title </div>
+<div class="box">
+blah blah blah blah blah blah blah
+</div>
+
+<div class="title">003. title </div>
+<div class="box">
+blah blah blah blah blah blah blah
+</div>
+</td>
+</table>
+
+<table width="700" height="30" cellpadding="4" cellspacing="0"> 
+<tr>
+<td class="footer" valign="top"> 
+<center>Made by Ansel</center>
+</td>
+</tr>
+</table>
+
+</center>
+</body>
+<script>
+// Hangman game logic
+const secretWord = "BRAINDEAD";
+let displayWord = Array(secretWord.length).fill("_");
+const guessedLetters = [];
+const maxGuesses = 5;
+let remainingGuesses = maxGuesses;
+
+function updateDisplay() {
+  document.getElementById("hangman-word").textContent = displayWord.join(" ");
+}
+
+function guessLetter() {
+  const input = document.getElementById("letter-input");
+  const letter = input.value.toUpperCase();
+  input.value = "";
+  if (!letter || guessedLetters.includes(letter)) return;
+  guessedLetters.push(letter);
+
+  let correct = false;
+  for (let i = 0; i < secretWord.length; i++) {
+    if (secretWord[i] === letter) {
+      displayWord[i] = letter;
+      correct = true;
     }
   }
 
   updateDisplay();
+
+  const messageEl = document.getElementById("hangman-message");
+
+  if (!correct) {
+    remainingGuesses--;
+    if (remainingGuesses <= 0) {
+      messageEl.textContent = `Game over! The word was "${secretWord}".`;
+      document.getElementById("letter-input").disabled = true;
+      return;
+    } else {
+      messageEl.textContent = `Nope! ${remainingGuesses} guesses left.`;
+    }
+  } else {
+    messageEl.textContent = "";
+  }
+
+  if (!displayWord.includes("_")) {
+    messageEl.textContent = "You got it!";
+    document.getElementById("letter-input").disabled = true;
+  }
+}
+
+updateDisplay();
 </script>
 
-
-</body>
-</html>
-
-
+</HTML>
