@@ -14,21 +14,22 @@ body {
 
 /* --- Sidebar Navigation --- */
 nav {
-    width: 100px;
+    width: 120px;                   /* a little wider for the image */
     background-color: #0c1900;
     border-right: 2px solid #193200;
     min-height: 100vh;
     display: flex;
-    justify-content: center; /* center vertically */
-    align-items: center;     /* horizontal alignment */
+    flex-direction: column;         /* stack items vertically */
+    justify-content: space-between; /* nav at top, image centered/bottom */
     color: #00FF00;
+    padding: 1rem 0;
 }
 
+/* nav links */
 nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    text-align: left;
 }
 
 nav ul li a {
@@ -38,6 +39,24 @@ nav ul li a {
     color: #00FF00;
     font-weight: bold;
     text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: #193200;
+}
+
+/* sidebar image */
+.nav-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;                /* lets it float in vertical center */
+}
+
+.nav-image img {
+    max-width: 80px;
+    height: auto;
+    border-radius: 8px;     /* optional rounded corners */
 }
 
 /* --- Main Content Wrapper --- */
