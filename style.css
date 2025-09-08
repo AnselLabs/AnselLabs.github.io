@@ -8,23 +8,27 @@ body {
     color: #00FF00;
     margin: 0;
     padding: 0;
-    min-height: 100vh; /* full screen */
+    min-height: 100vh; /* allow full screen */
     display: flex;
 }
 
 /* --- Sidebar Navigation --- */
 nav {
+    width: 120px; /* a little wider for the image */
     width: 100px;
     background-color: #0c1900;
     border-right: 2px solid #193200;
     min-height: 100vh;
     display: flex;
-    flex-direction: column;       /* stack items vertically */
-    justify-content: flex-start;  /* align items to top */
-    padding-top: 400px;           /* vertical padding from top */
+    flex-direction: column; /* stack items vertically */
+    justify-content: space-between; /* nav at top, image centered/bottom */
+    justify-content: center; /* center vertically */
+    align-items: center;     /* horizontal alignment */
     color: #00FF00;
+    padding: 1rem 0;
 }
 
+/* nav links */
 nav ul {
     list-style: none;
     padding: 0;
@@ -39,6 +43,24 @@ nav ul li a {
     color: #00FF00;
     font-weight: bold;
     text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: #193200;
+}
+
+/* sidebar image */
+.nav-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1; /* lets it float in vertical center */
+}
+
+.nav-image img {
+    max-width: 80px;
+    height: auto;
+    border-radius: 8px; /* optional rounded corners */
 }
 
 /* --- Main Content Wrapper --- */
@@ -62,19 +84,8 @@ header {
 /* --- Main --- */
 main {
     flex: 1;
-    display: flex;
-    justify-content: center; /* center horizontally */
-    align-items: center;     /* center vertically */
-    padding: 20px;
     text-align: center;
-}
-
-/* --- Poetry Section --- */
-.poem {
-    max-width: 900px; /* controls poem width */
-    margin: 0 auto;   /* center horizontally */
-    line-height: 1.6; 
-    text-align: center; 
+    padding: 20px;
 }
 
 /* --- Footer --- */
@@ -96,7 +107,7 @@ footer {
 #hangman-word {
     font-size: 1.5rem;
     letter-spacing: 0.2em;
-    margin-bottom: 2rem;
+    margin-bottom: 2rem; /* space below underscores */
 }
 
 #hangman input {
@@ -121,5 +132,14 @@ footer {
 }
 
 #hangman button:hover {
-    background-color: #193200;
+    background-color: #193200; /* subtle hover effect */
+}
+
+.about-section {
+    max-width: 850px; /* adjust width as you like */
+    max-width: 1100px; /* adjust width as you like */
+    margin: 0 auto; /* centers the section */
+    text-align: left; /* keeps text aligned neatly */
+    text-align: center; /* keeps text aligned neatly */
+    line-height: 1.6; /* makes reading easier */
 }
