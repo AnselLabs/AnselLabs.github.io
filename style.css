@@ -14,18 +14,16 @@ body {
 
 /* --- Sidebar Navigation --- */
 nav {
-    width: 120px; /* a little wider for the image */
     width: 100px;
     background-color: #0c1900;
     border-right: 2px solid #193200;
     min-height: 100vh;
     display: flex;
     flex-direction: column; /* stack items vertically */
-    justify-content: space-between; /* nav at top, image centered/bottom */
-    justify-content: center; /* center vertically */
+    justify-content: flex-start; /* align items to top */
     align-items: center;     /* horizontal alignment */
     color: #00FF00;
-    padding: 1rem 0;
+    padding: 4rem 0; /* vertical padding top & bottom */
 }
 
 /* nav links */
@@ -47,20 +45,6 @@ nav ul li a {
 
 nav ul li a:hover {
     background-color: #193200;
-}
-
-/* sidebar image */
-.nav-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1; /* lets it float in vertical center */
-}
-
-.nav-image img {
-    max-width: 80px;
-    height: auto;
-    border-radius: 8px; /* optional rounded corners */
 }
 
 /* --- Main Content Wrapper --- */
