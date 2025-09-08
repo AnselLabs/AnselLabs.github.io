@@ -13,6 +13,12 @@
       margin: 0;
     }
 
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
     #door {
       cursor: pointer;
       width: 30vw;
@@ -22,11 +28,21 @@
     #door:hover {
       transform: scale(1.04);
     }
+
+    #enter-text {
+      margin-top: 15px; /* space between door and enter text */
+      width: 15vw;      /* adjust size as needed */
+    }
   </style>
 </head>
 <body>
-  <!-- Door image -->
-  <img id="door" src="assets/door_closed.png" alt="Door" onclick="openDoor()">
+  <div class="container">
+    <!-- Door image -->
+    <img id="door" src="assets/door_closed.png" alt="Door" onclick="openDoor()">
+
+    <!-- Static "Enter" text image -->
+    <img id="enter-text" src="assets/ENTER.png" alt="Enter">
+  </div>
 
   <script>
     function openDoor() {
@@ -44,9 +60,9 @@
       setTimeout(() => { door.src = "assets/door3.png"; }, frame1 + frame2);
       setTimeout(() => { door.src = "assets/door4.png"; }, frame1 + frame2 + frame3);
       setTimeout(() => { door.src = "assets/door5.png"; }, frame1 + frame2 + frame3 + frame4);
-      setTimeout(() => { 
-        door.src = "assets/door_open.png"; 
-      }, frame1 + frame2 + frame3 + frame4 + 0); // immediately after door3
+      setTimeout(() => {
+        door.src = "assets/door_open.png";
+      }, frame1 + frame2 + frame3 + frame4);
 
       // Redirect after total duration
       setTimeout(() => {
