@@ -111,3 +111,10 @@ footer {
 #hangman button:hover {
     background-color: #193200; /* subtle hover effect */
 }
+
+.about-section {
+  max-width: 850px;   /* adjust width as you like */
+  margin: 0 auto;     /* centers the section */
+  text-align: left;   /* keeps text aligned neatly */
+  line-height: 1.6;   /* makes reading easier */
+}
