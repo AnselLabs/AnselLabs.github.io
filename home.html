@@ -1,7 +1,7 @@
 <HTML>
 <head>
 <title>itinerae: radioactive </title>
-<link rel="shortcut icon" href="https://files.catbox.moe/m5tyiv.png"> 
+<link rel="shortcut icon" href="https://files.catbox.moe/m5tyiv.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,16 +10,30 @@
 
 <style type="text/css">
 body {
-    background-color: #000;
-    background-image: 
-        linear-gradient(0deg, rgba(0,255,0,0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,255,0,0.1) 1px, transparent 1px);
-    background-size: 40px 40px;
-    color: #00FF00;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-}  
+  background-color: #000;
+  background-image:
+    linear-gradient(0deg, rgba(0,255,0,0.1) 3px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,0,0.1) 3px, transparent 1px);
+  background-size: 35px 35px; /* smaller squares */
+  color: #00FF00;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+
+  /* animate grid smoothly */
+  animation: gridShift 40s linear infinite; /* slower, smoother */
+}
+
+@keyframes gridShift {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 700px 700px; /* multiple of 35px for seamless looping */
+  }
+}
+
+
 
 table {
 font-family:"Goldman", courier new;
@@ -30,36 +44,38 @@ color:#458c3a;}
 
 b {color:#00FF00;font-weight:normal;}
 
-a:link, a:visited, a:active { 
+a:link, a:visited, a:active {
 color:green;text-decoration:none;}
 a:hover {color:#00FF00;}
-  
+
 img {border:0;}
-  
+
 ::-webkit-scrollbar-thumb {
-background-color: green;  
+background-color: green;
 border-radius: 3px;}
 ::-webkit-scrollbar {
-width: 5px; height: 0px; 
+width: 5px; height: 0px;
 background: transparent;}
 
 .title {
-display:inline-block;
-background:#051105;
-color:green;
-font-family:'orbitron';
-font-size:10px;
-text-transform:uppercase;
-line-height:10px;
-letter-spacing:3px;
-border-top-left-radius:3px;border-top-right-radius:3px;
-border:1px solid #113711;
-border-bottom:1px dotted green;
-padding:4px;}
+  display:inline-block;
+  background:#051105;
+  color:#00FF00; /* brighter green */
+  font-family:'Orbitron', monospace;
+  font-size:10px;
+  text-transform:uppercase;
+  line-height:10px;
+  letter-spacing:3px;
+  border-top-left-radius:3px;
+  border-top-right-radius:3px;
+  border:1px solid #113711;
+  border-bottom:1px dotted #00FF00;
+  padding:4px;
+}
 
-.navigation a { 
+.navigation a {
 display:inline-block;
-background:; 
+background:;
 padding-left:10px;
 padding-right:10px;
 font:9px 'orbitron';
@@ -68,7 +84,7 @@ font-weight:bold;
 border-top-left-radius:0px;border-top-right-radius:0px;
 line-height:12px;
 color:green;}
-      
+
 .navigation a:hover {
 color:#00FF00;}
 
@@ -83,6 +99,39 @@ color:#00FF00;}
 border-top-left-radius:0px;padding:4px;padding-left:8px;padding-top:8px;margin-bottom:8px;}
 #news {background:#000;font-size:9px;}
 textarea {background:#000;border:1px solid #123E12;color:#458c3a;font:10px 'goldman';letter-spacing:1px;margin-bottom:5px;}
+
+/* Hangman styling */
+#hangman input {
+  background-color: #000;      /* black background */
+  color: #00FF00;              /* hacker green text */
+  border: 1px solid #113711;   /* dark green border */
+  font-family: "Goldman", monospace;
+  font-size: 14px;
+  padding: 4px;
+  text-align: center;
+}
+
+#hangman input:focus {
+  outline: none;
+  box-shadow: none; /* removes browser glow on click */
+}
+
+#hangman button {
+  background-color: #000;      /* black button */
+  color: green;              /* green text */
+  border: 1px solid #113711;   /* dark green outline */
+  font-family: "Orbitron", monospace;
+  font-size: 10px;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+#hangman button:hover {
+  background-color: #051105;   /* dark green hover */
+  color: #0f0;                 /* brighter green text */
+}
+
 </style>
 
 <script type="text/javascript">
@@ -152,9 +201,9 @@ function linkit(q) {
 <br><br><br>
 
 <center>
-<table  width="700" cellpadding="8" cellspacing="0"> 
+<table  width="700" cellpadding="8" cellspacing="0">
 <tr>
-<td class="top" height="110"> 
+<td class="top" height="110">
 <center>
 <div class="sitename">_ ansel.labs _</div> <br>
 <span id="news"></span>
@@ -164,9 +213,9 @@ function linkit(q) {
 </table>
 
 <!-- NAVIGATION -->
-<table width="700" cellpadding="4" cellspacing="0"> 
+<table width="700" cellpadding="4" cellspacing="0">
 <tr>
-<td class="navigation" height="20"> 
+<td class="navigation" height="20">
 <center>
 <nav>
   <div class="nav-top">
@@ -190,7 +239,7 @@ function linkit(q) {
 <tr>
 <td class="left" width="200" valign="top">
 
-<div class="title">001. bio </div>
+<div class="title">001. title </div>
 <div class="box">
 blah blah blah blah blah blah
 </div>
@@ -206,25 +255,22 @@ blah blah blah blah blah blah blah
 </div>
 
 <br>
-  
+
 </td>
 
-Hey, I’m Ansel (he/him) — lifelong gamer, oil painter, and tinkerer of all sorts. Recently, I’ve been diving headfirst into sculpting and miniature painting for RPGs — dice, dragons, and tiny worlds fuel my curiosity. When I’m not coding circuits or painting canvases, you might find me exploring new game mechanics, writing poetry, or experimenting with Linux setups.  <br>
-
 <td class="middle" width="300" valign="top">
-<div class="title">001. Hangman </div>
+<div class="title">001. Bio </div>
 <div class="box">
 Hey, I’m Ansel (he/him) — lifelong gamer, oil painter, and tinkerer of all sorts. Recently, I’ve been diving headfirst into sculpting and miniature painting for RPGs — dice, dragons, and tiny worlds fuel my curiosity. When I’m not coding circuits or painting canvases, you might find me exploring new game mechanics, writing poetry, or experimenting with Linux setups. <br>
 </div>
 
-<div class="title">002. Calender </div>
+<div class="title">002. Jams </div>
 <div class="box">
-<!-- Calendar Embed -->
-<iframe 
-    style="height:260px;border:none;width:215px;" 
-    src="https://figgypudding.neocities.org/blogendar/blogendar-4">
-</iframe>
+  <img src="https://files.catbox.moe/mdhlgl.webp" width="250">
+</div>
 
+
+</center>
 </div>
 
 <div class="title">003. Hangman </div>
@@ -260,14 +306,13 @@ blah blah blah blah blah blah blah
 </td>
 </table>
 
-<table width="700" height="30" cellpadding="4" cellspacing="0"> 
+<table width="700" height="30" cellpadding="4" cellspacing="0">
 <tr>
-<td class="footer" valign="top"> 
+<td class="footer" valign="top">
 <center>Made by Ansel</center>
 </td>
 </tr>
 </table>
-
 </center>
 </body>
 <script>
@@ -322,5 +367,5 @@ function guessLetter() {
 
 updateDisplay();
 </script>
-
 </HTML>
+
