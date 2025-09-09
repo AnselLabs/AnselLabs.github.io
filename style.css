@@ -122,3 +122,20 @@ textarea {background:#000;border:1px solid #123E12;color:#458c3a;font:10px 'gold
     font-size: 0.8rem;
 }
 
+/* Center everything inside .box */
+.box {
+  text-align: center;
+  margin: 20px auto; /* space around boxes */
+}
+
+/* Style hangman word */
+#hangman-word {
+  font-size: 1.5rem;
+  letter-spacing: 0.2em;
+  margin-bottom: 1rem; /* space below underscores */
+}
+
+/* Input and button spacing */
+#hangman input {
+  margin-right: 10px; /* gap between input and button */
+}
