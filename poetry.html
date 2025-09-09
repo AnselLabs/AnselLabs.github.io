@@ -1,56 +1,326 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ansel.Labs</title>
-    <link rel="stylesheet" href="style.css">
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>theme 35</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
-        .blinking {
-            animation: blink 1s step-end infinite;
-        }
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
+
+      body{
+      background-image: url('https://i.imgur.com/A6xdkX0.jpg');
+      margin: 0px;
+      color: #613f3f;
+      overflow-x: hidden;
+      }
+
+      #topborder{
+      background-image: url('https://i.imgur.com/0vWS1mg.png');
+      background-repeat: repeat-x;
+      height: 73px;
+      width: 100vw;
+      position: fixed;
+      top: 0px;
+      z-index: 3;
+      }
+
+      #bottomborder{
+      background-image: url('https://i.imgur.com/lv5pt9F.png');
+      background-repeat: repeat-x;
+      height: 73px;
+      width: 100vw;
+      position: fixed;
+      bottom: 0px;
+      z-index: 3;
+      }
+
+      #all{
+      background-color: #aaa;
+      width: 800px;
+      margin: 0 auto;
+      }
+
+      #side{
+      width: 175px;
+      margin-top: 135px;
+      float: left;
+      position: fixed;
+      }
+
+      #profile{
+      background-color: #fefefe;
+      border-radius: 10px;
+      width: 145px;
+      margin-bottom: 25px;
+      padding: 15px;
+      }
+
+      #pfp {
+        background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F474x%2F00%2Fa3%2Ffb%2F00a3fbaec0d24f0979646ebf770c9e40.jpg%3Fnii%3Dt&f=1&nofb=1&ipt=0ef9ae3f36120b147543ce476af35d6a9f3e7a7a401a5094777b681635c01054');
+        width: 145px;
+        height: 145px;
+        border-radius: 10px;
+        opacity: 0.9;
+        background-size: cover;       /* makes the image fill the div, cropping if necessary */
+        background-position: center;  /* centers the image inside the div */
+        background-repeat: no-repeat; /* prevents tiling */
+      }
+
+
+      #profiletext{
+      margin: 0px;
+      letter-spacing: 1px;
+      text-align: center;
+      font-size: 14px;
+      padding: 15px 5px 0px 5px;
+      color: #856d6d;
+      }
+
+      #nav{
+      background-color: #fefefe;
+      width: 175px;
+      border-radius: 10px;
+      position: relative;
+      }
+
+      #navheader{
+      border-bottom: 3px solid #cdb5b5;
+      margin: 0px;
+      line-height: 10px;
+      padding-left: 5px;
+      padding-top: 15px;
+      font-family: 'Sacramento', cursive;
+      color: #578EA3;
+      }
+
+      #navbow{
+      background-image: url('https://i.imgur.com/2IzDDAz.png');
+      background-size: 100%;
+      background-repeat: no-repeat;
+      width: 65px;
+      height: 41px;
+      position: absolute;
+      right: 9px;
+      top: 14px;
+      z-index: 2;
+      }
+
+      ul{
+      margin: 0px;
+      padding: 13px 10px 10px 16px;
+      }
+
+      li{
+      list-style-type: none;
+      margin: -10px;
+      letter-spacing: -1px;
+      font-size: 18px;
+      }
+
+      #main{
+      width: 605px;
+      float: right;
+      position: relative;
+      }
+
+      #title{
+      font-family: 'Sacramento', Cursive;
+      border-bottom: 3px solid #cdb5b5;
+      line-height: 15px;
+      width: 600px;
+      margin: 0px;
+      color: #578EA3;
+      background-color: #fefefe;
+      position: absolute;
+      top: 74px;
+      border-radius: 10px 10px 0px 0px;
+      padding-left: 5px;
+      padding-top: 22px;
+      }
+
+      #bow{
+      background-image: url('https://i.imgur.com/GOQMFVP.png');
+      background-size: 100%;
+      background-repeat: no-repeat;
+      width: 160px;
+      height: 102px;
+      position: absolute;
+      right: 45px;
+      top: 81px;
+      z-index: 2;
+      }
+
+      #content{
+      background-color: #fefefe;
+      position: absolute;
+      top: 114px;
+      width: 575px;
+      padding: 15px 15px 73px 15px;
+      }
+
+      .entry{
+      width: 575px;
+      }
+
+      .entryhead{
+      width: 575px;
+      height: 80px;
+      position: relative;
+      border-bottom: 1px dotted #613f3f;
+      padding-bottom: 5px;
+      }
+
+      .icon{
+      width: 80px;
+      opacity: 0.9;
+      }
+
+      .date{
+      position: absolute;
+      bottom: 0;
+      left: 85px;
+      padding-bottom: 5px;
+      }
+
+      .date p{
+      margin: 0px;
+      letter-spacing: -1px;
+      color: #856d6d;
+      }
+
+      .datecolor{
+      color: #578EA3;
+      }
+
+      .header{
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      }
+
+      .header h2{
+      margin: 0px;
+      font-family: 'Sacramento', cursive;
+      line-height: 23px;
+      font-size: 26px;
+      color: #578EA3;
+      }
+
+      .text{
+      text-align: justify;
+      margin-top: 5px;
+      letter-spacing: 1px;
+      color: #856d6d;
+      }
+
+      a{
+      text-decoration: none;
+      color: #613f3f;
+      font-family: 'Sacramento', Cursive;
+      }
+
+      a:visited{
+      color: #613f3f;
+      }
+
+      a:hover{
+      font-style: italic;
+      }
+
+      a:active{
+      font-style: italic;
+      font-weight: bold;
+      }
+
+      ::-webkit-scrollbar{
+      width: 6px;
+      }
+
+      ::-webkit-scrollbar-track{
+      background-color: #578EA3;
+      }
+
+      ::-webkit-scrollbar-thumb{
+      background-color: #cdb5b5;
+      }
+
+      #credit{
+      font-size: 12px;
+      position: fixed;
+      bottom: 70px;
+      right: 0;
+      }
     </style>
-</head>
-<body class="poetry">
+  </head>
 
-  <!-- Sidebar Navigation -->
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="art.html">Art</a></li>
-      <li><a href="poetry.html">Poetry</a></li>
-      <li><a href="coding.html">Coding</a></li>
-      <li><a href="games.html">Games</a></li>
-      <li><a href="blog.html">Blog</a></li>
-    </ul>
-  </nav>
+  <body>
+    <div id="topborder"></div>
+    <div id="bottomborder"></div>
 
-  <!-- Main Content Wrapper -->
-  <div class="content">
+    <div id="all">
+      <div id="side">
+        <div id="profile">
+          <div id="pfp"></div>
+          <!-- see "#pfp" in CSS, 145x145px -->
+          <p id="profiletext">Murmurs in Monospace</p>
+        </div>
 
-<header>
-  <h1 class="blinking">Poetry</h1>
-</header>
+        <div id="nav">
+          <div id="navbow"></div>
+          <h2 id="navheader">Pages</h2>
 
-<main>
-  <section class="about-section">
-    <h2>Murmurs in Monospace</h2>
-    <p>
-      Welcome to my collection of poems — a space where words take shape and moods linger.
-      Here you’ll find stories of shadowed worlds, strange souls, and echoes of imagination. 
-      Wander through the rhythms, rhymes, and tales
-      that live only on this page.
-    </p>
-  </section>
-</main>
+          <nav>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="Poetry.html">Art</a></li>
+              <li><a href="Art.html">Poetry</a></li>
+              <li><a href="coding.html">Coding</a></li>
+              <li><a href="games.html">Games</a></li>
+              <li><a href="blog.html">Blog</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
 
-  <section class="about-section">
-    <h2>The Sands of Time</h2>
-    <p>
+      <div id="main">
+        <div id="bow"></div>
+
+        <h1 id="title">Poetry and Musings</h1>
+
+        <div id="content">
+          <!-- ENTRY START -->
+
+          <div class="entry">
+            <div class="entryhead">
+              <div class="icon">
+                <img
+                  src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F474x%2F00%2Fa3%2Ffb%2F00a3fbaec0d24f0979646ebf770c9e40.jpg%3Fnii%3Dt&f=1&nofb=1&ipt=0ef9ae3f36120b147543ce476af35d6a9f3e7a7a401a5094777b681635c01054"
+                  width="80px"
+                />
+              </div>
+              <div class="date">
+                <p>
+                  <span class="datecolor"><b>Date:</b></span> 05/16/2022
+                </p>
+                <p>
+                  <span class="datecolor"><b>Mood:</b></span> jkklajfejsjf
+                </p>
+              </div>
+              <div class="header">
+                <h2>Sands of Time</h2>
+              </div>
+            </div>
+
+            <div class="text">
+<p>
       Sadness will disappear,<br>
       Laughter will be near,<br>
       Loneliness will be warm,<br>
@@ -60,14 +330,20 @@
     <p>
       Innocent like a dove<br>
       Are the rough hewn wings of love.<br>
-      Withered and decayed as the once noble fledgling plummets into a sea<br>
-      of sand — ever descending as rings of doubt encompass her being.
+      Withered and decayed <br>
+      as the once noble fledgling <br>
+      plummets into a sea of sand <br>
+      — ever descending as rings of doubt <br>
+      encompass their being.
     </p>
 
     <p>
-      I stumble in a daze, following the paths that shift and grow.<br>
-      No end to the paths… forever stretching and clawing at the dunes of<br>
-      time.
+      I stumble in a daze, <br>
+      following the paths<br>
+      that shift and grow.<br>
+      No end to the paths ... <br>
+      forever stretching <br>
+      and clawing at the dunes of time.
     </p>
 
     <p>
@@ -78,261 +354,118 @@
     </p>
 
     <p>
-      A final voice echoes through the barren valley of woe —<br>
+      A final voice echoes <br>
+      through the barren valley of woe —<br>
+       </p>
+
+    <p>
       Who are you?<br>
-      I am love.<br>
+         I am love.<br>
       But what is love?<br>
-      The opposite of hate.<br>
+         The opposite of hate.<br>
       And what is hate?<br>
-      The incomplete knowledge of self.
-    </p>
-  </section>
+         The incomplete knowledge of self.
+    </p>            </div>
+          </div>
 
-<section class="about-section">
-  <h2>Donelus the Fool</h2>
-  <p>
-    Donelus sat alone on his seat of stone,<br>
-    And carved and whittled a fiddle of bone;<br>
-    For he grew oh so lonely and desired company if only,<br>
-    For company was hard to come by.<br>
-    Walk by! Talk by!<br>
-    So he sat on his stone and dwelt alone.
-  </p>
+          <!-- ENTRY END -->
 
-  <p>
-    He had learned the flute and could pluck a lute,<br>
-    But his little fiddle was a different beast;<br>
-    For he plucked it and struck it,<br>
-    For he huffed and he puffed it.<br>
-    Slammed it! Fanned it!<br>
-    Yet it seemed his fiddle was mute.
-  </p>
+          <!-- ENTRY START -->
 
-  <p>
-    So he sat once again on that solemn throne of stone,<br>
-    And he told his fiddle riddles and jokes of his own;<br>
-    For he laughed at his musings and the broken fiddle of two strings,<br>
-    Again, silent was his fiddle of bone.
-  </p>
+          <div class="entry">
+            <div class="entryhead">
+              <div class="icon">
+                <img
+                  src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F474x%2F00%2Fa3%2Ffb%2F00a3fbaec0d24f0979646ebf770c9e40.jpg%3Fnii%3Dt&f=1&nofb=1&ipt=0ef9ae3f36120b147543ce476af35d6a9f3e7a7a401a5094777b681635c01054"
+                  width="80px"
+                />
+              </div>
+              <div class="date">
+                <p>
+                  <span class="datecolor"><b>Date:</b></span> 05/16/2022
+                </p>
+                <p>
+                  <span class="datecolor"><b>Mood:</b></span> jkklajfejsjf
+                </p>
+              </div>
+              <div class="header">
+                <h2>Header Here</h2>
+              </div>
+            </div>
 
-  <p>
-    Laugh, bone! Chortle!<br>
-    Just a little chuckle will do.<br>
-    Something, bone! Anything!<br>
-    Or I'll turn you into bone broth stew.
-  </p>
+            <div class="text">
+                           <p style="margin:0px;">blah blah blah blah</p>
 
-  <p>
-    Donelus tried his best and cast his failed creation to rest,<br>
-    But his fiddle of bone shook and whirled and spoke —<br>
-    ‘You’re playing me wrong but I’ll teach you a song,<br>
-    You blow and pluck my strings all day long;<br>
-    For a bow’s what you need - a bow of your silken hair,<br>
-    For a bow to dance on my strings of disrepair.<br>
-    A Bow! Yes a Bow! — now you know.’
-  </p>
+            </div>
+          </div>
 
-  <p>
-    He stared at his little fiddle of bone,<br>
-    Scared and bewildered by magick unknown;<br>
-    As he plucked and he prodded at his fickle white hairs,<br>
-    Completing his musical staff of nightmares.
-  </p>
+          <!-- ENTRY END -->
 
-  <p>
-    Now he sits on his stone with a friend of his own,<br>
-    His finely whittled fiddle of bone;<br>
-    For he grew oh so lonely and desired company if only,<br>
-    For company was hard to come by.<br>
-    Walk by! Talk by!<br>
-    As he sat on his granite no longer alone.
-  </p>
-</section>
+          <!-- ENTRY START -->
 
+          <div class="entry">
+            <div class="entryhead">
+              <div class="icon">
+                <img
+                  src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F474x%2F00%2Fa3%2Ffb%2F00a3fbaec0d24f0979646ebf770c9e40.jpg%3Fnii%3Dt&f=1&nofb=1&ipt=0ef9ae3f36120b147543ce476af35d6a9f3e7a7a401a5094777b681635c01054"
+                  width="80px"
+                />
+              </div>
+              <div class="date">
+                <p>
+                  <span class="datecolor"><b>Date:</b></span> 05/16/2022
+                </p>
+                <p>
+                  <span class="datecolor"><b>Mood:</b></span> jkklajfejsjf
+                </p>
+              </div>
+              <div class="header">
+                <h2>Header Here</h2>
+              </div>
+            </div>
 
-  <section class="about-section">
-    <h2>Mire of Woe</h2>
-    <p>
-      I am troubled,<br>
-      Immeasurably,<br>
-      By the silence.
-    </p>
+            <div class="text">
+              <p style="margin:0px;">blah blah blah blah</p>
+            </div>
+          </div>
 
-    <p>
-      A soldier bails out,<br>
-      Leaving his entrails fluttering;<br>
-      Whipping and whirling,<br>
-      Billowing.
-    </p>
+          <!-- ENTRY END -->
 
-    <p>
-      A crystal cottage<br>
-      Jutting out from the black mire,<br>
-      Polluted and pestilent.
-    </p>
+          <!-- ENTRY START -->
 
-    <p>
-      There was no record of it<br>
-      Anywhere<br>
-      In the ancient signs<br>
-      And symbols.
-    </p>
+          <div class="entry">
+            <div class="entryhead">
+              <div class="icon">
+                <img
+                  src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F474x%2F00%2Fa3%2Ffb%2F00a3fbaec0d24f0979646ebf770c9e40.jpg%3Fnii%3Dt&f=1&nofb=1&ipt=0ef9ae3f36120b147543ce476af35d6a9f3e7a7a401a5094777b681635c01054"
+                  width="80px"
+                />
+              </div>
+              <div class="date">
+                <p>
+                  <span class="datecolor"><b>Date:</b></span> 05/16/2022
+                </p>
+                <p>
+                  <span class="datecolor"><b>Mood:</b></span> jkklajfejsjf
+                </p>
+              </div>
+              <div class="header">
+                <h2>Header Here</h2>
+              </div>
+            </div>
 
-    <p>
-      The dead mans coat,<br>
-      Green wool,<br>
-      Sinking into the obsidian muck.
-    </p>
+            <div class="text">
+              <p style="margin:0px;">blah blah blah blah</p>
+            </div>
+          </div>
 
-    <p>
-      As the pellucid cot<br>
-      Cuts and claws<br>
-      And conceals<br>
-      What the silence<br>
-      Fights to explain.
-    </p>
-  </section>
+          <!-- ENTRY END -->
+        </div>
+      </div>
+    </div>
 
-<section class="about-section">
-  <h2>Decomposition Hymn</h2>
-  <p>
-    Mr Tenebrous, a stubborn yet erudite man<br>
-    Tall and thin of alabaster skin<br>
-    Withered and frail and mutilated<br>
-    After the silence of a world’s decease<br>
-    Overlooking the fields, forever desaturated<br>
-    From his forlorn spires of shattered peace
-  </p>
-
-  <p> 
-    Seeker of truth<br>
-    And other darker sincerities<br>
-    The day, most memorable<br>
-    He fell horribly ill<br>
-    His insides beginning to spill<br>
-    His damned infliction incomprehensible
-  </p>
-
-  <p>
-    He turned once more<br>
-    To the tattered pages<br>
-    Of that ancient azure tome<br>
-    The ambient echoing of distant drums<br>
-    As his wording sank to rhymes and tongues<br>
-    Oh how he longed for home
-  </p>
-
-  <p>
-    Clutching his dagger, curved to a point<br>
-    Mr Tenebrous screaming, his brothers astral thread disjoint<br>
-    The venoms trickling, homogenizing with the gore<br>
-    His brothers beloved entrails embellishing the putrid floor
-  </p>
-
-  <p>
-    His brain a necrophage<br>
-    Feeding on the silence of a world's decease<br>
-    No more than a decrepit skull in a grave<br>
-    And he craves<br>
-    To decompose within the void that silence gave
-  </p>
-</section>
-
-<section class="about-section">
-  <h2>The Collector</h2>
-  <p>
-    Here lie the toppled cities of old,<br>
-    Whose ancient spires shadow the buried sandstone roads.<br>
-    And beneath that sea of dust lie treasures of gold!<br>
-    Scattered in the sun kissed sands, swimming torpid toads.
-  </p>
-
-  <p>
-    In a silent land that nurtures ruin and despair<br>
-    Lives an ailing frail man<br>
-    Whose sunbaked skin lay loosely on those thin bones bare,<br>
-    And whose visage petrifying, dirt-caked and bland.
-  </p>
-
-  <p>
-    A crumpled keyhole of flesh for his nose,<br>
-    And sunken depressions for eyes.<br>
-    A mouth melded shut from which nothing shows,<br>
-    And crackled skin of sooty charcoal guise.
-  </p>
-
-  <p>
-    He wades through the refuse in his tattered burlap rags<br>
-    Once every cascading sanguine moon,<br>
-    And he claws through the dunes and the snake riddled crags,<br>
-    Humming a parched arid croon.
-  </p>
-
-  <p>
-    Until the feeble man with no face<br>
-    Pulls out a mask from the befouled trove of riches,<br>
-    And dons his new veil with despondent grace.<br>
-    Annoyed, his furrowed brow twitches.
-  </p>
-
-  <p>
-    For year after year he sifts through those forsaken wastes<br>
-    In search of a mask that finally fits his twisted barren face.<br>
-    Every wooden facade devoid of his mantic tastes;<br>
-    Unable to break the curse centuries ago placed.
-  </p>
-
-  <p>
-    So he hobbles back home to his cave amid the dunes,<br>
-    Wherein thousands of masks from lost times of yore<br>
-    And other strange oddities, caged animals, and boons<br>
-    Tower high high above from stone ceiling to floor.
-  </p>
-
-  <p>
-    Fish that shed light,<br>
-    Relics of fright,<br>
-    Three-headed serpents with necrotic bite,<br>
-    And the masks! Oh, the masks!<br>
-    All ornate in design,<br>
-    Yet cracked, broken, sand blasted,<br>
-    Forgotten, and mine.<br>
-    Yes, mine! All mine!<br>
-    For I’m the collector —<br>
-    And these are my treasures,<br>
-    My pleasures,<br>
-    My finds.
-  </p>
-
-  <p>
-    Yet I hunger for more, a cure to this curse.<br>
-    So I slither once more to those sandy sunken spires,<br>
-    Lit by a flickering scarlet hue terse.<br>
-    For it’s different this time, I feel drawn by desires ~<br>
-    The ever shifting sands pull me to stretches unknown,<br>
-    Echoing chasms and earthen thrones.
-  </p>
-
-  <p>
-    And far far beneath the treasures and towers,<br>
-    A glowing jade mask atop a cushion of fungi and flowers.<br>
-    I unfurl my slender brittle fingers<br>
-    And push aside her lichenous matrimonial veil.<br>
-    Kiss those lovely lips of viridescent mineral.<br>
-    Hold her darling face up to mine — empty and visceral.<br>
-    Locking the mask into place,<br>
-    Our skin melts into one,<br>
-    A single irrevocable face,<br>
-    The curse hath been undone.
-  </p>
-</section>
-
-
-</main>
-
-  </div>
-
-</body>
+    <div id="credit">
+      <a href="https://repth.neocities.org/index.html">©repth</a>
+    </div>
+  </body>
 </html>
-
-
