@@ -37,13 +37,12 @@
 
   .star {
     position: absolute;
-    width: 2px;
-    height: 2px;
     background: white;
     border-radius: 50%;
-    opacity: 0.9;
+    opacity: 1; /* make them fully bright */
+    filter: blur(0.5px);
+    box-shadow: 0 0 4px white, 0 0 8px white; /* glowing effect */
     animation: fall linear infinite;
-    filter: blur(0.2px);
   }
 
   @keyframes fall {
@@ -207,24 +206,22 @@
 
   <!-- stars script -->
   <script>
-    const starContainer = document.querySelector('.stars');
-    if (!starContainer) {
-      console.warn('No .stars container found — stars will not be generated.');
-    } else {
-      const numStars = 90;
-      for (let i = 0; i < numStars; i++) {
-        const star = document.createElement('div');
-        star.className = 'star';
-        const size = (Math.random() * 2) + 1;
-        star.style.width = `${size}px`;
-        star.style.height = `${size}px`;
-        star.style.left = `${Math.random() * 100}vw`;
-        star.style.animationDuration = `${3 + Math.random() * 6}s`;
-        star.style.animationDelay = `${Math.random() * 6}s`;
-        star.style.top = `${-5 - Math.random() * 20}vh`;
-        starContainer.appendChild(star);
-      }
+  const starContainer = document.querySelector('.stars');
+  if (starContainer) {
+    const numStars = 120; // more stars for brightness
+    for (let i = 0; i < numStars; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      const size = 1 + Math.random() * 3; // slightly bigger variation
+      star.style.width = `${size}px`;
+      star.style.height = `${size}px`;
+      star.style.left = `${Math.random() * 100}vw`;
+      star.style.animationDuration = `${3 + Math.random() * 6}s`;
+      star.style.animationDelay = `${Math.random() * 6}s`;
+      star.style.top = `${-5 - Math.random() * 20}vh`;
+      starContainer.appendChild(star);
     }
+  }
   </script>
 </body>
 </html>
