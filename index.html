@@ -19,6 +19,17 @@
       align-items: center;
     }
 
+    .door-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2vw; /* spacing between torches and door */
+    }
+
+    .torch {
+      width: 8vw; /* adjust size of torch gifs */
+    }
+
     #door {
       cursor: pointer;
       width: 30vw;
@@ -37,8 +48,16 @@
 </head>
 <body>
   <div class="container">
-    <!-- Door image -->
-    <img id="door" src="assets/door_closed.png" alt="Door" onclick="openDoor()">
+    <div class="door-wrapper">
+      <!-- Left Torch -->
+      <img class="torch" src="https://horrorgifs.neocities.org/gifs/Fire/Torch/Torch%20(38).gif" alt="Torch">
+
+      <!-- Door image -->
+      <img id="door" src="assets/door_closed.png" alt="Door" onclick="openDoor()">
+
+      <!-- Right Torch -->
+      <img class="torch" src="https://horrorgifs.neocities.org/gifs/Fire/Torch/Torch%20(38).gif" alt="Torch">
+    </div>
 
     <!-- Static "Enter" text image -->
     <img id="enter-text" src="assets/ENTER.png" alt="Enter">
