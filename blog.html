@@ -5,10 +5,10 @@
   <style>
     /* === Variables === */
     :root {
-      --bg1: #0d0d0d;
-      --bg2: #330033;
-      --text: #00ffcc;
-      --accent: #ff33cc;
+      --bg1: #000000;      /* black */
+      --bg2:  #011910;      /* neon green */
+      --text: #00ff00;     /* neon green text */
+      --accent: #00ccff;   /* cyan/blue accents */
     }
 
     /* === Background Animation === */
@@ -16,7 +16,7 @@
       margin: 0;
       font-family: monospace, monospace;
       color: var(--text);
-      background: linear-gradient(-45deg, var(--bg1), var(--bg2), #111, #220022);
+      background: linear-gradient(-45deg, var(--bg1), var(--bg2), #000000, #011910);
       background-size: 400% 400%;
       animation: gradientShift 15s ease infinite;
       overflow-x: hidden;
@@ -114,20 +114,16 @@
     }
 
     /* === Layout === */
-  /* === Layout Adjustments for Centered Content === */
-/* === Layout Adjustments for 2 Columns === */
-main {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(220px, 1fr)); /* 2 columns */
-  gap: 2rem;
-  padding: 2rem 10%; /* large horizontal padding */
-  justify-content: center; /* center the grid */
-  transform: rotate(-1deg);
-  max-width: 800px; /* optional: prevents stretching on very wide screens */
-  margin: 0 auto; /* center main itself */
-}
-
-
+    main {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(220px, 1fr));
+      gap: 2rem;
+      padding: 2rem 10%;
+      justify-content: center;
+      transform: rotate(-1deg);
+      max-width: 800px;
+      margin: 0 auto;
+    }
 
     section {
       background: rgba(0, 0, 0, 0.6);
@@ -151,7 +147,7 @@ main {
     p {
       font-size: 0.9rem;
       line-height: 1.5;
-      color: #ccc;
+      color: #aaffaa;
     }
 
     a {
@@ -177,6 +173,20 @@ main {
       vertical-align: middle;
       height: 1em;
     }
+
+    /* Hacker Green Bubbles */
+    .bubble {
+      position: fixed;
+      pointer-events: none;
+      width: 4px;
+      height: 4px;
+      background: linear-gradient(45deg, #00ff00, #00cc00); /* green gradient */
+      opacity: 0.6;
+      border-radius: 2px;
+      mix-blend-mode: screen;
+      transform: rotate(0deg);
+      z-index: 900;
+    }
   </style>
 </head>
 
@@ -184,19 +194,17 @@ main {
   <div class="cursor"></div>
 
   <!-- Navigation Bar -->
-<nav>
-  <div class="nav-top">
-    <ul style="list-style:none; margin:0; padding:0;">
-      <li style="display:inline; margin-right:8px;"><a href="home.html">Home</a></li>
-      <li style="display:inline; margin-right:8px;"><a href="about.html">About</a></li>
-      <li style="display:inline; margin-right:8px;"><a href="art.html">Art</a></li>
-      <li style="display:inline; margin-right:8px;"><a href="poetry.html">Poetry</a></li>
-      <li style="display:inline; margin-right:8px;"><a href="coding.html">Coding</a></li>
-      <li style="display:inline; margin-right:8px;"><a href="games.html">Games</a></li>
-      <li style="display:inline;"><a href="blog.html">Blog</a></li>
+  <nav>
+    <ul style="list-style:none; margin:0; padding:0; display:flex; gap:1rem;">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="art.html">Art</a></li>
+      <li><a href="poetry.html">Poetry</a></li>
+      <li><a href="coding.html">Coding</a></li>
+      <li><a href="games.html">Games</a></li>
+      <li><a href="blog.html">Blog</a></li>
     </ul>
-  </div>
-</nav>
+  </nav>
 
   <header>
     <div class="glitch">Bloggity Bits</div>
@@ -236,6 +244,59 @@ main {
     document.addEventListener('mousemove', e => {
       cursor.style.left = e.pageX + 'px';
       cursor.style.top = e.pageY + 'px';
+    });
+
+    // Hacker Green Bubbles
+    const numBubbles = 60;
+    const bubbles = [];
+
+    for (let i = 0; i < numBubbles; i++) {
+      const b = document.createElement("div");
+      b.classList.add("bubble");
+      b.style.left = Math.random() * window.innerWidth + "px";
+      b.style.top = Math.random() * window.innerHeight + "px";
+      b.dataset.speed = 0.5 + Math.random() * 1.5;
+      b.dataset.angle = Math.random() * 360;
+      b.dataset.size = 2 + Math.random() * 4;
+      b.style.width = b.dataset.size + "px";
+      b.style.height = b.dataset.size + "px";
+      document.body.appendChild(b);
+      bubbles.push(b);
+    }
+
+    function animateBubbles() {
+      for (const b of bubbles) {
+        let top = parseFloat(b.style.top);
+        let left = parseFloat(b.style.left);
+        let angle = parseFloat(b.dataset.angle);
+        const speed = parseFloat(b.dataset.speed);
+
+        top -= speed;
+        left += Math.sin(angle) * 0.5;
+        angle += 2;
+
+        if (top < -10 || left < -10 || left > window.innerWidth + 10) {
+          top = window.innerHeight + 10;
+          left = Math.random() * window.innerWidth;
+          angle = Math.random() * 360;
+          b.dataset.speed = 0.5 + Math.random() * 1.5;
+        }
+
+        b.style.top = top + "px";
+        b.style.left = left + "px";
+        b.dataset.angle = angle;
+        b.style.transform = `rotate(${angle}deg)`;
+      }
+      requestAnimationFrame(animateBubbles);
+    }
+
+    animateBubbles();
+
+    window.addEventListener("resize", () => {
+      for (const b of bubbles) {
+        b.style.left = Math.random() * window.innerWidth + "px";
+        b.style.top = Math.random() * window.innerHeight + "px";
+      }
     });
   </script>
 </body>
