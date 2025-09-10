@@ -1,0 +1,84 @@
+/* --- Weird Retro Dark Mode CSS --- */
+body {
+  background: radial-gradient(circle at top left, #0a0a0a, #111);
+  color: #00ff00; /* hacker green text */
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: 1.5px;
+  margin: 0;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  color: #ff00ff;
+  text-shadow: 
+    2px 2px 0 #00ffff, 
+    -2px -2px 0 #ff0000,
+    1px -1px 0 #ffff00;
+  margin: 20px 0;
+}
+
+p, li, span, a {
+  color: #00ff00;
+  text-shadow: 0 0 2px #00ff00;
+  line-height: 1.6;
+}
+
+a {
+  color: #ff00ff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: #00ffff;
+  text-shadow: 0 0 5px #00ffff, 0 0 10px #ff00ff;
+  transform: rotate(-2deg) scale(1.05);
+}
+
+button {
+  background: #111;
+  color: #00ff00;
+  font-family: monospace;
+  padding: 10px 20px;
+  border: 2px solid #ff00ff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background: #222;
+  border-color: #00ffff;
+  transform: rotate(2deg) scale(1.1);
+  box-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+}
+
+.container {
+  max-width: 800px;
+  background: rgba(20, 0, 30, 0.9);
+  padding: 30px;
+  border-radius: 15px;
+  border: 2px dashed #ff00ff;
+  box-shadow: 0 0 20px #ff00ff inset, 0 0 40px #00ffff;
+  margin: 20px auto;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+li::before {
+  content: "» ";
+  color: #ff00ff;
+}
