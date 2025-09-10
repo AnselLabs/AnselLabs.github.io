@@ -1,60 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ansel.Labs</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        .blinking {
-            animation: blink 1s step-end infinite;
-        }
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
-    </style>
-</head>
-<body class="about">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>itinerae: winter coma</title>
 
-  <!-- Sidebar Navigation -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="http://fonts.googleapis.com/css?family=Megrim|Lato" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+
+<style>
+body {
+  background: #f5f5f5 url(https://sadhost.neocities.org/images/tiles/background038.gif) fixed;
+  font-family: 'Pixelify Sans', 'Courier New', Lato, Calibri, Verdana;
+  font-size: 12px;
+  color: #00ff00; /* hacker green body text */
+  letter-spacing: 1px;
+  margin: 0;
+  padding: 0;
+}
+
+a:link, a:visited, a:active { color: #00ff00; text-decoration: none; }
+a:hover { color: #99ff99; }
+
+b { color: #5BC0AE; font-weight: bold; }
+i { color: #FF84B2; font-style: normal; }
+
+/* Scrollbar */
+::-webkit-scrollbar-thumb { background-color: #5BC0AE; border-radius: 5px; border: 0; }
+::-webkit-scrollbar { width: 5px; background: transparent; }
+
+/* Header */
+#header {
+  width: 500px;
+  margin: 20px auto 10px auto;
+  height: 40px;
+  background: #FEB2CE;
+  border-radius: 15px;
+  text-align: center;
+  color: #fff;
+  font: 30px 'Pixelify Sans', monospace;
+  line-height: 40px;
+}
+
+/* Navigation Bar */
+nav {
+  width: 500px;
+  margin: 0 auto 20px auto;
+  background: #130c25;
+  border-radius: 10px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  flex: 1;
+  text-align: center;
+}
+
+nav ul li a {
+  display: block;
+  padding: 8px 0;
+  color: #fff;
+  font: normal 12px monospace;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Single container with two columns */
+#container {
+  width: 900px;
+  margin: 0 auto 40px auto;
+  background: #130c25; /* dark plum */
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* left column smaller */
+  gap: 10px;
+  padding: 15px;
+  border-radius: 15px;
+}
+
+/* Left column */
+.left-column {
+  background: #3d1a39; /* match container background */
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px solid #FF84B2;
+}
+
+.sideimg {
+  width: 95%; /* slightly smaller */
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.sidetitle {
+  background: #FFEDFB;
+  font: 20px 'Pixelify Sans', arial;
+  color: #5BC0AE;
+  border-radius: 15px;
+  text-align: center;
+  border-bottom: 4px solid #FEB2CE;
+  margin-bottom: 8px;
+  padding: 4px 0;
+}
+
+/* Right column */
+.right-column {
+  background: #3d1a39; /* match container background */
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px solid #FF84B2;
+}
+
+.contenttitle {
+  background: #FFEDFB; /* pink headings unchanged */
+  font: 26px 'Pixelify Sans', arial;
+  color: #5BC0AE;
+  border-radius: 15px;
+  text-align: center;
+  border-bottom: 4px solid #FEB2CE;
+  margin-bottom: 10px;
+  padding: 4px 0;
+}
+</style>
+</head>
+
+<body>
+  <div id="header">about</div>
+
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="art.html">Art</a></li>
-      <li><a href="poetry.html">Poetry</a></li>
+      <li><a href="Poetry.html">Art</a></li>
+      <li><a href="Art.html">Poetry</a></li>
       <li><a href="coding.html">Coding</a></li>
       <li><a href="games.html">Games</a></li>
       <li><a href="blog.html">Blog</a></li>
     </ul>
   </nav>
 
-  <!-- Main Content Wrapper -->
-  <div class="content">
+  <div id="container">
+    <div class="left-column">
+      <img src="https://horrorgifs.neocities.org/gifs/Alien/Alien%20(3).gif" class="sideimg">
+      <div class="sidetitle">title</div>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel neque non nisi tincidunt vulputate sed non elit. Pellentesque cursus nunc risus, ut condimentum quam porta quis. Nulla et sem eu nunc gravida vulputate. Duis sit amet elementum odio, quis elementum velit.<br><br>
 
-    <header>
-      <h1 class="blinking">About Me</h1>
-    </header>
+      <div class="sidetitle">title</div>
+      Donec sollicitudin, velit non mollis lobortis, dolor elit elementum massa, a scelerisque tortor sapien eu urna.<br><br>
+    </div>
 
-    <main>
-      <section>
-        <h2>Hello World</h2>
-        <p>
-          I’m Ansel — an electrical engineer, Linux tinkerer, and lifelong artist.
-          This site is my little lab where circuits, sketches, code, and poems all share the same bench.
-        </p>
-        <p>
-          Explore some of my projects and creations through the selection below.
-        </p>
-      </section>
-    </main>
+    <div class="right-column">
+      <div class="contenttitle">title</div>
+      <b>Bold text</b> <i>Italic text</i> <a href="">Link</a>
+      Morbi in posuere augue. Ut sit amet nibh id felis viverra vehicula molestie nec nunc. Praesent id magna vitae mauris tristique molestie a sit amet nibh. Maecenas in enim non leo luctus tempus eget in nibh. Aliquam ut tempor justo, quis venenatis massa. Donec vel libero purus.<br><br>
 
-    <footer>
-      <p>Made by Ansel • <a href="https://github.com/AnselLabs">GitHub</a></p>
-    </footer>
+      <div class="contenttitle">title</div>
+      Aenean bibendum sodales venenatis. In imperdiet sapien sed dolor elementum, in tincidunt quam aliquam. Fusce non vehicula quam. Fusce pellentesque varius urna in cursus. Nam aliquet urna vitae dolor porttitor, vel volutpat odio pulvinar. Aenean a mi interdum magna porttitor pharetra id sed libero.<br><br>
 
+      <div class="contenttitle">title</div>
+      Donec porta non enim vel elementum. Phasellus a euismod diam, id sollicitudin nibh. Maecenas sit amet purus non diam cursus sagittis. Aliquam finibus eleifend sapien pharetra malesuada. Morbi eget nunc ut ipsum volutpat blandit sed at neque. Aenean nec nibh eu est feugiat facilisis nec eget turpis. Aenean mollis neque purus, tempus lacinia est imperdiet ut. Donec tincidunt vulputate risus vitae bibendum.
+    </div>
   </div>
-
 </body>
 </html>
-
