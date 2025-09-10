@@ -21,26 +21,42 @@
       overflow-x: hidden;
       }
 
-      #topborder{
-      background-image: url('assets/ptb.png');
-      background-repeat: repeat-x;
-      height: 73px;
-      width: 100vw;
-      position: fixed;
-      top: 0px;
-      z-index: 3;
-      }
+#topborder {
+  background-image: url('assets/ptb.png');
+  background-repeat: repeat-x;
+  height: 73px;
+  width: 100vw;
+  position: fixed;
+  top: 0px;
+  z-index: 3;
+  
+  /* Animation */
+  animation: scroll-left 20s linear infinite;
+}
 
-      #bottomborder{
-      background-image: url('assets/pbb.png');
-      background-repeat: repeat-x;
-      height: 73px;
-      width: 100vw;
-      position: fixed;
-      bottom: 0px;
-      z-index: 3;
-      }
+#bottomborder {
+  background-image: url('assets/pbb.png');
+  background-repeat: repeat-x;
+  height: 73px;
+  width: 100vw;
+  position: fixed;
+  bottom: 0px;
+  z-index: 3;
+  
+  /* Animation in opposite direction */
+  animation: scroll-right 20s linear infinite;
+}
 
+/* Keyframes */
+@keyframes scroll-left {
+  from { background-position: 0 0; }
+  to { background-position: -1000px 0; } /* adjust speed/distance */
+}
+
+@keyframes scroll-right {
+  from { background-position: 0 0; }
+  to { background-position: 1000px 0; }
+}
       #all{
       background-color: #aaa;
       width: 800px;
