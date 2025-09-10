@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>The Daily Observer — Newspaper Template</title>
+<style>
+  :root {
+    --paper-bg: #f7f3ec;
+    --ink: #111;
+    --muted: #6b6760;
+    --accent: #222;
+    --rule: rgba(0,0,0,0.08);
+    --max-width: 900px;
+  }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    color: var(--ink);
+    background: #000; /* night sky */
+    overflow-x: hidden;
+  }
+
+  /* stars container */
+  .stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  .star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.9;
+    animation: fall linear infinite;
+    filter: blur(0.2px);
+  }
+
+  @keyframes fall {
+    0% { transform: translateY(-10vh) rotate(0deg); opacity:1; }
+    100% { transform: translateY(110vh) rotate(20deg); opacity:0; }
+  }
+
+  /* centered newspaper "paper" */
+  .paper {
+    --max-width: 900px;
+    max-width: var(--max-width);
+    margin: 40px auto;
+    padding: 36px 48px;
+    position: relative;
+    z-index: 1;
+    background-image: url("https://img.freepik.com/free-photo/concrete-wall-textured-backgrounds-built-structure-concept_53876-14107.jpg?w=2000");
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.45);
+    border-radius: 4px;
+    border: 1px solid rgba(0,0,0,0.1);
+  }
+
+  /* Masthead */
+  .masthead {
+    text-align: center;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--rule);
+  }
+  .masthead .title {
+    font-family: "Times New Roman", Georgia, serif;
+    font-size: 54px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin: 0;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+  .masthead .tagline {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 6px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* Horizontal nav under masthead */
+  #nav {
+    display: flex;
+    justify-content: center;
+    margin: 12px 0 24px;
+    gap: 20px;
+  }
+  #nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 16px;
+  }
+  #nav li a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  #nav li a:hover {
+    background: rgba(0,0,0,0.05);
+    color: var(--accent);
+    text-decoration: underline;
+    transform: translateY(-1px);
+  }
+
+  .meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .edition { font-weight: 600; letter-spacing: 0.6px; }
+
+  .lead-headline {
+    margin: 22px 0;
+    font-size: 36px;
+    line-height: 1.02;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+
+  .columns {
+    column-count: 3;
+    column-gap: 40px;
+    column-rule: 1px solid var(--rule);
+  }
+
+  article { break-inside: avoid; -webkit-column-break-inside: avoid; margin-bottom: 22px; }
+  h2.headline { font-size: 20px; margin: 6px 0 8px; line-height: 1.15; }
+  .byline { font-size: 12px; color: var(--muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.8px; }
+  p { margin: 0 0 12px 0; font-size: 14px; line-height: 1.55; text-align: justify; }
+
+  .dropcap:first-letter {
+    float: left;
+    font-size: 56px;
+    line-height: 0.75;
+    padding-right: 8px;
+    font-weight: 700;
+    font-family: "Times New Roman", Georgia, serif;
+    color: var(--accent);
+  }
+
+  /* responsiveness */
+  @media (max-width: 980px) {
+    :root { --max-width: 92%; }
+    .columns { column-count: 2; }
+    #nav ul { flex-wrap: wrap; justify-content: center; gap: 12px; }
+  }
+  @media (max-width: 620px) {
+    .columns { column-count: 1; column-gap: 24px; }
+    .masthead .title { font-size: 36px; }
+    .lead-headline { font-size: 24px; }
+    #nav ul { flex-direction: column; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+  <!-- stars background -->
+  <div class="stars" aria-hidden="true"></div>
+
+  <!-- newspaper content -->
+  <div class="paper" role="main">
+    <header class="masthead" aria-label="Masthead">
+      <div class="title">Blog</div>
+      <div class="tagline">Independent — Informed — Local</div>
+
+      <!-- Horizontal nav under title -->
+
+      <div class="meta">
+        <div class="edition">Vol. 111 • No. 111</div>
+      <div id="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="Poetry.html">Art</a></li>
+          <li><a href="Art.html">Poetry</a></li>
+          <li><a href="coding.html">Coding</a></li>
+          <li><a href="games.html">Games</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>        <div class="dateline">September 10, 2025</div>
+      </div>
+    </header>
+
+<h1 class="lead-headline"> City Council Approves Ambitious Transit Plan; Residents Split Over Funding </h1> <section class="columns"> <article> <div class="kicker">City</div> <h2 class="headline">Major vote paves way for light-rail extension</h2> <div class="byline">By Jane R. Matthews</div> <div class="dropcap"> <p class="dropcap">T</p> <p>The city council on Tuesday approved a multi-billion-dollar plan to extend light rail into three underserved neighborhoods — a move praised by transit advocates and criticized by opponents who say the measure risks raising property taxes. Construction is expected to begin next year, with phased openings slated through 2030.</p> <p>“This is an investment in our future,” said Councilmember K. Lin in a statement following the 6–3 vote. Supporters argue the expansion will reduce congestion, increase access to jobs, and spur economic development along the corridor.</p> </div> <figure> <img src="https://via.placeholder.com/800x450?text=Light+Rail+Rendering" alt="Rendering of proposed light rail extension" /> <figcaption>Rendering: Proposed light-rail alignment along Lincoln Avenue.</figcaption> </figure> <p>Opponents, however, voiced concerns at a packed public hearing, warning of higher property assessments and construction disruptions. “We need protections for long-term residents,” said Rosa Jimenez, who led a petition drive opposing the current financing plan.</p> </article> <article> <div class="kicker">Business</div> <h2 class="headline">Local startups draw fresh investment to the tech corridor</h2> <div class="byline">By Darrell P. Soto</div> <p>Venture funding has flowed into the region’s tech corridor this quarter, buoyed by follow-on investments in fintech platforms and green-energy hardware makers. Several venture capital firms announced new funds dedicated to seed-stage ventures in the area.</p> <p>Analysts point to stronger regional support programs and partnerships with universities that have helped early-stage firms refine prototypes and find early customers. “We’re seeing better deal flow and more scalable product-market fit,” said a partner at GreyBridge Capital.</p> <div class="ad"> <strong>Sponsored:</strong><br /> Expand your team — hire local graduates. Contact <em>City Talent Co.</em> for recruiting packages. </div> <p>Still, investors caution that valuations remain selective; only startups demonstrating clear unit economics and defensible tech are commanding headline-grabbing rounds.</p> </article> <article> <div class="kicker">Culture</div> <h2 class="headline">Open-air film festival returns with classic cinema under the stars</h2> <div class="byline">By A. Nguyen</div> <p>The beloved open-air film festival returned this weekend, filling the park with blankets, popcorn vendors, and a lineup of restored classics. Crowds gathered from dusk until late to watch a mix of international films, all projected on a large outdoor screen.</p> <blockquote class="pull-quote">"There's something magical about watching a classic on a summer night — it brings the city together."</blockquote> <p>Organizers said attendance exceeded expectations and they plan to expand programming next year to include live Q&A sessions with filmmakers and themed food stalls surrounding the screenings.</p> </article> <article> <div class="kicker">Opinion</div> <h2 class="headline">Why we need more green space in urban planning</h2> <div class="byline">Guest essay by Prof. Elaine March</div> <p>As cities densify, planners must protect and prioritize public green spaces — not only as aesthetic amenities but as vital infrastructure that supports health, biodiversity, and stormwater management. Incremental policies can make a meaningful difference...</p> </article> <article> <div class="kicker">Local</div> <h2 class="headline">Farmers market adds late-season stalls</h2> <div class="byline">By Ravi Patel</div> <p>The Saturday farmers market has welcomed several late-season stalls selling apples, winter squash, and artisanal preserves. Organizers say the goal is to sustain small growers through the shoulder season and introduce shoppers to seasonal cooking.</p> </article> <article> <div class="kicker">Science</div> <h2 class="headline">New urban beekeeping initiative launches in schools</h2> <div class="byline">By M. Torres</div> <p>City schools will pilot rooftop hive programs to teach students about pollinators and sustainable food systems. The pilot includes curriculum modules, beekeeper mentorships, and taste tests of local honey.</p> </article> <!-- more sample articles can be added here --> <!-- classifieds --> <div class="wide"> <div class="section-sep"></div> <div class="classy"> <div> <div class="smallcaps">Classifieds</div> <p><strong>Apartment for rent:</strong> 1BR near downtown, hardwood floors, $1,450/mo. Call (555) 332-9911.</p> <p><strong>Guitar lessons:</strong> Beginner to intermediate. 10 years experience. Email: music@localmail.org</p> </div> <div> <div class="smallcaps">Announcements</div> <p><strong>Community meeting:</strong> Neighborhood watch meets Tue, 7pm at the community center. All welcome.</p> <p><strong>Lost & Found:</strong> Black umbrella with wooden handle—found on 9/7 near market. Claim at front desk.</p> </div> </div> </div> </section> </div>
+
+  <!-- stars script -->
+  <script>
+    const starContainer = document.querySelector('.stars');
+    if (!starContainer) {
+      console.warn('No .stars container found — stars will not be generated.');
+    } else {
+      const numStars = 90;
+      for (let i = 0; i < numStars; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        const size = (Math.random() * 2) + 1;
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.left = `${Math.random() * 100}vw`;
+        star.style.animationDuration = `${3 + Math.random() * 6}s`;
+        star.style.animationDelay = `${Math.random() * 6}s`;
+        star.style.top = `${-5 - Math.random() * 20}vh`;
+        starContainer.appendChild(star);
+      }
+    }
+  </script>
+</body>
+</html>
