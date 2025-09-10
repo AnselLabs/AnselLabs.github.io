@@ -137,6 +137,10 @@ textarea {background:#000;border:1px solid #123E12;color:#458c3a;font:10px 'gold
   color: #0f0;                 /* brighter green text */
 }
 
+.log-entry .date {
+  color: #44ff99;
+}
+
 </style>
 
 <script type="text/javascript">
@@ -244,11 +248,21 @@ function linkit(q) {
 <tr>
 <td class="left" width="200" valign="top">
 
-<div class="title">001. title </div>
-<div class="box">
-blah blah blah blah blah blah
-</div>
+<div class="title">001. Updates </div>
+<div class="container">
+  <div class="box">
 
+    <div class="log-entry">
+      <span class="date">[2025-09-08]</span>
+      <span class="text">>> Terminal interface for updates. Read from bottom to top. <strong>Boop</strong></span>
+    </div>
+
+    <div class="log-entry">
+      <span class="date">[2025-09-10]</span>
+      <span class="text">>> Content is still being updated throughout. Art, Coding, and Games pages are still under construction. <strong>Beep</strong></span>
+    </div>
+</div>
+</div>
 <div class="title">002. title </div>
 <div class="box">
 blah blah blah blah blah blah blah
@@ -322,7 +336,7 @@ blah blah blah blah blah blah blah
 </body>
 <script>
 // Hangman game logic
-const secretWord = "BRAINDEAD";
+const secretWord = "PSYCHONAUT";
 let displayWord = Array(secretWord.length).fill("_");
 const guessedLetters = [];
 const maxGuesses = 5;
