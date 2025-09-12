@@ -1,61 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ansel.Labs</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        .blinking {
-            animation: blink 1s step-end infinite;
-        }
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Art Gallery</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Tahoma, sans-serif;
+
+background: 
+  url(https://sadhost.neocities.org/images/tiles/blobz.gif) fixed,
+  rgba(60, 0, 120, 0.6); /* purple tint layer */
+  background-blend-mode: multiply;
+
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      color: white;
+      text-shadow: 2px 2px 4px black;
+      margin: 20px 0;
+      font-size: 3rem;
+      letter-spacing: 4px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      width: 90%;
+      max-width: 1000px;
+    }
+
+    .window {
+      border: 2px solid #003399;
+      background: #ececec;
+      box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .titlebar {
+      background: linear-gradient(to bottom, #0a62d0, #084e9c);
+      color: white;
+      font-weight: bold;
+      padding: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 4px;
+    }
+
+    .button {
+      width: 20px;
+      height: 20px;
+      border-radius: 2px;
+      cursor: pointer;
+      box-shadow: 0 0 2px rgba(0,0,0,0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      user-select: none;
+    }
+
+    .button:hover {
+      box-shadow: 0 0 6px white;
+    }
+
+    .close {
+      background: red;
+      color: white;
+      font-size: 24px; /* bigger X */
+    }
+
+    .min, .max {
+      background: #0a62d0; /* same blue family as top bar */
+      color: white;
+      font-size: 14px;
+    }
+
+    .content {
+      background: #fdfdfd;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .content img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #aaa;
+    }
+  </style>
 </head>
-<body class="art">
+<body>
+  <h1>ART</h1>
 
-  <!-- Sidebar Navigation -->
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="art.html">Art</a></li>
-      <li><a href="poetry.html">Poetry</a></li>
-      <li><a href="coding.html">Coding</a></li>
-      <li><a href="games.html">Games</a></li>
-      <li><a href="blog.html">Blog</a></li>
-    </ul>
-  </nav>
+  <div class="gallery">
+    <div class="window">
+      <div class="titlebar">
+        <span>Artwork 1</span>
+        <div class="buttons">
+          <div class="button min">_</div>
+          <div class="button max">▢</div>
+          <div class="button close">×</div>
+        </div>
+      </div>
+      <div class="content">
+        <img src="https://placekitten.com/300/200" alt="Art 1">
+      </div>
+    </div>
 
-  <!-- Main Content Wrapper -->
-  <div class="content">
+    <div class="window">
+      <div class="titlebar">
+        <span>Artwork 2</span>
+        <div class="buttons">
+          <div class="button min">_</div>
+          <div class="button max">▢</div>
+          <div class="button close">×</div>
+        </div>
+      </div>
+      <div class="content">
+        <img src="https://placekitten.com/301/200" alt="Art 2">
+      </div>
+    </div>
 
-    <header>
-      <h1 class="blinking">Art</h1>
-    </header>
+    <div class="window">
+      <div class="titlebar">
+        <span>Artwork 3</span>
+        <div class="buttons">
+          <div class="button min">_</div>
+          <div class="button max">▢</div>
+          <div class="button close">×</div>
+        </div>
+      </div>
+      <div class="content">
+        <img src="https://placekitten.com/302/200" alt="Art 3">
+      </div>
+    </div>
 
-    <main>
-      <section>
-        <h2>My Art</h2>
-        <p>
-          I’m Ansel — an electrical engineer, Linux tinkerer, and lifelong artist.
-          This site is my little lab where circuits, sketches, code, and poems all share the same bench.
-        </p>
-        <p>
-          Explore some of my projects and creations through the selection below.
-        </p>
-      </section>
-    </main>
+    <div class="window">
+      <div class="titlebar">
+        <span>Artwork 4</span>
+        <div class="buttons">
+          <div class="button min">_</div>
+          <div class="button max">▢</div>
+          <div class="button close">×</div>
+        </div>
+      </div>
+      <div class="content">
+        <img src="https://placekitten.com/303/200" alt="Art 4">
+      </div>
+    </div>
 
-    <footer>
-      <p>Made by Ansel • <a href="https://github.com/AnselLabs">GitHub</a></p>
-    </footer>
+    <div class="window">
+      <div class="titlebar">
+        <span>Artwork 5</span>
+        <div class="buttons">
+          <div class="button min">_</div>
+          <div class="button max">▢</div>
+          <div class="button close">×</div>
+        </div>
+      </div>
+      <div class="content">
+        <img src="https://placekitten.com/304/200" alt="Art 5">
+      </div>
+    </div>
 
+    <div class="window">
+      <div class="titlebar">
+        <span>Artwork 6</span>
+        <div class="buttons">
+          <div class="button min">_</div>
+          <div class="button max">▢</div>
+          <div class="button close">×</div>
+        </div>
+      </div>
+      <div class="content">
+        <img src="https://placekitten.com/305/200" alt="Art 6">
+      </div>
+    </div>
   </div>
-
 </body>
 </html>
-
-
