@@ -57,6 +57,8 @@ border-radius: 3px;}
 width: 5px; height: 0px;
 background: transparent;}
 
+
+
 .title {
   display:inline-block;
   background:#051105;
@@ -248,7 +250,13 @@ function linkit(q) {
 <tr>
 <td class="left" width="200" valign="top">
 
-<div class="title">001. Updates </div>
+<div class="title">001. time </div>
+<div class="box" style="text-align:center;">
+  <span id="live-clock" style="font-family:'Orbitron', monospace; font-size:24px; color:#458c3a;"></span>
+</div>
+</div>
+
+<div class="title">002. Updates </div>
 <div class="container">
   <div class="box">
 
@@ -259,19 +267,21 @@ function linkit(q) {
 
     <div class="log-entry">
       <span class="date">[2025-09-10]</span>
-      <span class="text">>> Content is still being updated throughout. Art, Coding, and Games pages are still under construction. <strong>Beep</strong></span>
+      <span class="text">>> Content is still being updated throughout. Art, Coding, and Games pages are still under construction. </span>
     </div>
 </div>
-</div>
-<div class="title">002. title </div>
-<div class="box">
-blah blah blah blah blah blah blah
 </div>
 
 <div class="title">003. title </div>
 <div class="box">
 blah blah blah blah blah blah blah
 </div>
+<center><img src="https://datoxicwaltz.neocities.org/img/banners/1417.gif" width="165" alt="bunny2"></center><br>
+<center><img src="https://datoxicwaltz.neocities.org/img/banners/becomebaby.jpg" width="165" alt="bunny2"></center><br>
+<center><img src="https://datoxicwaltz.neocities.org/img/banners/virusbanner.gif" width="165" alt="bunny2"></center><br>
+<center><img src="https://datoxicwaltz.neocities.org/img/banners/staticx435x75.jpg" width="165" alt="bunny2"></center><br>
+<center><img src="https://datoxicwaltz.neocities.org/img/homemadegifs/isopod.gif" width="165" alt="bunny2"></center><br>
+
 
 <br>
 
@@ -280,7 +290,7 @@ blah blah blah blah blah blah blah
 <td class="middle" width="300" valign="top">
 <div class="title">001. Bio </div>
 <div class="box">
-Heyyo!! I’m Ansel (he/him) — lifelong gamer, oil painter, and tinkerer. Recently, I’ve been getting back into sculpting and painting miniatures for RPGs (largely one called MÖRK BORG). When I’m not wiring circuits or coding linux setups, you might find me exploring new games, writing poetry, or enjoying nature. <br>
+Heyyo!! I’m Ansel (he/him) — lifelong gamer, artist, and tinkerer. Recently, I’ve been getting back into sculpting and painting miniatures for RPGs (largely one called MÖRK BORG). When I’m not wiring circuits or coding linux setups, you might find me exploring new games, writing poetry, or enjoying nature. <br>
 </div>
 
 <div class="title">002. Jams </div>
@@ -294,22 +304,72 @@ Top 5 Albums
 -
 </div>
 
+<div class="title">003. Sudoku </div>
+<div class="box" style="text-align:center;"> <!-- center Sudoku -->
+  <div id="sudoku-container" style="display:inline-block; margin-bottom:6px;"></div> <!-- small padding below -->
 
+  <script>
+    const sudokuBoard = document.getElementById('sudoku-container');
+
+    function generateSudoku() {
+      sudokuBoard.innerHTML = '';
+      let puzzle = getSimplePuzzle();
+
+      for (let i = 0; i < 81; i++) {
+        const cell = document.createElement('input');
+        cell.type = 'text';
+        cell.maxLength = 1;
+        cell.style.width = '28px';
+        cell.style.height = '28px';
+        cell.style.textAlign = 'center';
+        cell.style.fontSize = '12px';
+        cell.style.backgroundColor = '#111';
+        cell.style.color = '#00FF00';
+        cell.style.border = '1px solid #113711';
+        cell.style.margin = '0';
+        cell.style.padding = '0';
+        cell.style.lineHeight = '28px';
+        cell.style.fontFamily = '"Goldman", monospace';
+
+        if (puzzle[i] !== 0) {
+          cell.value = puzzle[i];
+          cell.disabled = true;
+          cell.style.backgroundColor = '#222';
+          cell.style.fontWeight = 'bold';
+        }
+
+        sudokuBoard.appendChild(cell);
+      }
+
+      // arrange as grid
+      sudokuBoard.style.display = 'grid';
+      sudokuBoard.style.gridTemplateColumns = 'repeat(9, 28px)';
+      sudokuBoard.style.gridTemplateRows = 'repeat(9, 28px)';
+      sudokuBoard.style.gap = '1px';
+    }
+
+    function getSimplePuzzle() {
+      return [
+        5, 3, 0, 0, 7, 0, 0, 0, 0,
+        6, 0, 0, 1, 9, 5, 0, 0, 0,
+        0, 9, 8, 0, 0, 0, 0, 6, 0,
+        8, 0, 0, 0, 6, 0, 0, 0, 3,
+        4, 0, 0, 8, 0, 3, 0, 0, 1,
+        7, 0, 0, 0, 2, 0, 0, 0, 6,
+        0, 6, 0, 0, 0, 0, 2, 8, 0,
+        0, 0, 0, 4, 1, 9, 0, 0, 5,
+        0, 0, 0, 0, 8, 0, 0, 7, 9
+      ];
+    }
+
+    generateSudoku();
+  </script>
+</div>
+
+</td>
 </center>
 </div>
 
-<div class="title">003. Hangman </div>
-<div class="box">
-  <!-- Hangman Game Section -->
-  <div id="hangman">
-    <p>Guess the word:</p>
-    <div id="hangman-word">_ _ _ _ _ _ _ _ _</div>
-    <input type="text" id="letter-input" maxlength="1" autofocus>
-    <button onclick="guessLetter()">Guess</button>
-    <p id="hangman-message"></p>
-  </div>
-</div>
-</td>
 
 <td class="right" width="200" valign="top">
 <div class="title">001. title </div>
@@ -317,16 +377,17 @@ Top 5 Albums
 blah blah blah blah blah blah blah
 </div>
 
-<center><img src="https://files.catbox.moe/agkzq4.png" width="150" alt="bunny2"></center><br>
+<center><img src="https://files.catbox.moe/agkzq4.png" width="110" alt="bunny2"></center><br>
 
-<div class="title">002. title </div>
-<div class="box">
-blah blah blah blah blah blah blah
-</div>
-
-<div class="title">003. title </div>
-<div class="box">
-blah blah blah blah blah blah blah
+<div class="title">003. Hangman </div>
+<div class="box" style="text-align:center;"> <!-- center Hangman -->
+  <div id="hangman">
+    <p>Guess the word:</p>
+    <div id="hangman-word">_ _ _ _ _ _ _ _ _</div>
+    <input type="text" id="letter-input" maxlength="24" autofocus style="width:100px;"> <!-- smaller width -->
+    <button onclick="guessLetter()">Guess</button>
+    <p id="hangman-message"></p>
+  </div>
 </div>
 </td>
 </table>
@@ -393,5 +454,25 @@ function guessLetter() {
 
 updateDisplay();
 </script>
+
+<script>
+function updateClock() {
+  const now = new Date();
+  // Format time as HH:MM:SS
+  const hours = String(now.getHours()).padStart(2,'0');
+  const minutes = String(now.getMinutes()).padStart(2,'0');
+  const seconds = String(now.getSeconds()).padStart(2,'0');
+  
+  const timeString = `${hours}:${minutes}:${seconds}`;
+  
+  document.getElementById('live-clock').textContent = timeString;
+}
+
+// update immediately
+updateClock();
+// then update every second
+setInterval(updateClock, 1000);
+</script>
+
 
 </HTML>
