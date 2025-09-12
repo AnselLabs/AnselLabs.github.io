@@ -8,11 +8,10 @@
       margin: 0;
       font-family: Tahoma, sans-serif;
 
-background: 
-  url(https://sadhost.neocities.org/images/tiles/blobz.gif) fixed,
-  rgba(60, 0, 120, 0.6); /* purple tint layer */
-  background-blend-mode: multiply;
-
+      background: 
+        url(https://sadhost.neocities.org/images/tiles/blobz.gif) fixed,
+        rgba(60, 0, 120, 0.6); /* purple tint layer */
+      background-blend-mode: multiply;
 
       display: flex;
       flex-direction: column;
@@ -22,26 +21,61 @@ background:
     h1 {
       color: white;
       text-shadow: 2px 2px 4px black;
-      margin: 20px 0;
+      margin: 20px 0 10px 0;
       font-size: 3rem;
       letter-spacing: 4px;
     }
 
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      width: 90%;
-      max-width: 1000px;
+    /* --- nav bar --- */
+    nav {
+      margin-bottom: 20px;
     }
 
-    .window {
-      border: 2px solid #003399;
-      background: #ececec;
-      box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
-      border-radius: 3px;
-      overflow: hidden;
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 20px;
     }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      padding: 6px 12px;
+      background: linear-gradient(to bottom, #0a62d0, #084e9c);
+      border: 2px solid #003399;
+      border-radius: 3px;
+      box-shadow: 3px 3px 0px #222;
+    }
+
+    nav a:hover {
+      background: linear-gradient(to bottom, #2d7ef7, #0a62d0);
+      box-shadow: 3px 3px 6px white;
+    }
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px; /* space between columns */
+  width: 85%;
+  max-width: 900px; /* total width of both columns ~900px */
+  justify-content: center;
+}
+
+.window {
+  border: 2px solid #003399;
+  background: #ececec;
+  box-shadow: 6px 6px 0px #222;
+  border-radius: 3px;
+  overflow: hidden;
+  width: 100%; /* take up full column width */
+  max-width: 430px; /* narrower window for each column */
+  margin: auto;
+}
+
 
     .titlebar {
       background: linear-gradient(to bottom, #0a62d0, #084e9c);
@@ -104,6 +138,18 @@ background:
 <body>
   <h1>ART</h1>
 
+  <nav>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="poetry.html">Poetry</a></li>
+      <li><a href="art.html">Art</a></li>
+      <li><a href="coding.html">Coding</a></li>
+      <li><a href="games.html">Games</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+  </nav>
+
   <div class="gallery">
     <div class="window">
       <div class="titlebar">
@@ -115,7 +161,7 @@ background:
         </div>
       </div>
       <div class="content">
-        <img src="https://placekitten.com/300/200" alt="Art 1">
+        <img src="https://placekitten.com/500/350" alt="Art 1">
       </div>
     </div>
 
@@ -129,7 +175,7 @@ background:
         </div>
       </div>
       <div class="content">
-        <img src="https://placekitten.com/301/200" alt="Art 2">
+        <img src="https://placekitten.com/501/350" alt="Art 2">
       </div>
     </div>
 
@@ -143,7 +189,7 @@ background:
         </div>
       </div>
       <div class="content">
-        <img src="https://placekitten.com/302/200" alt="Art 3">
+        <img src="https://placekitten.com/502/350" alt="Art 3">
       </div>
     </div>
 
@@ -157,7 +203,7 @@ background:
         </div>
       </div>
       <div class="content">
-        <img src="https://placekitten.com/303/200" alt="Art 4">
+        <img src="https://placekitten.com/503/350" alt="Art 4">
       </div>
     </div>
 
@@ -171,7 +217,7 @@ background:
         </div>
       </div>
       <div class="content">
-        <img src="https://placekitten.com/304/200" alt="Art 5">
+        <img src="https://placekitten.com/504/350" alt="Art 5">
       </div>
     </div>
 
@@ -185,7 +231,7 @@ background:
         </div>
       </div>
       <div class="content">
-        <img src="https://placekitten.com/305/200" alt="Art 6">
+        <img src="https://placekitten.com/505/350" alt="Art 6">
       </div>
     </div>
   </div>
