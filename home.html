@@ -98,14 +98,18 @@ color:#00FF00;}
   border-right: 1px solid #0A9A09;
   border-bottom: 1px dotted #0A9A09;
 }
-.left {background: #000; border-right: 1px dotted #0A9A09;border-left: 1px solid #0A9A09;}
-.middle {background: #000;border-right:1px dotted #113711;}
-.right {background: #000;border-right: 1px solid #0A9A09;}
-.footer {background: #000; border: 1px solid #0A9A09; border-top: 1px dotted #123E12;line-height:30px;}
+.left { background: #000; border-right: 1px dotted #0A9A09; border-left: 1px solid #0A9A09; }
+.middle { background: #000; border-right:1px dotted #0A9A09; }
+.right { background: #000; border-right: 1px solid #0A9A09; }
+
+.footer {background: #000; border: 1px solid #0A9A09; border-top: 1px dotted #0A9A09;line-height:30px;}
 .box {background:#051105;border:1px solid #113711;border-top:2px solid #111;border-radius:3px;
 border-top-left-radius:0px;padding:4px;padding-left:8px;padding-top:8px;margin-bottom:8px;}
 #news {background:#000;font-size:9px;}
 textarea {background:#000;border:1px solid #123E12;color:#458c3a;font:10px 'goldman';letter-spacing:1px;margin-bottom:5px;}
+.box .text, #poll-result, #news .text {
+  color:#458c3a;
+}
 
 /* Hangman styling */
 #hangman input {
@@ -138,6 +142,8 @@ textarea {background:#000;border:1px solid #123E12;color:#458c3a;font:10px 'gold
   background-color: #051105;   /* dark green hover */
   color: #0f0;                 /* brighter green text */
 }
+
+
 
 .log-entry .date {
   color: #44ff99;
@@ -262,25 +268,139 @@ function linkit(q) {
 
     <div class="log-entry">
       <span class="date">[2025-09-08]</span>
-      <span class="text">>> Terminal interface for updates. Read from bottom to top. <strong>Boop</strong></span>
+      <span class="text; color:#44ff99;">>> Terminal interface for updates. Read from bottom to top. <strong>Boop</strong><br></span>
     </div>
 
     <div class="log-entry">
-      <span class="date">[2025-09-10]</span>
-      <span class="text">>> Content is still being updated throughout. Art, Coding, and Games pages are still under construction. </span>
+      <span class="date"><br>[2025-09-10]</span>
+      <span class="text; color:#44ff99;">>> Content is still being updated throughout. Art, Coding, and Games pages are still under construction. </span>
     </div>
 </div>
 </div>
 
-<div class="title">003. title </div>
-<div class="box">
-blah blah blah blah blah blah blah
+<div class="title">003. Poll</div>
+<div class="box" style="font-size:12px;">
+<h3 style="color:#44ff99;; font-family:'Orbitron', monospace; margin-top:10px; text-align:center;">Favorite OS</h3>
+  <form id="os-poll" style="margin-top:0px; display:inline-block;">
+  <label class="text">Linux
+    <input type="radio" name="os" value="Linux">
+    <span class="checkmark"></span>
+  </label>
+  <label class="text">Windows
+    <input type="radio" name="os" value="Windows">
+    <span class="checkmark"></span>
+  </label>
+  <label class="text">MacOS
+    <input type="radio" name="os" value="MacOS">
+    <span class="checkmark"></span>
+  </label>
+  <br>
+  <div style="text-align:center; margin-top:0px;"> <!-- added wrapper -->
+    <button type="button" onclick="submitPoll()">Vote</button>
+  </div>
+</form>
+
+  <div id="poll-result" style="margin-top:0px; font-size:12px;"></div>
 </div>
-<center><img src="https://datoxicwaltz.neocities.org/img/banners/1417.gif" width="165" alt="bunny2"></center><br>
-<center><img src="https://datoxicwaltz.neocities.org/img/banners/becomebaby.jpg" width="165" alt="bunny2"></center><br>
-<center><img src="https://datoxicwaltz.neocities.org/img/banners/virusbanner.gif" width="165" alt="bunny2"></center><br>
-<center><img src="https://datoxicwaltz.neocities.org/img/banners/staticx435x75.jpg" width="165" alt="bunny2"></center><br>
-<center><img src="https://datoxicwaltz.neocities.org/img/homemadegifs/isopod.gif" width="165" alt="bunny2"></center><br>
+
+<style>
+/* Text label styling */
+/* Text label styling */
+.text {
+  display: block;
+  position: relative;
+  padding-left: 22px; /* slightly smaller for better alignment */
+  margin-bottom: 6px;
+  cursor: pointer;
+  font-family:'Orbitron', monospace;
+  color: #458c3a; /* matches Top 5 and tarot text */
+  user-select: none;
+}
+
+/* Hide the default radio button */
+.text input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Custom radio circle */
+.text .checkmark {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  height: 9px;
+  width: 9px;
+  background-color: #000;
+  border: 2px solid green;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+/* Checked state glow */
+.text input:checked ~ .checkmark {
+  background-color: #0f0;
+  box-shadow: 0 0 6px #0f0, 0 0 6px #44ff99;
+}
+
+/* Reuse Hangman button styling */
+#os-poll button {
+  background-color: #000;
+  color: green;
+  border: 1px solid #113711;
+  font-family: "Orbitron", monospace;
+  font-size: 10px;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+#os-poll button:hover {
+  background-color: #051105;
+  color: #0f0;
+}
+</style>
+
+<script>
+function submitPoll() {
+  const choices = document.getElementsByName('os');
+  let selected = null;
+  choices.forEach(c => { if(c.checked) selected = c.value; });
+  
+  const resultDiv = document.getElementById('poll-result');
+  
+  if(selected) {
+    resultDiv.textContent = 'You voted for: ' + selected;
+  } else {
+    resultDiv.textContent = 'Select an option before voting!';
+  }
+}
+</script>
+
+
+
+
+</div>
+<style>
+.greentint {
+  filter: grayscale(100%) sepia(100%) hue-rotate(70deg) saturate(300%) brightness(90%);
+  transition: filter 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.greentint:hover {
+  filter: none; /* restores full color */
+  transform: scale(1.05); /* slight enlarge */
+  box-shadow: 0 0 8px #00ff00, 0 0 15px #0f0; /* neon green glow */
+}
+</style>
+
+<center><img class="greentint" src="https://datoxicwaltz.neocities.org/img/banners/1417.gif" width="165" alt="bunny2"></center><br>
+<center><img class="greentint" src="https://datoxicwaltz.neocities.org/img/banners/becomebaby.jpg" width="165" alt="bunny2"></center><br>
+<center><img class="greentint" src="https://datoxicwaltz.neocities.org/img/banners/virusbanner.gif" width="165" alt="bunny2"></center><br>
+<center><img class="greentint" src="https://datoxicwaltz.neocities.org/img/banners/staticx435x75.jpg" width="165" alt="bunny2"></center><br>
+<center><img class="greentint" src="https://adriansblinkiecollection.neocities.org/k11.gif" width="165" alt="bunny2"></center><br>
+<center><img class="greentint-expand" src="https://datoxicwaltz.neocities.org/img/homemadegifs/isopod.gif" width="165" alt="bunny2"></center><br>
+<center><img class="greentint" src="https://adriansblinkiecollection.neocities.org/g118.gif" width="165" alt="bunny2"></center><br>
 
 
 <br>
@@ -290,19 +410,49 @@ blah blah blah blah blah blah blah
 <td class="middle" width="300" valign="top">
 <div class="title">001. Bio </div>
 <div class="box">
-Heyyo!! I’m Ansel (he/him) — lifelong gamer, artist, and tinkerer. Recently, I’ve been getting back into sculpting and painting miniatures for RPGs (largely one called MÖRK BORG). When I’m not wiring circuits or coding linux setups, you might find me exploring new games, writing poetry, or enjoying nature. <br>
+Heyyo!! I’m Ansel (he/him) — lifelong gamer, artist, and tinkerer. <br>
+<br>Recently, I’ve been getting back into sculpting and painting miniatures for RPGs (largely one called MÖRK BORG). When I’m not wiring circuits or coding linux setups, you might find me exploring new games, writing poetry, or enjoying nature. <br>
 </div>
 
 <div class="title">002. Jams </div>
 <div class="box">
-  <img src="https://files.catbox.moe/mdhlgl.webp" width="250">
-Top 5 Albums
--
--
--
--
--
+<style>
+.greentint-expand {
+  transition: filter 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.greentint-expand:hover {
+  filter: none; /* restores full color */
+  transform: scale(1.1); /* slightly larger on hover */
+}
+</style>
+
+<div style="text-align:center; margin-top:10px;">
+  <img class="greentint-expand" src="https://files.catbox.moe/mdhlgl.webp" width="250">
+
+  <h3 style="color:#44ff99;; font-family:'Orbitron', monospace; margin-top:15px;">Top 5 Albums</h3>
+<ol style="text; text-align:left; padding-left:0; margin-left:20px;">
+    <li>Dead Kennedys – Fresh Fruit for Rotting Vegetables</li>
+    <li>Dystopia – Human = Garbage</li>
+    <li>Einstürzende Neubauten – Halber Mensch</li>
+    <li>Radiohead – OK Computer</li>
+    <li>Primus – Sailing the Seas of Cheese</li>
+  </ol>
 </div>
+</div>
+
+
+<style>
+.greentint-expand {
+  transition: filter 0.4s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.greentint-expand:hover {
+  filter: none; /* full color */
+  transform: scale(1.1); /* expand */
+}
+</style>
 
 <div class="title">003. Sudoku </div>
 <div class="box" style="text-align:center;"> <!-- center Sudoku -->
@@ -372,14 +522,81 @@ Top 5 Albums
 
 
 <td class="right" width="200" valign="top">
-<div class="title">001. title </div>
-<div class="box">
-blah blah blah blah blah blah blah
+<div class="title">004. Tarot Pull</div>
+<div class="box" style="text-align:center;">
+
+  <div id="tarot-container">
+    <p>Click the card <br>
+    for more info</p>
+    <button onclick="changecard()">Pull Card</button>
+
+  <div class="card"><a target="_blank" href="https://www.thetarotguide.com/the-fool/"><img src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/867803/The_Fool_thoth_rzupqw.jpg" width="150"></a></div>
+  <div class="card"><a target="_blank" href="https://www.thetarotguide.com/the-magician/"><img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.esotericmeanings.com%2Fwp-content%2Fuploads%2F2016%2F01%2Fthoth-tarot-magus-large-2-668x1024.jpg&f=1&nofb=1&ipt=47eb5d22e4b939b5d8cb037909814928a96e4549d3cee5de85b86c15a4c02659" width="150"></a></div>
+  <div class="card"><a target="_blank" href="https://www.thetarotguide.com/the-high-priestess/"><img src="https://www.esotericmeanings.com/wp-content/uploads/2016/01/thothpriestess.jpg" width="150"></a></div>
+  <div class="card"><a target="_blank" href="https://www.thetarotguide.com/the-empress/"><img src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/867803/The_Empress_Thoth_tkwskd.jpg" width="150"></a></div>
+  <div class="card"><a target="_blank" href="https://www.thetarotguide.com/the-hierophant/"><img src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/867803/The_Hierophant_thoth_r9ip5v.jpg" width="150"></a></div>
+  <div class="card"><a target="_blank" href="https://www.thetarotguide.com/the-lovers/"><img src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/867803/The_Lovers_thoth_rjzdp3.jpg" width="150"></a></div>
+  <div class="card"><a target="_blank" href="https://www.thetarotguide.com/the-chariot/"><img src="https://www.esotericmeanings.com/wp-content/uploads/2016/04/Chariot_thothtarotcard.jpg" width="150"></a></div>
+  <div class="card"><a target="_blank" href="https://www.thetarotguide.com/justice/"><img src="https://www.esotericmeanings.com/wp-content/uploads/2016/06/adjustment-thothtarotcard.jpg" width="150"></a></div>
+  <div class="card"><a target="_blank" href="https://www.thetarotguide.com/the-hermit/"><img src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/867803/The_Hermit_Thoth_ouulja.jpg" width="150"></a></div>
+  <div class="card"><a target="_blank" href="https://www.thetarotguide.com/wheel-of-fortune/"><img src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/867803/Fortune_thoth_jfrr5n.jpg" width="150"></a></div>
+  <div class="card"><a target="_blank" href="https://www.thetarotguide.com/strength/"><img src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/867803/Lust_thlnm5.jpg" width="150"></a></div>
+  <div class="card"><a target="_blank" href="https://www.thetarotguide.com/the-hanged-man/"><img src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/867803/The_Hanged_man_Thoth_ae28kx.jpg" width="150"></a></div>
+  <div class="card"><a target="_blank" href="https://www.thetarotguide.com/death/"><img src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/867803/Death_Key_13_Thoth_kbmrkz.jpg" width="150"></a></div>
+  <div class="card"><a target="_blank" href="https://www.thetarotguide.com/temperance/"><img src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/867803/Art_thoth_x48asa.jpg" width="150"></a></div>
+  <div class="card"><a target="_blank" href="https://www.thetarotguide.com/the-devil/"><img src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/867803/The_Devil_Thoth_pe2alt.jpg" width="150"></a></div>
+  <div class="card"><a target="_blank" href="https://www.thetarotguide.com/the-tower/"><img src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/867803/The_Tower_Thoth_vij0n2.jpg" width="150"></a></div>
+  <div class="card"><a target="_blank" href="https://www.thetarotguide.com/the-star/"><img src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/867803/star-thoth_el49uv.jpg" width="150"></a></div>
+  <div class="card"><a target="_blank" href="https://www.thetarotguide.com/the-moon/"><img src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/867803/The_Moon_Thoth_b7p1ia.jpg" width="150"></a></div>
+  <div class="card"><a target="_blank" href="https://www.thetarotguide.com/the-sun/"><img src="https://www.esotericmeanings.com/wp-content/uploads/2017/05/thothsuntarot_large.jpg" width="150"></a></div>
+  <div class="card"><a target="_blank" href="https://www.thetarotguide.com/judgement/"><img src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/867803/The_Aeon_xxwsps.jpg" width="150"></a></div>
+  <div class="card"><a target="_blank" href="https://www.thetarotguide.com/the-world/"><img src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/867803/Key_21-The_Universe_loq9ri.jpg" width="150"></a></div>
 </div>
+</div>
+
+<script>
+function changecard() {
+  let cards = document.querySelectorAll('#tarot-container .card');
+  // Hide all
+  cards.forEach(c => c.style.display = "none");
+
+  // Pick a random one
+  let randomIndex = Math.floor(Math.random() * cards.length);
+  cards[randomIndex].style.display = "block";
+}
+</script>
+
+<style>
+#tarot-container .card {
+  display: none;
+  margin-top: 10px;
+}
+#tarot-container img {
+  border: 1px solid #113711;
+  border-radius: 5px;
+}
+#tarot-container button {
+  background-color: #000;      /* black button */
+  color: green;               /* green text */
+  border: 1px solid #113711;   /* dark green outline */
+  font-family: "Orbitron", monospace;
+  font-size: 10px;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+#tarot-container button:hover {
+  background-color: #051105;   /* dark green hover */
+  color: #0f0;                 /* brighter green text */
+}
+</style>
+
+
 
 <center><img src="https://files.catbox.moe/agkzq4.png" width="110" alt="bunny2"></center><br>
 
-<div class="title">003. Hangman </div>
+<div class="title">002. Hangman </div>
 <div class="box" style="text-align:center;"> <!-- center Hangman -->
   <div id="hangman">
     <p>Guess the word:</p>
@@ -389,6 +606,8 @@ blah blah blah blah blah blah blah
     <p id="hangman-message"></p>
   </div>
 </div>
+
+
 </td>
 </table>
 
