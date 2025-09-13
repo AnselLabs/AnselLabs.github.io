@@ -607,6 +607,42 @@ function changecard() {
   </div>
 </div>
 
+<div class="title">002. music</div>
+<div class="box" style="text-align:center;">
+
+  <div class="autoplayer" style="display:flex; align-items:center; justify-content:center; gap:5px;">
+    <button id="button" style="background:#003300; color:#00FF00; border:none; font-size:18px; height:35px; width:35px; cursor:pointer;">
+      <i class="fa fa-play"></i>
+    </button>
+    
+    <audio loop id="player" style="display:none;">
+      <source src="assets/sail.mp3" type="audio/mpeg">
+    </audio>
+    
+    <a target="_blank" href="https://www.youtube.com/watch?v=RVHYUkmfe1U" style=".text">
+      Radiohead - Sail To The Moon
+    </a>
+  </div>
+
+</div>
+
+<script>
+  var button = document.getElementById("button");
+  var audio = document.getElementById("player");
+
+  button.addEventListener("click", function () {
+    if (audio.paused) {
+      audio.play();
+      button.innerHTML = '<i class="fa fa-pause"></i>';
+    } else {
+      audio.pause();
+      button.innerHTML = '<i class="fa fa-play"></i>';
+    }
+  });
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 
 </td>
 </table>
