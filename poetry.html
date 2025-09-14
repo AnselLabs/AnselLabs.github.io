@@ -1,757 +1,491 @@
-<!DOCTYPE html>
+l<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ansel.labs</title>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ansel.labs</title>
 <link rel="shortcut icon" href="https://files.catbox.moe/m5tyiv.png">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap"
-      rel="stylesheet"
-    />
+<style>
+body {
+  background-image: url('assets/pb.png');
+  margin: 0;
+  color: #613f3f;
+  overflow-y: scroll; /* ✅ allow vertical scroll */
+  overflow-x: hidden; /* keep horizontal hidden */
+}
 
-    <style>
+#all {
+  width: 700px;
+  margin: 135px auto 70px auto; /* top margin leaves space for top border, bottom for bottom border */
+  display: flex;
+  gap: 10px;
+}
 
-      body{
-      background-image: url('assets/pb.png');
-      margin: 0px;
-      color: #613f3f;
-      overflow-x: hidden;
-      }
+#side, #main {
+  max-height: none;   /* ✅ remove viewport height lock */
+  overflow: visible;  /* ✅ let them flow with page scroll */
+}
 
+
+/* Borders animation */
+#topborder, #bottomborder {
+  background-repeat: repeat-x;
+  height: 73px;
+  width: 100vw;
+  position: fixed;
+  z-index: 3;
+}
 #topborder {
   background-image: url('assets/ptb.png');
-  background-repeat: repeat-x;
-  height: 73px;
-  width: 100vw;
-  position: fixed;
-  top: 0px;
-  z-index: 3;
-
-  /* Animation */
+  top: 0;
   animation: scroll-left 20s linear infinite;
 }
-
 #bottomborder {
   background-image: url('assets/pbb.png');
-  background-repeat: repeat-x;
-  height: 73px;
-  width: 100vw;
-  position: fixed;
-  bottom: 0px;
-  z-index: 3;
-
-  /* Animation in opposite direction */
+  bottom: 0;
   animation: scroll-right 20s linear infinite;
 }
+@keyframes scroll-left { from { background-position: 0 0; } to { background-position: -1000px 0; } }
+@keyframes scroll-right { from { background-position: 0 0; } to { background-position: 1000px 0; } }
 
-/* Keyframes */
-@keyframes scroll-left {
-  from { background-position: 0 0; }
-  to { background-position: -1000px 0; } /* adjust speed/distance */
+/* Main wrapper */
+#all {
+  width: 700px;
+  margin: 0 auto;
+  margin-top: 135px; /* leave space for top border */
+  display: flex;
+  gap: 10px; /* space between columns */
 }
 
-@keyframes scroll-right {
-  from { background-position: 0 0; }
-  to { background-position: 1000px 0; }
+/* Left column */
+#side {
+  width: 180px;
+  max-height: calc(100vh); /* full viewport minus top margin */
+  overflow-y: auto;
+  position: sticky;
+  top: 1px;
 }
-      #all{
-      background-color: #aaa;
-      width: 800px;
-      margin: 0 auto;
-      }
 
-      #side{
-      width: 175px;
-      margin-top: 135px;
-      float: left;
-      position: fixed;
-      }
+/* Profile and navigation */
+#profile, #nav { /* make them same width */
+  background-color: #3d1a39;
+  border-radius: 10px;
+  width: 100%;
+  margin-bottom: 25px;
+  padding: 15px;
+  box-sizing: border-box;
+}
+#pfp {
+  width: 100%;
+  height: 145px;
+  border-radius: 10px;
+  opacity: 0.9;
+  background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F474x%2F00%2Fa3%2Ffb%2F00a3fbaec0d24f0979646ebf770c9e40.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#profiletext {
+  margin: 0;
+  letter-spacing: 1px;
+  text-align: center;
+  font-size: 14px;
+  padding: 15px 5px 0;
+  color: #00ff00;
+}
 
-      #profile{
-      background-color: #3d1a39;
-      border-radius: 10px;
-      width: 145px;
-      margin-bottom: 25px;
-      padding: 15px;
-      }
+#nav {
+  background-color: #F2D4D7;
+  font-size: 20px;
+  position: relative;
+}
+#navheader {
+  border-bottom: 3px solid #cdb5b5;
+  margin: 0px;
+  line-height: 10px;
+  padding-left: 5px;
+  padding-top: 25px;
+  font-family: 'Sacramento', cursive;
+  color: #3d1a39;
+}
+#navbow {
+  background-image: url('https://i.imgur.com/2IzDDAz.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 65px;
+  height: 41px;
+  position: absolute;
+  right: 9px;
+  top: 14px;
+  z-index: 2;
+}
+ul {
+  margin: 0;
+  padding: 13px 10px 10px 16px;
+}
+li {
+  list-style-type: none;
+  margin: -10px;
+  letter-spacing: -1px;
+  font-size: 18px;
+}
 
-      #pfp {
-        background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F474x%2F00%2Fa3%2Ffb%2F00a3fbaec0d24f0979646ebf770c9e40.jpg%3Fnii%3Dt&f=1&nofb=1&ipt=0ef9ae3f36120b147543ce476af35d6a9f3e7a7a401a5094777b681635c01054');
-        width: 145px;
-        height: 145px;
-        border-radius: 10px;
-        opacity: 0.9;
-        background-size: cover;       /* makes the image fill the div, cropping if necessary */
-        background-position: center;  /* centers the image inside the div */
-        background-repeat: no-repeat; /* prevents tiling */
-      }
+/* Right column */
+#main {
+  width: 510px;
+  position: relative;
+}
 
+/* Main content */
+#title {
+  font-family: 'Sacramento', cursive;
+  border-bottom: 3px solid #cdb5b5;
+  line-height: 15px;
+  width: 100%;
+  margin: 0;
+  color: #578EA3;
+  background-color: #F2D4D7;
+  border-radius: 10px 10px 0 0;
+  padding-left: 5px;
+  padding-top: 22px;
+  box-sizing: border-box; /* ✅ keeps padding inside the width */
+}
 
-      #profiletext{
-      margin: 0px;
-      letter-spacing: 1px;
-      text-align: center;
-      font-size: 14px;
-      padding: 15px 5px 0px 5px;
-      color: #00ff00;
-      }
+#bow {
+  background-image: url('https://i.imgur.com/GOQMFVP.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 160px;
+  height: 102px;
+  position: absolute;
+  right: 20px;
+  top: 0;
+  z-index: 2;
+}
 
-      #nav{
-      background-color: #F2D4D7;
-      width: 175px;
-      border-radius: 10px;
-      position: relative;
-      font-size: 20px;
-      }
+#content {
+  background-color: #f9e4ff;
+  width: 100%; /* instead of 96.5% */
+  padding: 15px;
+  border-radius: 0 0 10px 10px; /* optional: rounded bottom corners to match title */
+  box-sizing: border-box; /* makes sure padding doesn’t push it wider */
+}
 
-      #navheader{
-      border-bottom: 3px solid #cdb5b5;
-      margin: 0px;
-      line-height: 10px;
-      padding-left: 5px;
-      padding-top: 25px;
-      font-family: 'Sacramento', cursive;
-      color: #3d1a39;
-      }
+.entry, .entryhead {
+  width: 100%;
+}
+.entryhead {
+  position: relative;
+  border-bottom: 1px dotted #613f3f;
+  padding-bottom: 5px;
+  height: auto;
+}
+.icon { width: 80px; opacity: 0.9; }
+.date { position: absolute; bottom: 0; left: 85px; padding-bottom: 5px; }
+.date p { margin: 0; letter-spacing: -1px; color: #856d6d; }
+.header { position: absolute; bottom: 0; right: 0; }
+.header h2 { margin: 0; font-family: 'Sacramento', cursive; line-height: 23px; font-size: 26px; color: #3d1a39; }
+.text {
+  text-align: justify;
+  margin-top: 5px;
+  letter-spacing: 1px;
+  color: #856d6d;
+  font-size: 12px; /* smaller text */
+}
+.textcent {
+  text-align: center;
+  margin-top: 5px;
+  letter-spacing: 1px;
+  color: #856d6d;
+  font-size: 12px; /* smaller text */
+}
 
-      #navbow{
-      background-image: url('https://i.imgur.com/2IzDDAz.png');
-      background-size: 100%;
-      background-repeat: no-repeat;
-      width: 65px;
-      height: 41px;
-      position: absolute;
-      right: 9px;
-      top: 14px;
-      z-index: 2;
-      }
+a { text-decoration: none; color: #856d6d; font-size: 16px; }
+a:visited { color: #613f3f; }
+a:hover { font-style: italic; }
+a:active { font-style: italic; font-weight: bold; }
 
-      ul{
-      margin: 0px;
-      padding: 13px 10px 10px 16px;
-      }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background-color: #578EA3; }
+::-webkit-scrollbar-thumb { background-color: #cdb5b5; }
 
-      li{
-      list-style-type: none;
-      margin: -10px;
-      letter-spacing: -1px;
-      font-size: 18px;
-      }
+#credit {
+  font-size: 12px;
+  position: fixed;
+  bottom: 70px;
+  right: 0;
+}
+</style>
+</head>
 
-      #main{
-      width: 605px;
-      float: right;
-      position: relative;
-      }
+<body>
+<div id="topborder"></div>
+<div id="bottomborder"></div>
 
-      #title{
-      font-family: 'Sacramento', Cursive;
-      border-bottom: 3px solid #cdb5b5;
-      line-height: 15px;
-      width: 600px;
-      margin: 0px;
-      color: #578EA3;
-      background-color: #F2D4D7;
-      position: absolute;
-      top: 74px;
-      border-radius: 10px 10px 0px 0px;
-      padding-left: 5px;
-      padding-top: 22px;
-      }
+<div id="all">
+  <div id="side">
+    <div id="profile">
+      <div id="pfp"></div>
+      <p id="profiletext">Murmurs in Monospace</p>
+    </div>
 
-      #bow{
-      background-image: url('https://i.imgur.com/GOQMFVP.png');
-      background-size: 100%;
-      background-repeat: no-repeat;
-      width: 160px;
-      height: 102px;
-      position: absolute;
-      right: 45px;
-      top: 81px;
-      z-index: 2;
-      }
+    <div id="nav">
+      <div id="navbow"></div>
+      <h2 id="navheader">Pages</h2>
+      <nav>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="poetry.html">Poetry</a></li>
+          <li><a href="art.html">Art</a></li>
+          <li><a href="coding.html">Coding</a></li>
+          <li><a href="games.html">Games</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
 
-      #content{
-      background-color: #f9e4ff;
-      position: absolute;
-      top: 114px;
-      width: 575px;
-      padding: 15px 15px 73px 15px;
-      }
+  <div id="main">
+    <div id="bow"></div>
+    <h1 id="title">Poetry and Musings</h1>
 
-      .entry{
-      width: 575px;
-      }
-
-      .entryhead{
-      width: 575px;
-      height: 80px;
-      position: relative;
-      border-bottom: 1px dotted #613f3f;
-      padding-bottom: 5px;
-      }
-
-      .icon{
-      width: 80px;
-      opacity: 0.9;
-      }
-
-      .date{
-      position: absolute;
-      bottom: 0;
-      left: 85px;
-      padding-bottom: 5px;
-      }
-
-      .date p{
-      margin: 0px;
-      letter-spacing: -1px;
-      color: #856d6d;
-      }
-
-      .datecolor{
-      color: #856d6d;
-      }
-
-      .header{
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      }
-
-      .header h2{
-      margin: 0px;
-      font-family: 'Sacramento', cursive;
-      line-height: 23px;
-      font-size: 26px;
-      color: #3d1a39;
-      }
-
-      .text{
-      text-align: justify;
-      margin-top: 5px;
-      letter-spacing: 1px;
-      color: #856d6d;
-      }
-
-      a{
-      text-decoration: none;
-      font-family: 'text';
-            text-align: justify;
-      margin-top: 5px;
-      letter-spacing: 1px;
-      color: #856d6d;
-      font-size: 16px;
-      }
-
-      a:visited{
-      color: #613f3f;
-      }
-
-      a:hover{
-      font-style: italic;
-      }
-
-      a:active{
-      font-style: italic;
-      font-weight: bold;
-      }
-
-      ::-webkit-scrollbar{
-      width: 6px;
-      }
-
-      ::-webkit-scrollbar-track{
-      background-color: #578EA3;
-      }
-
-      ::-webkit-scrollbar-thumb{
-      background-color: #cdb5b5;
-      }
-
-      #credit{
-      font-size: 12px;
-      position: fixed;
-      bottom: 70px;
-      right: 0;
-      }
-    </style>
-  </head>
-
-  <body>
-    <div id="topborder"></div>
-    <div id="bottomborder"></div>
-
-    <div id="all">
-      <div id="side">
-        <div id="profile">
-          <div id="pfp"></div>
-          <!-- see "#pfp" in CSS, 145x145px -->
-          <p id="profiletext">Murmurs in Monospace</p>
-        </div>
-
-        <div id="nav">
-          <div id="navbow"></div>
-          <h2 id="navheader">Pages</h2>
-
-          <nav>
-            <ul>
-              <li><a href="home.html">Home</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="poetry.html">Poetry</a></li>
-              <li><a href="art.html">Art</a></li>
-              <li><a href="coding.html">Coding</a></li>
-              <li><a href="games.html">Games</a></li>
-              <li><a href="blog.html">Blog</a></li>
-            </ul>
-          </nav>
-        </div>
+<div id="content">
+  <!-- ENTRY START -->
+  <div class="entry">
+    <div class="entryhead">
+      <div class="icon">
+        <img src="https://horrorgifs.neocities.org/gifs/BodyParts/BodyParts%20(34).gif" width="80" />
       </div>
-
-      <div id="main">
-        <div id="bow"></div>
-
-        <h1 id="title">Poetry and Musings</h1>
-
-        <div id="content">
-          <!-- ENTRY START -->
-
-          <div class="entry">
-            <div class="entryhead">
-              <div class="icon">
-                <img
-                  src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F474x%2F00%2Fa3%2Ffb%2F00a3fbaec0d24f0979646ebf770c9e40.jpg%3Fnii%3Dt&f=1&nofb=1&ipt=0ef9ae3f36120b147543ce476af35d6a9f3e7a7a401a5094777b681635c01054"
-                  width="80px"
-                />
-              </div>
-              <div class="date">
-                <p>
-                  <span class="datecolor"><b>Date:</b></span> 05/16/2022
-                </p>
-                <p>
-                  <span class="datecolor"><b>Mood:</b></span> jkklajfejsjf
-                </p>
-              </div>
-              <div class="header">
-                <h2>Sands of Time</h2>
-              </div>
-            </div>
-
-            <div class="text">
-<p>
-      Sadness will disappear,<br>
-      Laughter will be near,<br>
-      Loneliness will be warm,<br>
-      Hearts will be one.
-    </p>
-
-    <p>
-      Innocent like a dove<br>
-      Are the rough hewn wings of love.<br>
-      Withered and decayed <br>
-      as the once noble fledgling <br>
-      plummets into a sea of sand <br>
-      — ever descending as rings of doubt <br>
-      encompass their being.
-    </p>
-
-    <p>
-      I stumble in a daze, <br>
-      following the paths<br>
-      that shift and grow.<br>
-      No end to the paths ... <br>
-      forever stretching <br>
-      and clawing at the dunes of time.
-    </p>
-
-    <p>
-      Night swallows day and day discovers night.<br>
-      My bare feet grow bloody and blistered,<br>
-      ravaged by the wilted thorns and distant wails.<br>
-      I leave a river of shimmering crimson in my wake ~
-    </p>
-
-    <p>
-      A final voice echoes <br>
-      through the barren valley of woe —<br>
-       </p>
-
-    <p>
-      Who are you?<br>
-         I am love.<br>
-      But what is love?<br>
-         The opposite of hate.<br>
-      And what is hate?<br>
-         The incomplete knowledge of self.
-    </p>            </div>
-          </div>
-
-          <!-- ENTRY END -->
-
-          <!-- ENTRY START -->
-
-          <div class="entry">
-            <div class="entryhead">
-              <div class="icon">
-                <img
-                  src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F474x%2F00%2Fa3%2Ffb%2F00a3fbaec0d24f0979646ebf770c9e40.jpg%3Fnii%3Dt&f=1&nofb=1&ipt=0ef9ae3f36120b147543ce476af35d6a9f3e7a7a401a5094777b681635c01054"
-                  width="80px"
-                />
-              </div>
-              <div class="date">
-                <p>
-                  <span class="datecolor"><b>Date:</b></span> 05/16/2022
-                </p>
-                <p>
-                  <span class="datecolor"><b>Mood:</b></span> jkklajfejsjf
-                </p>
-              </div>
-              <div class="header">
-                <h2>Header Here</h2>
-              </div>
-            </div>
-
-            <div class="text">
-                           <p style="margin:0px;">
-
-
-
-    Donelus sat alone on his seat of stone,<br>
-
-
-    And carved and whittled a fiddle of bone;<br>
-
-
-    For he grew oh so lonely and desired company if only,<br>
-
-
-    For company was hard to come by.<br>
-
-
-    Walk by! Talk by!<br>
-
-
-    So he sat on his stone and dwelt alone.
-
-
-  </p>
-
-
-
-
-
-  <p>
-
-
-    He had learned the flute and could pluck a lute,<br>
-
-
-    But his little fiddle was a different beast;<br>
-
-
-    For he plucked it and struck it,<br>
-
-
-    For he huffed and he puffed it.<br>
-
-
-    Slammed it! Fanned it!<br>
-
-
-    Yet it seemed his fiddle was mute.
-
-
-  </p>
-
-
-
-
-
-  <p>
-
-
-    So he sat once again on that solemn throne of stone,<br>
-
-
-    And he told his fiddle riddles and jokes of his own;<br>
-
-
-    For he laughed at his musings and the broken fiddle of two strings,<br>
-
-
-    Again, silent was his fiddle of bone.
-
-
-  </p>
-
-
-
-
-
-  <p>
-
-
-    Laugh, bone! Chortle!<br>
-
-
-    Just a little chuckle will do.<br>
-
-
-    Something, bone! Anything!<br>
-
-
-    Or I'll turn you into bone broth stew.
-
-
-  </p>
-
-
-
-
-
-  <p>
-
-
-    Donelus tried his best and cast his failed creation to rest,<br>
-
-
-    But his fiddle of bone shook and whirled and spoke —<br>
-
-
-    ‘You’re playing me wrong but I’ll teach you a song,<br>
-
-
-    You blow and pluck my strings all day long;<br>
-
-
-    For a bow’s what you need - a bow of your silken hair,<br>
-
-
-    For a bow to dance on my strings of disrepair.<br>
-
-
-    A Bow! Yes a Bow! — now you know.’
-
-
-  </p>
-
-
-
-
-
-  <p>
-
-
-    He stared at his little fiddle of bone,<br>
-
-
-    Scared and bewildered by magick unknown;<br>
-
-
-    As he plucked and he prodded at his fickle white hairs,<br>
-
-
-    Completing his musical staff of nightmares.
-
-
-  </p>
-
-
-
-
-
-  <p>
-
-
-    Now he sits on his stone with a friend of his own,<br>
-
-
-    His finely whittled fiddle of bone;<br>
-
-
-    For he grew oh so lonely and desired company if only,<br>
-
-
-    For company was hard to come by.<br>
-
-
-    Walk by! Talk by!<br>
-
-
-    As he sat on his granite no longer alone.
-
-
-  </p>h</p>
-
-            </div>
-          </div>
-
-          <!-- ENTRY END -->
-
-          <!-- ENTRY START -->
-
-          <div class="entry">
-            <div class="entryhead">
-              <div class="icon">
-                <img
-                  src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F474x%2F00%2Fa3%2Ffb%2F00a3fbaec0d24f0979646ebf770c9e40.jpg%3Fnii%3Dt&f=1&nofb=1&ipt=0ef9ae3f36120b147543ce476af35d6a9f3e7a7a401a5094777b681635c01054"
-                  width="80px"
-                />
-              </div>
-              <div class="date">
-                <p>
-                  <span class="datecolor"><b>Date:</b></span> 05/16/2022
-                </p>
-                <p>
-                  <span class="datecolor"><b>Mood:</b></span> jkklajfejsjf
-                </p>
-              </div>
-              <div class="header">
-                <h2>Header Here</h2>
-              </div>
-            </div>
-
-            <div class="text">
-              <p style="margin:0px;">
-      I am troubled,<br>
-      Immeasurably,<br>
-      By the silence.
-    </p>
-
-    <p>
-      A soldier bails out,<br>
-      Leaving his entrails fluttering;<br>
-      Whipping and whirling,<br>
-
-
-      Billowing.
-
-
-    </p>
-
-
-
-
-
-    <p>
-
-
-      A crystal cottage<br>
-
-
-      Jutting out from the black mire,<br>
-
-
-      Polluted and pestilent.
-
-
-    </p>
-
-
-
-
-
-    <p>
-
-
-      There was no record of it<br>
-
-
-      Anywhere<br>
-
-
-      In the ancient signs<br>
-
-
-      And symbols.
-
-
-    </p>
-
-
-
-
-
-    <p>
-
-
-      The dead mans coat,<br>
-
-
-      Green wool,<br>
-
-
-      Sinking into the obsidian muck.
-
-
-    </p>
-
-
-
-
-
-    <p>
-
-
-      As the pellucid cot<br>
-
-
-      Cuts and claws<br>
-
-
-      And conceals<br>
-
-
-      What the silence<br>
-
-
-      Fights to explain.
-
-
-    </p>
-            </div>
-          </div>
-
-          <!-- ENTRY END -->
-
-          <!-- ENTRY START -->
-
-          <div class="entry">
-            <div class="entryhead">
-              <div class="icon">
-                <img
-                  src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F474x%2F00%2Fa3%2Ffb%2F00a3fbaec0d24f0979646ebf770c9e40.jpg%3Fnii%3Dt&f=1&nofb=1&ipt=0ef9ae3f36120b147543ce476af35d6a9f3e7a7a401a5094777b681635c01054"
-                  width="80px"
-                />
-              </div>
-              <div class="date">
-                <p>
-                  <span class="datecolor"><b>Date:</b></span> 05/16/2022
-                </p>
-                <p>
-                  <span class="datecolor"><b>Mood:</b></span> jkklajfejsjf
-                </p>
-              </div>
-              <div class="header">
-                <h2>Header Here</h2>
-              </div>
-            </div>
-
-            <div class="text">
-              <p style="margin:0px;">blah blah blah blah</p>
-            </div>
-          </div>
-
-          <!-- ENTRY END -->
-        </div>
+      <div class="date">
+        <p><span class="datecolor"><b>Date:</b></span> 05/16/2022</p>
+        <p><span class="datecolor"><b>Mood:</b></span> Eternal</p>
+      </div>
+      <div class="header">
+        <h2>Sands of Time</h2>
       </div>
     </div>
-  </body>
-<script>NekoType="ghost"</script>
-<h1 id=nl><script src="https://webneko.net/n20171213.js"></script><a 
-href="https://webneko.net">Neko</a></h1>
+
+    <div class="text" >
+      <p>
+        Sadness will disappear,<br>
+        Laughter will be near,<br>
+        Loneliness will be warm,<br>
+        Hearts will be one.
+      </p>
+
+      <p>
+        Innocent like a dove<br>
+        Are the rough hewn wings of love.<br>
+        Withered and decayed <br>
+        as the once noble fledgling <br>
+        plummets into a sea of sand <br>
+        — ever descending as rings of doubt <br>
+        encompass their being.
+      </p>
+
+      <p>
+        I stumble in a daze, <br>
+        following the paths<br>
+        that shift and grow.<br>
+        No end to the paths ... <br>
+        forever stretching <br>
+        and clawing at the dunes of time.
+      </p>
+
+      <p>
+        Night swallows day and day discovers night.<br>
+        My bare feet grow bloody and blistered,<br>
+        ravaged by the wilted thorns and distant wails.<br>
+        I leave a river of shimmering crimson in my wake ~
+      </p>
+
+      <p class="textcent">
+        A final voice echoes <br>
+        through the barren valley of woe —<br>
+      </p>
+
+      <p class="textcent">
+        Who are you?<br>
+        I am love.<br>
+        But what is love?<br>
+        The opposite of hate.<br>
+        And what is hate?<br>
+        The incomplete knowledge of self.
+      </p>
+    </div>
+  </div>
+  <!-- ENTRY END -->
+
+  <!-- ENTRY START -->
+  <div class="entry">
+    <div class="entryhead">
+      <div class="icon">
+        <img src="https://horrorgifs.neocities.org/gifs/Face/Face%20(3).gif" width="80" />
+      </div>
+      <div class="date">
+        <p><span class="datecolor"><b>Date:</b></span> 05/16/2022</p>
+        <p><span class="datecolor"><b>Mood:</b></span> Lonely Laughs</p>
+      </div>
+      <div class="header">
+        <h2>Donelus the Brave</h2>
+      </div>
+    </div>
+
+    <div class="text">
+      <p>
+        Donelus sat alone on his seat of stone,<br>
+        And carved and whittled a fiddle of bone;<br>
+        For he grew oh so lonely<br>
+         and desired company if only,<br>
+        For company was hard to come by.<br>
+        Walk by! Talk by!<br>
+        So he sat on his stone and dwelt alone.
+      </p>
+
+      <p>
+        He had learned the flute and could pluck a lute,<br>
+        But his little fiddle was a different beast;<br>
+        For he plucked it and struck it,<br>
+        For he huffed and he puffed it.<br>
+        Slammed it! Fanned it!<br>
+        Yet it seemed his fiddle was mute.
+      </p>
+
+      <p>
+        So he sat once again on that solemn throne of stone,<br>
+        And he told his fiddle riddles and jokes of his own;<br>
+        For he laughed at his musings <br>
+        and the broken fiddle of two strings,<br>
+        Again, silent was his fiddle of bone.
+      </p>
+
+      <p>
+        Laugh, bone! Chortle!<br>
+        Just a little chuckle will do.<br>
+        Something, bone! Anything!<br>
+        Or I'll turn you into bone broth stew.
+      </p>
+
+      <p>
+        Donelus tried his best <br>
+        and cast his failed creation to rest,<br>
+        But his fiddle of bone shook and whirled and spoke —<br>
+        ‘You’re playing me wrong but I’ll teach you a song,<br>
+        You blow and pluck my strings all day long;<br>
+        For a bow’s what you need - a bow of your silken hair,<br>
+        For a bow to dance on my strings of disrepair.<br>
+        A Bow! Yes a Bow! — now you know.’
+      </p>
+
+      <p>
+        He stared at his little fiddle of bone,<br>
+        Scared and bewildered by magick unknown;<br>
+        As he plucked and he prodded at his fickle white hairs,<br>
+        Completing his musical staff of nightmares.
+      </p>
+
+      <p>
+        Now he sits on his stone with a friend of his own,<br>
+        His finely whittled fiddle of bone;<br>
+        For he grew oh so lonely and desired company if only,<br>
+        For company was hard to come by.<br>
+        Walk by! Talk by!<br>
+        As he sat on his granite no longer alone.
+      </p>
+    </div>
+  </div>
+  <!-- ENTRY END -->
+
+  <!-- ENTRY START -->
+  <div class="entry">
+    <div class="entryhead">
+      <div class="icon">
+        <img src="https://horrorgifs.neocities.org/gifs/Eye/Eye%20(46).gif" width="80" />
+      </div>
+      <div class="date">
+        <p><span class="datecolor"><b>Date:</b></span> 05/16/2022</p>
+        <p><span class="datecolor"><b>Mood:</b></span> Crimson echoes</p>
+      </div>
+      <div class="header">
+        <h2>By the Silence</h2>
+      </div>
+    </div>
+
+    <div class="textcent">
+      <p>
+        I am troubled,<br>
+        Immeasurably,<br>
+        By the silence.
+      </p>
+
+      <p>
+        A soldier bails out,<br>
+        Leaving his entrails fluttering;<br>
+        Whipping and whirling,<br>
+        Billowing.
+      </p>
+
+      <p>
+        A crystal cottage<br>
+        Jutting out from the black mire,<br>
+        Polluted and pestilent.
+      </p>
+
+      <p>
+        There was no record of it<br>
+        Anywhere<br>
+        In the ancient signs<br>
+        And symbols.
+      </p>
+
+      <p>
+        The dead man's coat,<br>
+        Green wool,<br>
+        Sinking into the obsidian muck.
+      </p>
+
+      <p>
+        As the pellucid cot<br>
+        Cuts and claws<br>
+        And conceals<br>
+        What the silence<br>
+        Fights to explain.
+      </p>
+    </div>
+  </div>
+  <!-- ENTRY END -->
+
+  <!-- ENTRY START -->
+  <div class="entry">
+    <div class="entryhead">
+      <div class="icon">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F474x%2F00%2Fa3%2Ffb%2F00a3fbaec0d24f0979646ebf770c9e40.jpg&f=1&nofb=1" width="80" />
+      </div>
+      <div class="date">
+        <p><span class="datecolor"><b>Date:</b></span> 05/16/2022</p>
+        <p><span class="datecolor"><b>Mood:</b></span> jkklajfejsjf</p>
+      </div>
+      <div class="header">
+        <h2>Random Thoughts</h2>
+      </div>
+    </div>
+
+    <div class="text">
+      <p>blah blah blah blah</p>
+    </div>
+  </div>
+  <!-- ENTRY END -->
+</div>
+
+  </div>
+</div>
+
+
+
+</body>
 </html>
