@@ -8,9 +8,7 @@
   body {
     margin: 0;
     font-family: 'Pixelify Sans', monospace;
-    background: 
-      url(https://sadhost.neocities.org/images/tiles/blobz.gif) fixed,
-      rgba(60,0,120,0.6);
+    background: url(https://sadhost.neocities.org/images/tiles/blobz.gif) fixed, rgba(60,0,120,0.6);
     background-blend-mode: multiply;
     display: flex;
     flex-direction: column;
@@ -66,13 +64,13 @@
   }
 
   .window, .window * {
-    user-select: none; /* prevents text highlighting */
+    user-select: none;
     font-family: 'Pixelify Sans', monospace;
   }
 
   .window {
     border: 2px solid #003399;
-    background: #ececec;
+    background: #f2eeb7;
     box-shadow: 6px 6px 0px #222;
     border-radius: 3px;
     overflow: hidden;
@@ -111,15 +109,13 @@
     user-select: none;
   }
 
-  .button:hover {
-    box-shadow: 0 0 6px white;
-  }
+  .button:hover { box-shadow: 0 0 6px white; }
 
   .close { background: red; color: white; font-size: 24px; }
   .min, .max { background: #0a62d0; color: white; font-size: 14px; }
 
   .content {
-    background: #fdfdfd;
+    background: #f2eeb7;
     padding: 10px;
     text-align: center;
   }
@@ -130,7 +126,6 @@
     border: 1px solid #aaa;
   }
 
-  /* Dragging clone style */
   .dragging-clone {
     position: absolute;
     pointer-events: none;
@@ -141,8 +136,7 @@
 </style>
 </head>
 <body>
-<h1>ART<br>
-</h1>
+<h1>ART<br></h1>
 
 <nav>
   <ul>
@@ -153,27 +147,144 @@
     <li><a href="coding.html">Coding</a></li>
     <li><a href="games.html">Games</a></li>
     <li><a href="blog.html">Blog</a></li>
-    
   </ul>
 </nav>
 
 <div class="gallery" id="gallery">
-  
-  <div class="window"><div class="titlebar"><span>Artwork 1</span><div class="buttons"><div class="button min">_</div><div class="button max">▢</div><div class="button close">×</div></div></div><div class="content"><img src="assets/art/art3.jpg" alt="Art 1"></div></div>
-  <div class="window"><div class="titlebar"><span>Artwork 2</span><div class="buttons"><div class="button min">_</div><div class="button max">▢</div><div class="button close">×</div></div></div><div class="content"><img src="assets/art/art8.jpg" alt="Art 2"></div></div>
-  <div class="window"><div class="titlebar"><span>Artwork 3</span><div class="buttons"><div class="button min">_</div><div class="button max">▢</div><div class="button close">×</div></div></div><div class="content"><img src="assets/art/art2.jpg" alt="Art 3"></div></div>
-  <div class="window"><div class="titlebar"><span>Artwork 4</span><div class="buttons"><div class="button min">_</div><div class="button max">▢</div><div class="button close">×</div></div></div><div class="content"><img src="assets/art/art6.jpg" alt="Art 4"></div></div>
-  <div class="window"><div class="titlebar"><span>Artwork 5</span><div class="buttons"><div class="button min">_</div><div class="button max">▢</div><div class="button close">×</div></div></div><div class="content"><img src="assets/art/art0.JPG" alt="Art 5"></div></div>
-  <div class="window"><div class="titlebar"><span>Artwork 6</span><div class="buttons"><div class="button min">_</div><div class="button max">▢</div><div class="button close">×</div></div></div><div class="content"><img src="assets/art/art1.jpg" alt="Art 6"></div></div>
-  <div class="window"><div class="titlebar"><span>Artwork 7</span><div class="buttons"><div class="button min">_</div><div class="button max">▢</div><div class="button close">×</div></div></div><div class="content"><img src="assets/art/art4.jpg" alt="Art 7"></div></div>
-  <div class="window"><div class="titlebar"><span>Artwork 8</span><div class="buttons"><div class="button min">_</div><div class="button max">▢</div><div class="button close">×</div></div></div><div class="content"><img src="assets/art/art5.jpg" alt="Art 7"></div></div>
-  <div class="window"><div class="titlebar"><span>Artwork 9</span><div class="buttons"><div class="button min">_</div><div class="button max">▢</div><div class="button close">×</div></div></div><div class="content"><img src="assets/art/art7.jpg" alt="Art 7"></div></div>
-  <div class="window"><div class="titlebar"><span>Artwork 10</span><div class="buttons"><div class="button min">_</div><div class="button max">▢</div><div class="button close">×</div></div></div><div class="content"><img src="assets/art/art9.jpg" alt="Art 7"></div></div>
-  <div class="window"><div class="titlebar"><span>Artwork 11</span><div class="buttons"><div class="button min">_</div><div class="button max">▢</div><div class="button close">×</div></div></div><div class="content"><img src="assets/art/art10.jpg" alt="Art 7"></div></div>
-  <div class="window"><div class="titlebar"><span>Artwork 12</span><div class="buttons"><div class="button min">_</div><div class="button max">▢</div><div class="button close">×</div></div></div><div class="content"><img src="assets/art/art11.jpg" alt="Art 7"></div></div>
-  <div class="window"><div class="titlebar"><span>Artwork 13</span><div class="buttons"><div class="button min">_</div><div class="button max">▢</div><div class="button close">×</div></div></div><div class="content"><img src="assets/art/art12.jpg" alt="Art 7"></div></div>
-  <div class="window"><div class="titlebar"><span>Artwork 14</span><div class="buttons"><div class="button min">_</div><div class="button max">▢</div><div class="button close">×</div></div></div><div class="content"><img src="assets/art/art13.jpg" alt="Art 7"></div></div>
+  <div class="window"><div class="titlebar"><span>Artwork 1</span><div class="buttons"><div class="button close">×</div></div></div><div class="content"><img src="assets/art/art3.jpg" alt="Art 1"></div></div>
+  <div class="window"><div class="titlebar"><span>Artwork 2</span><div class="buttons"><div class="button close">×</div></div></div><div class="content"><img src="assets/art/art8.jpg" alt="Art 2"></div></div>
+  <div class="window"><div class="titlebar"><span>Artwork 3</span><div class="buttons"><div class="button close">×</div></div></div><div class="content"><img src="assets/art/art2.jpg" alt="Art 3"></div></div>
+  <div class="window"><div class="titlebar"><span>Artwork 4</span><div class="buttons"><div class="button close">×</div></div></div><div class="content"><img src="assets/art/art6.jpg" alt="Art 4"></div></div>
+  <div class="window"><div class="titlebar"><span>Artwork 5</span><div class="buttons"><div class="button close">×</div></div></div><div class="content"><img src="assets/art/art0.JPG" alt="Art 5"></div></div>
+  <div class="window"><div class="titlebar"><span>Artwork 6</span><div class="buttons"><div class="button close">×</div></div></div><div class="content"><img src="assets/art/art1.jpg" alt="Art 6"></div></div>
+  <div class="window"><div class="titlebar"><span>Artwork 7</span><div class="buttons"><div class="button close">×</div></div></div><div class="content"><img src="assets/art/art4.jpg" alt="Art 7"></div></div>
+  <div class="window"><div class="titlebar"><span>Artwork 8</span><div class="buttons"><div class="button close">×</div></div></div><div class="content"><img src="assets/art/art5.jpg" alt="Art 8"></div></div>
+  <div class="window"><div class="titlebar"><span>Artwork 9</span><div class="buttons"><div class="button close">×</div></div></div><div class="content"><img src="assets/art/art7.jpg" alt="Art 9"></div></div>
+  <div class="window"><div class="titlebar"><span>Artwork 10</span><div class="buttons"><div class="button close">×</div></div></div><div class="content"><img src="assets/art/art9.jpg" alt="Art 10"></div></div>
+  <div class="window"><div class="titlebar"><span>Artwork 11</span><div class="buttons"><div class="button close">×</div></div></div><div class="content"><img src="assets/art/art10.jpg" alt="Art 11"></div></div>
+  <div class="window"><div class="titlebar"><span>Artwork 12</span><div class="buttons"><div class="button close">×</div></div></div><div class="content"><img src="assets/art/art11.jpg" alt="Art 12"></div></div>
+  <div class="window"><div class="titlebar"><span>Artwork 13</span><div class="buttons"><div class="button close">×</div></div></div><div class="content"><img src="assets/art/art12.jpg" alt="Art 13"></div></div>
+  <div class="window"><div class="titlebar"><span>Artwork 14</span><div class="buttons"><div class="button close">×</div></div></div><div class="content"><img src="assets/art/art13.jpg" alt="Art 14"></div></div>
 </div>
+
+<div id="clippy-container" style="position:fixed; bottom:10px; right:10px; text-align:right; cursor:pointer;">
+  <img id="clippy-img" src="https://media.tenor.com/WbF039Su6TIAAAAi/clippy.gif" alt="Clippy" width="110">
+  <div id="clippy-text" style="background:#f2eeb7;border:1px solid #000;border-radius:5px;padding:5px;margin-top:2px;">
+    Hi! I'm Clippy!
+  </div>
+</div>
+
+<script>
+let clippyStage = 0;
+let popupCount = 0;
+
+document.getElementById('clippy-container').addEventListener('click', function() {
+  const clippyImg = document.getElementById('clippy-img');
+  const clippyText = document.getElementById('clippy-text');
+
+  if (clippyStage === 0) {
+    clippyImg.src = 'https://media.tenor.com/cceueTeJSjoAAAAi/clippy.gif';
+    clippyText.innerText = "Click here to DRAW!";
+    clippyStage = 1;
+  } else if (clippyStage === 1) {
+    // Create popup
+    const popup = document.createElement('div');
+    popup.classList.add('window');
+    popup.style.position = 'fixed';
+    popup.style.top = `calc(50% + ${20 * popupCount}px)`;
+    popup.style.left = `calc(50% + ${20 * popupCount}px)`;
+    popup.style.transform = 'translate(-50%, -50%)';
+    popup.style.zIndex = 1000 + popupCount;
+
+    popup.innerHTML = `
+      <div class="titlebar">
+        <span>Draw Box</span>
+        <div class="buttons"><div class="button close">×</div></div>
+      </div>
+      <div class="content">
+        <canvas id="draw-canvas-${popupCount}" width="400" height="300" style="border:2px solid #724a24; cursor:crosshair;"></canvas>
+      </div>
+    `;
+
+    document.body.appendChild(popup);
+
+    // Close button
+    popup.querySelector('.close').addEventListener('click', () => popup.remove());
+
+    // Drawing logic
+    const canvas = document.getElementById(`draw-canvas-${popupCount}`);
+    const ctx = canvas.getContext('2d');
+    let drawing = false;
+    canvas.addEventListener('mousedown', e => {
+      drawing = true;
+      ctx.beginPath();
+      ctx.moveTo(e.offsetX, e.offsetY);
+    });
+    canvas.addEventListener('mousemove', e => {
+      if (!drawing) return;
+      ctx.lineTo(e.offsetX, e.offsetY);
+      ctx.strokeStyle = 'black';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+    });
+    canvas.addEventListener('mouseup', () => drawing = false);
+    canvas.addEventListener('mouseleave', () => drawing = false);
+
+    // Drag popup by titlebar
+    const titlebar = popup.querySelector('.titlebar');
+    let offsetX, offsetY, isDragging = false;
+    titlebar.addEventListener('mousedown', e => {
+      isDragging = true;
+      offsetX = e.clientX - popup.offsetLeft;
+      offsetY = e.clientY - popup.offsetTop;
+    });
+    document.addEventListener('mousemove', e => {
+      if (!isDragging) return;
+      popup.style.left = (e.clientX - offsetX) + 'px';
+      popup.style.top = (e.clientY - offsetY) + 'px';
+      popup.style.transform = 'none';
+    });
+    document.addEventListener('mouseup', () => isDragging = false);
+
+    popupCount++;
+  }
+});
+
+// Gallery dragging
+const gallery = document.getElementById('gallery');
+let draggingItem = null, clone = null, offsetX = 0, offsetY = 0;
+function getPositions() {
+  return Array.from(gallery.children).map(el => el.getBoundingClientRect());
+}
+gallery.querySelectorAll('.window').forEach(win => {
+  win.querySelector('.titlebar').addEventListener('mousedown', e => {
+    draggingItem = win;
+    const rect = win.getBoundingClientRect();
+    offsetX = e.clientX - rect.left;
+    offsetY = e.clientY - rect.top;
+    clone = win.cloneNode(true);
+    clone.classList.add('dragging-clone');
+    clone.style.width = rect.width + 'px';
+    clone.style.height = rect.height + 'px';
+    clone.style.left = rect.left + 'px';
+    clone.style.top = rect.top + 'px';
+    document.body.appendChild(clone);
+    win.style.visibility = 'hidden';
+  });
+});
+document.addEventListener('mousemove', e => {
+  if (!clone) return;
+  clone.style.left = e.clientX - offsetX + 'px';
+  clone.style.top = e.clientY - offsetY + 'px';
+});
+document.addEventListener('mouseup', e => {
+  if (!clone) return;
+  clone.remove();
+  draggingItem.style.visibility = 'visible';
+  clone = null;
+  draggingItem = null;
+});
+</script>
 
 <script>
 const gallery = document.getElementById('gallery');
@@ -186,7 +297,7 @@ function getPositions() {
 }
 
 gallery.querySelectorAll('.window').forEach(win => {
-  win.addEventListener('mousedown', e => {
+  win.querySelector('.titlebar').addEventListener('mousedown', e => {
     draggingItem = win;
     const rect = win.getBoundingClientRect();
     offsetX = e.clientX - rect.left;
@@ -220,9 +331,8 @@ document.addEventListener('mousemove', e => {
   });
 });
 
-document.addEventListener('mouseup', e => {
+document.addEventListener('mouseup', () => {
   if (!clone) return;
-  const rect = draggingItem.getBoundingClientRect();
   clone.remove();
   draggingItem.style.visibility = 'visible';
   clone = null;
