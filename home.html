@@ -127,6 +127,27 @@ textarea {background:#000;border:1px solid #123E12;color:#458c3a;font:10px 'gold
   box-shadow: none; /* removes browser glow on click */
 }
 
+.img-floatinganim {
+animation-name: floating; 
+animation-duration: 3s; 
+animation-iteration-count: infinite; 
+animation-timing-function: ease-in-out;
+} 
+
+@keyframes floating { 
+0% { 
+transform: translate(0,  0px); 
+} 
+
+50%  { 
+transform: translate(0, 15px); 
+} 
+
+100%   {
+transform: translate(0, -0px); 
+} 
+}     
+    
 #hangman button {
   background-color: #000;      /* black button */
   color: green;              /* green text */
@@ -324,6 +345,23 @@ function linkit(q) {
   cursor: pointer;
 }
 
+@keyframes pop {
+  0%   { transform: translateX(-10px); }
+  50%  { transform: translateX(10px); }
+  100% { transform: translateX(-10px); }
+}
+
+.img-popinoutanim {
+  -webkit-animation: pop 1s ease-in-out infinite alternate;
+  animation: pop 1s ease-in-out infinite alternate;
+  width: 40%;
+  display: block;
+  margin: 0 auto 10px auto;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+
 /* Custom radio circle */
 .text .checkmark {
   position: absolute;
@@ -401,11 +439,19 @@ function submitPoll() {
 <center><img class="greentint" src="https://adriansblinkiecollection.neocities.org/k11.gif" width="165" alt="bunny2"></center><br>
 <center><img class="greentint-expand" src="https://datoxicwaltz.neocities.org/img/homemadegifs/isopod.gif" width="165" alt="bunny2"></center>
 <center><img class="greentint-expand" src="https://adriansblinkiecollection.neocities.org/g118.gif" width="165" alt="bunny2"></center><br>
-<img class="greentint" src="https://datoxicwaltz.neocities.org/img/buttons/doomrl.gif" width="80" alt="bunny2">
-<img class="greentint" src="https://datoxicwaltz.neocities.org/img/buttons/lain%20green.gif" width="80" alt="bunny2">
+  <div style="text-align: center;">
+  <a href="https://danihre.github.io/jsdoom/" target="_blank">
+    <img class="greentint" src="https://datoxicwaltz.neocities.org/img/buttons/doomrl.gif" width="80" alt="bunny2" style="pointer-events:auto;">
+  </a>  
+  <img class="greentint" src="https://datoxicwaltz.neocities.org/img/buttons/lain%20green.gif" width="80" alt="bunny2">
+</div>
+
 <center><img class="greentint" src="https://datoxicwaltz.neocities.org/img/buttons/fishtank.gif" width="165" alt="bunny2"></center>
-<img class="greentint" src="https://datoxicwaltz.neocities.org/img/buttons/a100.gif" width="80" alt="bunny2">
-<img class="greentint" src="https://datoxicwaltz.neocities.org/img/buttons/h6.gif" width="80" alt="bunny2">
+<div style="text-align: center;">
+  <img class="greentint" src="https://datoxicwaltz.neocities.org/img/buttons/a100.gif" width="80" alt="bunny2">
+  <img class="greentint" src="https://datoxicwaltz.neocities.org/img/buttons/h6.gif" width="80" alt="bunny2">
+</div>
+
 
 
 
@@ -415,7 +461,7 @@ function submitPoll() {
 
 <td class="middle" width="300" valign="top">
 <div class="title">004. Bio </div>
-<div class="box">
+<div class="box" style="text-align: center;">
 Heyyo!! I’m Ansel (he/him) — lifelong gamer, artist, and tinkerer. <br>
 <br>Recently, I’ve been getting back into sculpting and painting miniatures for RPGs (largely one called MÖRK BORG). When I’m not wiring circuits or coding linux setups, you might find me exploring new games, writing poetry, or enjoying nature. <br>
 </div>
@@ -434,16 +480,16 @@ Heyyo!! I’m Ansel (he/him) — lifelong gamer, artist, and tinkerer. <br>
 </style>
 
 <div style="text-align:center; margin-top:10px;">
-  <img class="greentint-expand" src="https://files.catbox.moe/mdhlgl.webp" width="250">
+  <img class="img-popinoutanim" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2Fccu9c0Iu7aGFa%2Fgiphy.gif&f=1&nofb=1&ipt=bb805fcbb28d9171de3ae8a16f29cb76d8bf2fdb034c474f8c580b102db504a2" width="100">
 
   <h3 style="color:#44ff99;; font-family:'Orbitron', monospace; margin-top:15px;">Top 5 Albums</h3>
 <ol style="text; text-align:left; padding-left:0; margin-left:20px;">
-    <li>Dead Kennedys – Fresh Fruit for Rotting Vegetables</li>
-    <li>Dystopia – Human = Garbage</li>
-    <li>Einstürzende Neubauten – Halber Mensch</li>
-    <li>Radiohead – OK Computer</li>
-    <li>Primus – Sailing the Seas of Cheese</li>
-  </ol>
+  <li>Dystopia – Human = Garbage (2000)</li>
+    <li>Radiohead – Kid A (2000)</li>
+      <li>Primus – Sailing the Seas of Cheese (1991)</li>
+  <li>Einstürzende Neubauten – Halber Mensch (1985)</li>
+  <li>Aphex Twin – Selected Ambient Works 85–92 (1992)</li>
+</ol>
 </div>
 </div>
 
@@ -451,7 +497,6 @@ Heyyo!! I’m Ansel (he/him) — lifelong gamer, artist, and tinkerer. <br>
 <style>
 .greentint-expand {
   transition: filter 0.4s ease, transform 0.3s ease;
-  cursor: pointer;
 }
 
 .greentint-expand:hover {
@@ -570,8 +615,7 @@ Heyyo!! I’m Ansel (he/him) — lifelong gamer, artist, and tinkerer. <br>
   // Playlist
   var playlist = [
     { title: "Radiohead - Sail To The Moon", src: "assets/sail.mp3" },
-    { title: "Radiohead - Pyramid Song", src: "assets/pyramid.mp3" },
-    { title: "Radiohead - Everything In Its Right Place", src: "assets/everything.mp3" }
+    { title: "Primus - My Name is Mud", src: "assets/mud.mp3" },
   ];
 
   var currentTrack = 0;
