@@ -114,29 +114,30 @@
   .close { background: red; color: white; font-size: 24px; }
   .min, .max { background: #0a62d0; color: white; font-size: 14px; }
 
-  .content {
-    background: #f2eeb7;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;  /* vertical centering */
-    min-height: 250px;
-    transition: max-height 0.3s ease, opacity 0.3s ease;
-    overflow: hidden;
-  }
+.content {
+  background: #f2eeb7;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;  /* vertical centering */
+  transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+  overflow: hidden;
+  max-height: 500px; /* enough to fit large images */
+}
 
-  .content img {
-    max-width: 100%;
-    max-height: 100%;
-    height: auto;
-    border: 1px solid #aaa;
-  }
+.content img {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  border: 1px solid #aaa;
+}
 
-  .content.hidden {
-    max-height: 0;
-    opacity: 0;
-    padding: 0;
-  }
+.content.hidden {
+  max-height: 0;
+  opacity: 0;
+  padding: 0;
+}
+
 </style>
 </head>
 <body>
