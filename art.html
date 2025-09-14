@@ -77,7 +77,6 @@
     width: 100%;
     max-width: 430px;
     transition: transform 0.3s ease;
-    cursor: grab;
   }
 
   .titlebar {
@@ -89,6 +88,7 @@
     justify-content: space-between;
     align-items: center;
     font-size: 14px;
+    cursor: default;
   }
 
   .buttons {
@@ -117,21 +117,25 @@
   .content {
     background: #f2eeb7;
     padding: 10px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;  /* vertical centering */
+    min-height: 250px;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    overflow: hidden;
   }
 
   .content img {
     max-width: 100%;
+    max-height: 100%;
     height: auto;
     border: 1px solid #aaa;
   }
 
-  .dragging-clone {
-    position: absolute;
-    pointer-events: none;
-    z-index: 1000;
-    transform: scale(1.05);
-    box-shadow: 8px 8px 0px #222;
+  .content.hidden {
+    max-height: 0;
+    opacity: 0;
+    padding: 0;
   }
 </style>
 </head>
@@ -175,6 +179,15 @@
 </div>
 
 <script>
+// Toggle gallery minimize
+document.querySelectorAll('.window .close').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const content = btn.closest('.window').querySelector('.content');
+    content.classList.toggle('hidden');
+  });
+});
+
+// Existing Clippy drawbox logic
 let clippyStage = 0;
 let popupCount = 0;
 
@@ -187,7 +200,6 @@ document.getElementById('clippy-container').addEventListener('click', function()
     clippyText.innerText = "Click here to DRAW!";
     clippyStage = 1;
   } else if (clippyStage === 1) {
-    // Create popup
     const popup = document.createElement('div');
     popup.classList.add('window');
     popup.style.position = 'fixed';
@@ -248,95 +260,6 @@ document.getElementById('clippy-container').addEventListener('click', function()
 
     popupCount++;
   }
-});
-
-// Gallery dragging
-const gallery = document.getElementById('gallery');
-let draggingItem = null, clone = null, offsetX = 0, offsetY = 0;
-function getPositions() {
-  return Array.from(gallery.children).map(el => el.getBoundingClientRect());
-}
-gallery.querySelectorAll('.window').forEach(win => {
-  win.querySelector('.titlebar').addEventListener('mousedown', e => {
-    draggingItem = win;
-    const rect = win.getBoundingClientRect();
-    offsetX = e.clientX - rect.left;
-    offsetY = e.clientY - rect.top;
-    clone = win.cloneNode(true);
-    clone.classList.add('dragging-clone');
-    clone.style.width = rect.width + 'px';
-    clone.style.height = rect.height + 'px';
-    clone.style.left = rect.left + 'px';
-    clone.style.top = rect.top + 'px';
-    document.body.appendChild(clone);
-    win.style.visibility = 'hidden';
-  });
-});
-document.addEventListener('mousemove', e => {
-  if (!clone) return;
-  clone.style.left = e.clientX - offsetX + 'px';
-  clone.style.top = e.clientY - offsetY + 'px';
-});
-document.addEventListener('mouseup', e => {
-  if (!clone) return;
-  clone.remove();
-  draggingItem.style.visibility = 'visible';
-  clone = null;
-  draggingItem = null;
-});
-</script>
-
-<script>
-const gallery = document.getElementById('gallery');
-let draggingItem = null;
-let clone = null;
-let offsetX = 0, offsetY = 0;
-
-function getPositions() {
-  return Array.from(gallery.children).map(el => el.getBoundingClientRect());
-}
-
-gallery.querySelectorAll('.window').forEach(win => {
-  win.querySelector('.titlebar').addEventListener('mousedown', e => {
-    draggingItem = win;
-    const rect = win.getBoundingClientRect();
-    offsetX = e.clientX - rect.left;
-    offsetY = e.clientY - rect.top;
-
-    clone = win.cloneNode(true);
-    clone.classList.add('dragging-clone');
-    clone.style.width = rect.width + 'px';
-    clone.style.height = rect.height + 'px';
-    clone.style.left = rect.left + 'px';
-    clone.style.top = rect.top + 'px';
-    document.body.appendChild(clone);
-
-    win.style.visibility = 'hidden';
-  });
-});
-
-document.addEventListener('mousemove', e => {
-  if (!clone) return;
-  clone.style.left = e.clientX - offsetX + 'px';
-  clone.style.top = e.clientY - offsetY + 'px';
-
-  const positions = getPositions();
-  positions.forEach((pos, i) => {
-    const elem = gallery.children[i];
-    if (elem === draggingItem) return;
-    if (e.clientY > pos.top && e.clientY < pos.bottom &&
-        e.clientX > pos.left && e.clientX < pos.right) {
-      gallery.insertBefore(draggingItem, i > Array.from(gallery.children).indexOf(draggingItem) ? elem.nextSibling : elem);
-    }
-  });
-});
-
-document.addEventListener('mouseup', () => {
-  if (!clone) return;
-  clone.remove();
-  draggingItem.style.visibility = 'visible';
-  clone = null;
-  draggingItem = null;
 });
 </script>
 </body>
