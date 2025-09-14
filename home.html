@@ -1,4 +1,4 @@
-l<HTML>
+<HTML>
 <head>
 <title>ansel.labs </title>
 <link rel="shortcut icon" href="https://files.catbox.moe/m5tyiv.png">
@@ -401,7 +401,11 @@ function submitPoll() {
 <center><img class="greentint" src="https://adriansblinkiecollection.neocities.org/k11.gif" width="165" alt="bunny2"></center><br>
 <center><img class="greentint-expand" src="https://datoxicwaltz.neocities.org/img/homemadegifs/isopod.gif" width="165" alt="bunny2"></center>
 <center><img class="greentint-expand" src="https://adriansblinkiecollection.neocities.org/g118.gif" width="165" alt="bunny2"></center><br>
-<center><img class="greentint" src="https://datoxicwaltz.neocities.org/img/buttons/doomrl.gif" width="165" alt="bunny2"></center>
+<img class="greentint" src="https://datoxicwaltz.neocities.org/img/buttons/doomrl.gif" width="80" alt="bunny2" style="padding-left:12px;">
+<img class="greentint" src="https://datoxicwaltz.neocities.org/img/buttons/lain%20green.gif" width="80" alt="bunny2">
+<center><img class="greentint" src="https://datoxicwaltz.neocities.org/img/buttons/fishtank.gif" width="165" alt="bunny2"></center>
+<img class="greentint" src="https://datoxicwaltz.neocities.org/img/buttons/a100.gif" width="80" alt="bunny2" style="padding-left:12px;">
+<img class="greentint" src="https://datoxicwaltz.neocities.org/img/buttons/h6.gif" width="80" alt="bunny2">
 
 
 
@@ -561,7 +565,13 @@ Heyyo!! I’m Ansel (he/him) — lifelong gamer, artist, and tinkerer. <br>
 </script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<center><img src="https://datoxicwaltz.neocities.org/img/homemadegifs/sludgecola.gif" width="110" alt="bunny2"></center><br>
+<center>
+  <img src="https://horrorgifs.neocities.org/gifs/Face/Face%20(45).gif" 
+       width="110" 
+       alt="bunny2" 
+       style="filter: hue-rotate(90deg) saturate(2);">
+</center>
+<br>
 
 
 <div class="title">008. Hangman </div>
@@ -581,10 +591,9 @@ Heyyo!! I’m Ansel (he/him) — lifelong gamer, artist, and tinkerer. <br>
 <div class="box" style="text-align:center;">
 
   <div id="tarot-container">
-    <p>Click the card <br>
-    for more info</p>
-    <button onclick="changecard()">Pull Card</button>
 
+
+  <img class="greentint" id="tarot-back" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2F0e%2F95%2F26%2F0e9526dad1a7bf684c3e10be0e155b53.jpg&f=1&nofb=1&ipt=22906e6e377636b9d4c698181a39235646b3700690414548a9d213af48f05213" width="150" alt="Back of Tarot Card" onclick="changecard()">
   <div class="card"><a target="_blank" href="https://www.thetarotguide.com/the-fool/"><img src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/867803/The_Fool_thoth_rzupqw.jpg" width="150"></a></div>
   <div class="card"><a target="_blank" href="https://www.thetarotguide.com/the-magician/"><img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.esotericmeanings.com%2Fwp-content%2Fuploads%2F2016%2F01%2Fthoth-tarot-magus-large-2-668x1024.jpg&f=1&nofb=1&ipt=47eb5d22e4b939b5d8cb037909814928a96e4549d3cee5de85b86c15a4c02659" width="150"></a></div>
   <div class="card"><a target="_blank" href="https://www.thetarotguide.com/the-high-priestess/"><img src="https://www.esotericmeanings.com/wp-content/uploads/2016/01/thothpriestess.jpg" width="150"></a></div>
@@ -606,19 +615,29 @@ Heyyo!! I’m Ansel (he/him) — lifelong gamer, artist, and tinkerer. <br>
   <div class="card"><a target="_blank" href="https://www.thetarotguide.com/the-sun/"><img src="https://www.esotericmeanings.com/wp-content/uploads/2017/05/thothsuntarot_large.jpg" width="150"></a></div>
   <div class="card"><a target="_blank" href="https://www.thetarotguide.com/judgement/"><img src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/867803/The_Aeon_xxwsps.jpg" width="150"></a></div>
   <div class="card"><a target="_blank" href="https://www.thetarotguide.com/the-world/"><img src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/867803/Key_21-The_Universe_loq9ri.jpg" width="150"></a></div>
+
+      <button onclick="changecard()">New Card</button>
+
 </div>
 </div>
 
 <script>
 function changecard() {
+  let back = document.getElementById("tarot-back");
+  back.style.display = "none"; // hide the back once clicked
+
   let cards = document.querySelectorAll('#tarot-container .card');
-  // Hide all
   cards.forEach(c => c.style.display = "none");
 
-  // Pick a random one
   let randomIndex = Math.floor(Math.random() * cards.length);
-  cards[randomIndex].style.display = "block";
+  let chosen = cards[randomIndex];
+
+  // Random upright or reversed (50/50 chance)
+  let reversed = Math.random() < 0.5;
+  chosen.style.display = "block";
+  chosen.querySelector("img").style.transform = reversed ? "rotate(180deg)" : "rotate(0deg)";
 }
+
 </script>
 
 <style>
@@ -629,7 +648,12 @@ function changecard() {
 #tarot-container img {
   border: 1px solid #113711;
   border-radius: 5px;
+  cursor: pointer;  /* makes it obvious you can click */
 }
+#tarot-container .card img {
+  transition: transform 0.4s ease; /* smooth flip */
+}
+
 #tarot-container button {
   background-color: #000;      /* black button */
   color: green;               /* green text */
