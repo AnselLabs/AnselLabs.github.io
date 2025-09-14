@@ -1,4 +1,4 @@
-<HTML>
+l<HTML>
 <head>
 <title>ansel.labs </title>
 <link rel="shortcut icon" href="https://files.catbox.moe/m5tyiv.png">
@@ -394,13 +394,15 @@ function submitPoll() {
 }
 </style>
 
-<center><img class="greentint" src="https://datoxicwaltz.neocities.org/img/banners/1417.gif" width="165" alt="bunny2"></center><br>
-<center><img class="greentint" src="https://datoxicwaltz.neocities.org/img/banners/becomebaby.jpg" width="165" alt="bunny2"></center><br>
-<center><img class="greentint" src="https://datoxicwaltz.neocities.org/img/banners/virusbanner.gif" width="165" alt="bunny2"></center><br>
-<center><img class="greentint" src="https://datoxicwaltz.neocities.org/img/banners/staticx435x75.jpg" width="165" alt="bunny2"></center><br>
+<center><img class="greentint" src="https://datoxicwaltz.neocities.org/img/banners/1417.gif" width="165" alt="bunny2"></center>
+<center><img class="greentint" src="https://datoxicwaltz.neocities.org/img/banners/becomebaby.jpg" width="165" alt="bunny2"></center>
+<center><img class="greentint" src="https://datoxicwaltz.neocities.org/img/banners/virusbanner.gif" width="165" alt="bunny2"></center>
+<center><img class="greentint" src="https://datoxicwaltz.neocities.org/img/banners/staticx435x75.jpg" width="165" alt="bunny2"></center>
 <center><img class="greentint" src="https://adriansblinkiecollection.neocities.org/k11.gif" width="165" alt="bunny2"></center><br>
-<center><img class="greentint-expand" src="https://datoxicwaltz.neocities.org/img/homemadegifs/isopod.gif" width="165" alt="bunny2"></center><br>
-<center><img class="greentint" src="https://adriansblinkiecollection.neocities.org/g118.gif" width="165" alt="bunny2"></center><br>
+<center><img class="greentint-expand" src="https://datoxicwaltz.neocities.org/img/homemadegifs/isopod.gif" width="165" alt="bunny2"></center>
+<center><img class="greentint-expand" src="https://adriansblinkiecollection.neocities.org/g118.gif" width="165" alt="bunny2"></center><br>
+<center><img class="greentint" src="https://datoxicwaltz.neocities.org/img/buttons/doomrl.gif" width="165" alt="bunny2"></center>
+
 
 
 <br>
@@ -408,13 +410,13 @@ function submitPoll() {
 </td>
 
 <td class="middle" width="300" valign="top">
-<div class="title">001. Bio </div>
+<div class="title">004. Bio </div>
 <div class="box">
 Heyyo!! I’m Ansel (he/him) — lifelong gamer, artist, and tinkerer. <br>
 <br>Recently, I’ve been getting back into sculpting and painting miniatures for RPGs (largely one called MÖRK BORG). When I’m not wiring circuits or coding linux setups, you might find me exploring new games, writing poetry, or enjoying nature. <br>
 </div>
 
-<div class="title">002. Jams </div>
+<div class="title">005. Jams </div>
 <div class="box">
 <style>
 .greentint-expand {
@@ -454,7 +456,7 @@ Heyyo!! I’m Ansel (he/him) — lifelong gamer, artist, and tinkerer. <br>
 }
 </style>
 
-<div class="title">003. Sudoku </div>
+<div class="title">006. Sudoku </div>
 <div class="box" style="text-align:center;"> <!-- center Sudoku -->
   <div id="sudoku-container" style="display:inline-block; margin-bottom:6px;"></div> <!-- small padding below -->
 
@@ -522,7 +524,60 @@ Heyyo!! I’m Ansel (he/him) — lifelong gamer, artist, and tinkerer. <br>
 
 
 <td class="right" width="200" valign="top">
-<div class="title">004. Tarot Pull</div>
+
+<div class="title">007. music</div>
+<div class="box" style="text-align:center;">
+
+  <div class="autoplayer" style="display:flex; align-items:center; justify-content:center; gap:5px;">
+    <button id="button" style="background:#003300; color:#00FF00; border:none; font-size:18px; height:35px; width:35px; cursor:pointer;">
+      <i class="fa fa-play"></i>
+    </button>
+    
+    <audio loop id="player" style="display:none;">
+      <source src="assets/sail.mp3" type="audio/mpeg">
+    </audio>
+    
+    <a target="_blank"  style=".text">
+      Radiohead - Sail To The Moon
+    </a>
+  </div>
+
+
+</div>
+
+<script>
+  var button = document.getElementById("button");
+  var audio = document.getElementById("player");
+
+  button.addEventListener("click", function () {
+    if (audio.paused) {
+      audio.play();
+      button.innerHTML = '<i class="fa fa-pause"></i>';
+    } else {
+      audio.pause();
+      button.innerHTML = '<i class="fa fa-play"></i>';
+    }
+  });
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<center><img src="https://datoxicwaltz.neocities.org/img/homemadegifs/sludgecola.gif" width="110" alt="bunny2"></center><br>
+
+
+<div class="title">008. Hangman </div>
+<div class="box" style="text-align:center;"> <!-- center Hangman -->
+  <div id="hangman">
+    <p>Guess the word:</p>
+    <div id="hangman-word">_ _ _ _ _ _ _ _ _</div>
+    <input type="text" id="letter-input" maxlength="24" autofocus style="width:100px;"> <!-- smaller width -->
+    <button onclick="guessLetter()">Guess</button>
+    <p id="hangman-message"></p>
+  </div>
+</div>
+
+
+
+<div class="title">009. Tarot</div>
 <div class="box" style="text-align:center;">
 
   <div id="tarot-container">
@@ -591,58 +646,6 @@ function changecard() {
   color: #0f0;                 /* brighter green text */
 }
 </style>
-
-
-
-<center><img src="https://files.catbox.moe/agkzq4.png" width="110" alt="bunny2"></center><br>
-
-<div class="title">002. Hangman </div>
-<div class="box" style="text-align:center;"> <!-- center Hangman -->
-  <div id="hangman">
-    <p>Guess the word:</p>
-    <div id="hangman-word">_ _ _ _ _ _ _ _ _</div>
-    <input type="text" id="letter-input" maxlength="24" autofocus style="width:100px;"> <!-- smaller width -->
-    <button onclick="guessLetter()">Guess</button>
-    <p id="hangman-message"></p>
-  </div>
-</div>
-
-<div class="title">002. music</div>
-<div class="box" style="text-align:center;">
-
-  <div class="autoplayer" style="display:flex; align-items:center; justify-content:center; gap:5px;">
-    <button id="button" style="background:#003300; color:#00FF00; border:none; font-size:18px; height:35px; width:35px; cursor:pointer;">
-      <i class="fa fa-play"></i>
-    </button>
-    
-    <audio loop id="player" style="display:none;">
-      <source src="assets/sail.mp3" type="audio/mpeg">
-    </audio>
-    
-    <a target="_blank"  style=".text">
-      Radiohead - Sail To The Moon
-    </a>
-  </div>
-
-
-</div>
-
-<script>
-  var button = document.getElementById("button");
-  var audio = document.getElementById("player");
-
-  button.addEventListener("click", function () {
-    if (audio.paused) {
-      audio.play();
-      button.innerHTML = '<i class="fa fa-pause"></i>';
-    } else {
-      audio.pause();
-      button.innerHTML = '<i class="fa fa-play"></i>';
-    }
-  });
-</script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 
 
 </td>
