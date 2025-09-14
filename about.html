@@ -16,10 +16,10 @@ body {
   background: #130c25 url(https://sadhost.neocities.org/images/tiles/background038.gif) fixed;
   font-family: 'Pixelify Sans', 'Courier New', Lato, Calibri, Verdana;
   font-size: 12px;
-  color: #00ff00; /* hacker green body text */
+  color: #00ff00;
   letter-spacing: 1px;
   margin: 0;
-  padding-top: 50px; /* <- shifts everything down */
+  padding-top: 50px;
   overflow-x: hidden;
   position: relative;
 }
@@ -36,8 +36,8 @@ i { color: #FF84B2; font-style: normal; }
 
 /* Header */
 #header {
-  width: 500px;
-  margin: 20px auto 10px auto;
+  width: 700px;
+  margin: 10px auto;
   height: 40px;
   background: #FEB2CE;
   border-radius: 15px;
@@ -49,7 +49,7 @@ i { color: #FF84B2; font-style: normal; }
 
 /* Navigation Bar */
 nav {
-  width: 500px;
+  width: 700px;
   margin: 0 auto 20px auto;
   background: #130c25;
   border-radius: 10px;
@@ -83,11 +83,11 @@ nav ul li a {
 
 /* Single container with two columns */
 #container {
-  width: 900px;
+  width: 700px;
   margin: 0px auto 40px auto;
-  background: #130c25; /* dark plum */
+  background: #130c25;
   display: grid;
-  grid-template-columns: 1fr 2fr; /* left column smaller */
+  grid-template-columns: 1fr 2fr;
   gap: 10px;
   padding: 15px;
   border-radius: 15px;
@@ -97,18 +97,10 @@ nav ul li a {
 
 /* Left column */
 .left-column {
-  background: #3d1a39; /* match container background */
+  background: #3d1a39;
   padding: 10px;
   border-radius: 15px;
   border: 1px solid #FF84B2;
-}
-
-.sideimg {
-  width: 60%; /* 40% smaller */
-  display: block;
-  margin: 0 auto 10px auto; /* centers horizontally and keeps bottom margin */
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
 }
 
 .sidetitle {
@@ -124,14 +116,14 @@ nav ul li a {
 
 /* Right column */
 .right-column {
-  background: #3d1a39; /* match container background */
+  background: #3d1a39;
   padding: 10px;
   border-radius: 15px;
   border: 1px solid #FF84B2;
 }
 
 .contenttitle {
-  background: #FFEDFB; /* pink headings unchanged */
+  background: #FFEDFB;
   font: 26px 'Pixelify Sans', arial;
   color: #5BC0AE;
   border-radius: 15px;
@@ -140,7 +132,31 @@ nav ul li a {
   margin-bottom: 10px;
   padding: 4px 0;
 }
+.img-popinoutanim {
+   -webkit-animation: pop 1s ease-in-out infinite alternate;
+ animation: pop 1s ease-in-out infinite alternate;
+ -moz-animation: pop 1s ease-in-out infinite alternate;
+   width: 60%;
+  display: block;
+  margin: 0 auto 10px auto;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+  
+@keyframes pop {
+from {
+transform:scale(0.95)
+}
 
+50% {
+transform:scale(1)
+}
+
+to {
+transform:scale(0.95)
+}
+}     
+    
 /* Bubble Styles */
 .bubble {
   position: absolute;
@@ -168,26 +184,60 @@ nav ul li a {
   </nav>
 
   <div id="container">
-    <div class="left-column">
-      <img src="https://horrorgifs.neocities.org/gifs/Alien/Alien%20(3).gif" class="sideimg">
-      <div class="sidetitle">title</div>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel neque non nisi tincidunt vulputate sed non elit. Pellentesque cursus nunc risus, ut condimentum quam porta quis. Nulla et sem eu nunc gravida vulputate. Duis sit amet elementum odio, quis elementum velit.<br><br>
+  <div class="left-column">
+    <img src="https://horrorgifs.neocities.org/gifs/Alien/Alien%20(3).gif" class="img-popinoutanim">
 
-      <div class="sidetitle">hobbies</div>
-      Donec sollicitudin, velit non mollis lobortis, dolor elit elementum massa, a scelerisque tortor sapien eu urna.<br><br>
+    <div class="sidetitle">ID</div>
+
+    <b>Name:</b> Ansel (He/Him)<br>
+    <b>Species:</b> Experimental<br>
+    <b>Home Planet:</b> (Sector ϚʹЗΛΞ)<br>
+    <b>Rank:</b> Amateur Astrogator<br>
+    <b>Enemies:</b> Bad Wi-Fi<br><br>
+
+
+      <div class="sidetitle">favorite games</div>
+      <ul>
+        <li>Silent Hill</li>
+        <li>Resident Evil 4</li>
+        <li>Dark Souls 1</li>
+        <li>Morrowind</li>
+        <li>Fallout 3</li>
+      </ul>
+
+            <img src="https://datoxicwaltz.neocities.org/img/buttons/netscapeexplorer.gif" width="67" alt="bunny2">
+      <img src="https://datoxicwaltz.neocities.org/img/buttons/alt-3.gif" width="67" alt="bunny2">
+            <img src="https://datoxicwaltz.neocities.org/img/buttons/pokemon.gif" width="67" alt="bunny2">
+<img src="https://datoxicwaltz.neocities.org/img/blnk/1145.gif" 
+     width="210" 
+     alt="bunny2" 
+     style="filter: hue-rotate(90deg) saturate(2) brightness(1.2);">
     </div>
 
-    <div class="right-column">
-      <div class="contenttitle">title</div>
-      <b>Bold text</b> <i>Italic text</i> <a href="">Link</a>
-      Morbi in posuere augue. Ut sit amet nibh id felis viverra vehicula molestie nec nunc. Praesent id magna vitae mauris tristique molestie a sit amet nibh. Maecenas in enim non leo luctus tempus eget in nibh. Aliquam ut tempor justo, quis venenatis massa. Donec vel libero purus.<br><br>
+<div class="right-column">
+  <div class="sidetitle">history</div>
+  <p style="text-indent: 20px;">
+    Electrical engineer and artist who loves experimenting with new projects, even when they get challenging. I enjoy blending technology and creativity—whether that’s building tiny miniatures, painting them, designing sound-reactive LED setups, or coding quirky little websites just for fun. I’m fascinated by retro aesthetics, old-school web vibes, and playful ways to mix art and engineering.
+  </p>
 
-      <div class="contenttitle">title</div>
-      Aenean bibendum sodales venenatis. In imperdiet sapien sed dolor elementum, in tincidunt quam aliquam. Fusce non vehicula quam. Fusce pellentesque varius urna in cursus. Nam aliquet urna vitae dolor porttitor, vel volutpat odio pulvinar. Aenean a mi interdum magna porttitor pharetra id sed libero.<br><br>
+  <p style="text-indent: 20px;">
+    Over the years, I’ve collected a variety of nerdy hobbies, from PS2 games like <i>Silent Hill</i> and <i>Resident Evil 4</i> to scratchbuilding sci-fi and fantasy miniatures. Even when projects feel overwhelming, I love the process of learning, experimenting, and creating little chaotic, fun experiments that combine my curiosity, fandoms, and quirky ideas.<br>
+  </p>
 
-      <div class="contenttitle">title</div>
-      Donec porta non enim vel elementum. Phasellus a euismod diam, id sollicitudin nibh. Maecenas sit amet purus non diam cursus sagittis. Aliquam finibus eleifend sapien pharetra malesuada. Morbi eget nunc ut ipsum volutpat blandit sed at neque. Aenean nec nibh eu est feugiat facilisis nec eget turpis. Aenean mollis neque purus, tempus lacinia est imperdiet ut. Donec tincidunt vulputate risus vitae bibendum.
-    </div>
+
+      
+<div class="sidetitle">hobbies</div>
+<ul>
+  <li>Playing <i>Mörk Borg</i>, an apocalyptic fantasy old-school revival RPG</li>
+  <li>Painting: oil, acrylic, watercolor, plus miniatures and wargaming terrain</li>
+  <li>Scratchbuilding sci-fi & fantasy miniatures</li>
+  <li>Coding projects and homelab experiments</li>
+  <li>Running a personal media server via Jellyfin (legal music, movies, TV shows)</li>
+  <li>Firewall and cybersecurity practice</li>
+  <li>Coding this website—my most recent obsession</li>
+</ul>
+
+
   </div>
 
   <!-- Bubble Animation Script -->
@@ -198,7 +248,6 @@ nav ul li a {
     let swide = window.innerWidth;
     let shigh = window.innerHeight;
 
-    // Create bubbles
     for (let i = 0; i < bubbleCount; i++) {
       const bubble = document.createElement("div");
       bubble.classList.add("bubble");
@@ -235,6 +284,5 @@ nav ul li a {
   </script>
 </body>
 <script>NekoType="marmalade"</script>
-<h1 id=nl><script src="https://webneko.net/n20171213.js"></script><a 
-href="https://webneko.net">Neko</a></h1>
+<h1 id=nl><script src="https://webneko.net/n20171213.js"></script><a href="https://webneko.net">Neko</a></h1>
 </html>
