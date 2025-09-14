@@ -174,7 +174,26 @@ li {
   border-radius: 0 0 10px 10px; /* optional: rounded bottom corners to match title */
   box-sizing: border-box; /* makes sure padding doesn’t push it wider */
 }
+.img-popinoutanim {
+   -webkit-animation: pop 1s ease-in-out infinite alternate;
+ animation: pop 1s ease-in-out infinite alternate;
+ -moz-animation: pop 1s ease-in-out infinite alternate;
+}
+  
+@keyframes pop {
+from {
+transform:scale(0.95)
+}
 
+50% {
+transform:scale(1)
+}
+
+to {
+transform:scale(0.95)
+}
+}     
+    
 .entry, .entryhead {
   width: 100%;
 }
@@ -259,7 +278,8 @@ a:active { font-style: italic; font-weight: bold; }
   <div class="entry">
     <div class="entryhead">
       <div class="icon">
-        <img src="https://horrorgifs.neocities.org/gifs/BodyParts/BodyParts%20(34).gif" width="80" />
+        
+        <img src="https://horrorgifs.neocities.org/gifs/BodyParts/BodyParts%20(34).gif" class="img-popinoutanim" width="80" />
       </div>
       <div class="date">
         <p><span class="datecolor"><b>Date:</b></span> 05/16/2022</p>
@@ -325,7 +345,7 @@ a:active { font-style: italic; font-weight: bold; }
   <div class="entry">
     <div class="entryhead">
       <div class="icon">
-        <img src="https://horrorgifs.neocities.org/gifs/Face/Face%20(3).gif" width="80" />
+        <img src="https://horrorgifs.neocities.org/gifs/Face/Face%20(3).gif" class="img-popinoutanim" width="80" />
       </div>
       <div class="date">
         <p><span class="datecolor"><b>Date:</b></span> 05/16/2022</p>
@@ -405,7 +425,7 @@ a:active { font-style: italic; font-weight: bold; }
   <div class="entry">
     <div class="entryhead">
       <div class="icon">
-        <img src="https://horrorgifs.neocities.org/gifs/Eye/Eye%20(46).gif" width="80" />
+        <img src="https://horrorgifs.neocities.org/gifs/Eye/Eye%20(46).gif" class="img-popinoutanim" width="80" />
       </div>
       <div class="date">
         <p><span class="datecolor"><b>Date:</b></span> 05/16/2022</p>
