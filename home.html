@@ -401,10 +401,10 @@ function submitPoll() {
 <center><img class="greentint" src="https://adriansblinkiecollection.neocities.org/k11.gif" width="165" alt="bunny2"></center><br>
 <center><img class="greentint-expand" src="https://datoxicwaltz.neocities.org/img/homemadegifs/isopod.gif" width="165" alt="bunny2"></center>
 <center><img class="greentint-expand" src="https://adriansblinkiecollection.neocities.org/g118.gif" width="165" alt="bunny2"></center><br>
-<img class="greentint" src="https://datoxicwaltz.neocities.org/img/buttons/doomrl.gif" width="80" alt="bunny2" style="padding-left:12px;">
+<img class="greentint" src="https://datoxicwaltz.neocities.org/img/buttons/doomrl.gif" width="80" alt="bunny2">
 <img class="greentint" src="https://datoxicwaltz.neocities.org/img/buttons/lain%20green.gif" width="80" alt="bunny2">
 <center><img class="greentint" src="https://datoxicwaltz.neocities.org/img/buttons/fishtank.gif" width="165" alt="bunny2"></center>
-<img class="greentint" src="https://datoxicwaltz.neocities.org/img/buttons/a100.gif" width="80" alt="bunny2" style="padding-left:12px;">
+<img class="greentint" src="https://datoxicwaltz.neocities.org/img/buttons/a100.gif" width="80" alt="bunny2">
 <img class="greentint" src="https://datoxicwaltz.neocities.org/img/buttons/h6.gif" width="80" alt="bunny2">
 
 
@@ -532,44 +532,105 @@ Heyyo!! I’m Ansel (he/him) — lifelong gamer, artist, and tinkerer. <br>
 <div class="title">007. music</div>
 <div class="box" style="text-align:center;">
 
-  <div class="autoplayer" style="display:flex; align-items:center; justify-content:center; gap:5px;">
-    <button id="button" style="background:#003300; color:#00FF00; border:none; font-size:18px; height:35px; width:35px; cursor:pointer;">
+<div class="autoplayer" style="display:flex; flex-direction:column; align-items:center; gap:5px; padding-bottom:5px;">
+  <div style="display:flex; gap:5px;"> 
+    <!-- Play/Pause -->
+    <button id="playpause" style="background:#003300; color:#00FF00; border:none; font-size:15px; height:35px; width:35px; cursor:pointer;">
       <i class="fa fa-play"></i>
     </button>
-    
-    <audio loop id="player" style="display:none;">
-      <source src="assets/sail.mp3" type="audio/mpeg">
-    </audio>
-    
-    <a target="_blank"  style=".text">
-      Radiohead - Sail To The Moon
-    </a>
+
+    <!-- Previous -->
+    <button id="prev" style="background:#003300; color:#00FF00; border:none; font-size:16px; height:35px; width:35px; cursor:pointer;">
+      <i class="fa fa-backward"></i>
+    </button>
+
+    <!-- Next -->
+    <button id="next" style="background:#003300; color:#00FF00; border:none; font-size:16px; height:35px; width:35px; cursor:pointer;">
+      <i class="fa fa-forward"></i>
+    </button>
   </div>
 
+  <audio id="player" style="display:none;"></audio>
 
+  <!-- Track title -->
+  <div style="margin-top:5px; font-size:12px; color:#00FF00;">
+    <a id="trackTitle" target="_blank">Loading...</a>
+  </div>
+</div>
 </div>
 
-<script>
-  var button = document.getElementById("button");
-  var audio = document.getElementById("player");
 
-  button.addEventListener("click", function () {
+<script>
+  var playpause = document.getElementById("playpause");
+  var prevBtn = document.getElementById("prev");
+  var nextBtn = document.getElementById("next");
+  var audio = document.getElementById("player");
+  var trackTitle = document.getElementById("trackTitle");
+
+  // Playlist
+  var playlist = [
+    { title: "Radiohead - Sail To The Moon", src: "assets/sail.mp3" },
+    { title: "Radiohead - Pyramid Song", src: "assets/pyramid.mp3" },
+    { title: "Radiohead - Everything In Its Right Place", src: "assets/everything.mp3" }
+  ];
+
+  var currentTrack = 0;
+
+  function loadTrack(index) {
+    audio.src = playlist[index].src;
+    trackTitle.textContent = playlist[index].title;
+  }
+
+  function playTrack() {
+    audio.play();
+    playpause.innerHTML = '<i class="fa fa-pause"></i>';
+  }
+
+  function pauseTrack() {
+    audio.pause();
+    playpause.innerHTML = '<i class="fa fa-play"></i>';
+  }
+
+  // Initialize first track
+  loadTrack(currentTrack);
+
+  playpause.addEventListener("click", function () {
     if (audio.paused) {
-      audio.play();
-      button.innerHTML = '<i class="fa fa-pause"></i>';
+      playTrack();
     } else {
-      audio.pause();
-      button.innerHTML = '<i class="fa fa-play"></i>';
+      pauseTrack();
     }
   });
+
+  nextBtn.addEventListener("click", function () {
+    currentTrack = (currentTrack + 1) % playlist.length;
+    loadTrack(currentTrack);
+    playTrack();
+  });
+
+  prevBtn.addEventListener("click", function () {
+    currentTrack = (currentTrack - 1 + playlist.length) % playlist.length;
+    loadTrack(currentTrack);
+    playTrack();
+  });
+
+  // Auto move to next when song ends
+  audio.addEventListener("ended", function () {
+    currentTrack = (currentTrack + 1) % playlist.length;
+    loadTrack(currentTrack);
+    playTrack();
+  });
 </script>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
 <center>
-  <img src="https://horrorgifs.neocities.org/gifs/Face/Face%20(45).gif" 
+  <img class="greentint-expand" src="https://horrorgifs.neocities.org/gifs/Specimen/Specimen%20(1).gif" 
        width="110" 
        alt="bunny2" 
        style="filter: hue-rotate(90deg) saturate(2);">
+       
 </center>
 <br>
 
@@ -579,7 +640,7 @@ Heyyo!! I’m Ansel (he/him) — lifelong gamer, artist, and tinkerer. <br>
   <div id="hangman">
     <p>Guess the word:</p>
     <div id="hangman-word">_ _ _ _ _ _ _ _ _</div>
-    <input type="text" id="letter-input" maxlength="24" autofocus style="width:100px;"> <!-- smaller width -->
+    <input type="text" id="letter-input" maxlength="24" autofocus style="width:40px;"> <!-- smaller width -->
     <button onclick="guessLetter()">Guess</button>
     <p id="hangman-message"></p>
   </div>
