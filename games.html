@@ -2,19 +2,20 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Pixel Handheld Games</title>
+<title>Handheld Game Gallery</title>
 <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
 <style>
   body {
     margin: 0;
-    background: #ffb6c1; /* solid pink background */
-    color: #fff;
+    background: #ffffff;
+    color: #000;
     font-family: Arial, sans-serif;
   }
 
   nav {
     margin-bottom: 40px;
-    margin-top: 10px;
+        margin-top: 10px;
+
     text-align: center;
     padding: 15px 0;
   }
@@ -38,18 +39,18 @@
     font-weight: bold;
     font-size: 1rem;
     padding: 6px 12px;
-    background: linear-gradient(to bottom, #ff69b4, #ff1493); /* pink gradient */
-    border: 2px solid #c71585;
+    background: linear-gradient(to bottom, #0a62d0, #084e9c);
+    border: 2px solid #003399;
     border-radius: 3px;
-    box-shadow: 3px 3px 0px #aa0066;
+    box-shadow: 3px 3px 0px #222;
     font-family: 'Pixelify Sans', monospace;
     transition: all 0.2s ease-in-out;
   }
 
   nav a:hover {
-    background: linear-gradient(to bottom, #ff85c1, #ff4da6);
+    background: linear-gradient(to bottom, #0c7af0, #0a62d0);
     transform: translateY(-2px);
-    box-shadow: 4px 4px 0px #990050;
+    box-shadow: 4px 4px 0px #000;
   }
 
   .container {
@@ -57,6 +58,7 @@
     margin: 0 auto;
   }
 
+  /* PSP (top) */
   .psp {
     position: relative;
     width: 100%;
@@ -88,14 +90,14 @@
   .row {
     display: flex;
     gap: 20px;
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: left;
+    align-items: flex-start; /* keep tops aligned */
   }
 
   .handheld {
     position: relative;
     flex: 1;
-    max-width: 345px;
+    max-width: 385px;
   }
 
   .handheld img {
@@ -105,6 +107,10 @@
 
   .screen2 {
     position: absolute;
+    top: 51px;
+    left: 42px;
+    right: 40px;
+    bottom: 377px;
     background: #000;
     border-radius: 6px;
     overflow: hidden;
@@ -116,14 +122,24 @@
     border: none;
   }
 
+  /* Stack for Tamagotchis */
   .tamagotchis {
     display: flex;
     flex-direction: column;
     gap: 15px;
   }
 
-  .handheld.tiny {
+  .handheld.small {
     max-width: 200px;
+    position: relative;
+  }
+
+  .handheld.small img {
+    width: 100%;
+  }
+
+    .handheld.tiny {
+    max-width: 228px;
     position: relative;
   }
 
@@ -135,10 +151,10 @@
 </head>
 <body>
 
-<h1 style="text-align: center; margin-top: 40px; margin-bottom: 10px; font-family: 'Pixelify Sans', monospace; color: #c71585;">
-  Pixel Handheld Games
+<h1 style="text-align: center; margin-top: 40px; margin-bottom: 10px; font-family: 'Pixelify Sans', monospace; color: #0c7af0;">
+  Games
 </h1>
-
+<!-- Navigation -->
 <nav>
   <ul>
     <li><a href="index.html">Home</a></li>
@@ -151,53 +167,58 @@
   </ul>
 </nav>
 
+<!-- Main Container -->
 <div class="container">
 
   <!-- PSP on top -->
   <div class="psp">
-    <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fofficialpsds.com%2Fimageview%2F7n%2F9p%2F7n9pn9_large.png" alt="PSP Frame">
+    <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fofficialpsds.com%2Fimageview%2F7n%2F9p%2F7n9pn9_large.png%3F1521316504&f=1&nofb=1&ipt=ef65d2575a5a21d53ad4dc0e3587570b5327b90eec1805ace56f5d7b6d1a86cd" alt="PSP Frame">
     <div class="screen">
-      <iframe src="https://www.jopi.com/gam/key-quest/" frameborder="0" scrolling="no"></iframe>
+      <iframe src="https://www.jopi.com/gam/key-quest/" frameborder="0" scrolling="no" width="800px" height="600px" ></iframe>
     </div>
   </div>
 
-  <div class="row">
-    <!-- Game Boy -->
-    <div class="handheld" style="margin-top: 50px;">
-      <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fassets.stickpng.com%2Fimages%2F5a6a3becab538104d4a30e2c.png" alt="Game Boy">
-      <div class="screen2" style="top:63px; left:75px; right:73px; bottom:340px;">
-        <iframe src="https://www.jopi.com/gam/space-slide/" frameborder="0" scrolling="no"></iframe>
-      </div>
+  <!-- Row: GameBoy + Tamagotchis -->
+  <!-- Row: GameBoy + Tamagotchis -->
+<div class="row">
+  <!-- Game Boy -->
+  <div class="handheld" style="margin-top: 52px;">
+    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fassets.stickpng.com%2Fimages%2F5a6a3becab538104d4a30e2c.png&f=1&nofb=1&ipt=a74e9d31f78ce7ba0d8a93afa6ddaa98a49cbd31a978795a452ddd56c53dc657" alt="Game Boy">
+    <div class="screen2">
+      <iframe src="https://www.jopi.com/gam/space-slide/" frameborder="0" scrolling="no" width="800px" height="600px" ></iframe>
     </div>
+  </div>
 
-    <!-- Tamagotchis -->
-    <div class="tamagotchis">
-      <!-- Tamagotchi 1 -->
-      <div class="handheld tiny">
-        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pngkit.com%2Fpng%2Ffull%2F740-7402372_tamagotchi-png.png" style="transform: rotate(-40deg);" alt="Tamagotchi 1">
-        <div class="screen2" style="top:86px; left:90px; right:33px; bottom:72px; transform: rotate(-20deg); transform-origin:center;">
-          <iframe src=""></iframe>
-        </div>
-      </div>
+  <!-- Tamagotchis stacked -->
+<div class="tamagotchis">
+  <!-- Tamagotchi 1 -->
+  <div class="handheld tiny">
+    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pngkit.com%2Fpng%2Ffull%2F740-7402372_tamagotchi-png.png" style="transform: rotate(-40deg)"; alt="Tamagotchi 1">
+    <div class="screen2" style="top:86px; left:90px; right:33px; bottom:72px; transform: rotate(-20deg); transform-origin: center;">
+      <iframe src="https://funhtml5games.com?embed=2048"></iframe>
+    </div>
+  </div>
 
-      <!-- Tamagotchi 2 -->
-      <div class="handheld tiny">
-        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg1.picmix.com%2Foutput%2Fstamp%2Fnormal%2F9%2F4%2F1%2F3%2F2393149_99a95.png" style="transform: rotate(15deg);" alt="Tamagotchi 2">
-        <div class="screen2" style="top:55px; left:65px; right:62px; bottom:72px; transform: rotate(15deg); transform-origin:center;">
-          <iframe src=""></iframe>
-        </div>
-      </div>
+  <!-- Tamagotchi 2 -->
+  <div class="handheld tiny">
+    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg1.picmix.com%2Foutput%2Fstamp%2Fnormal%2F9%2F4%2F1%2F3%2F2393149_99a95.png" style="transform: rotate(15deg)"alt="Tamagotchi 2">
+    <div class="screen2" style="top:55px; left:65px; right:62px; bottom:69px; transform: rotate(15deg); transform-origin: center;">
+      <iframe src="https://funhtml5games.com?embed=tetris"></iframe>
+    </div>
+  </div>
 
-      <!-- Tamagotchi 3 -->
-      <div class="handheld tiny">
-        <img src="https://i.pinimg.com/originals/5b/3e/6d/5b3e6df4fb518fff631ccf8cfaa0bc01.png" style="transform: rotate(-25deg);" alt="Tamagotchi 3">
-        <div class="screen2" style="top:48px; left:32px; right:86px; bottom:53px; transform: rotate(-8deg); transform-origin:center;">
-          <iframe src=""></iframe>
-        </div>
-      </div>
+  <!-- Tamagotchi 3 -->
+  <div class="handheld tiny">
+    <img src="https://i.pinimg.com/originals/5b/3e/6d/5b3e6df4fb518fff631ccf8cfaa0bc01.png" style="transform: rotate(-19deg)"alt="Tamagotchi 3">
+    <div class="screen2" style="top:50px; left:40px; right:40px; bottom:50px; transform: rotate(-5deg); transform-origin: center;">
+      <iframe src="https://funhtml5games.com?embed=snake"></iframe>
     </div>
   </div>
 </div>
 
+
+
+
+</div>
 </body>
 </html>
