@@ -1,59 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ansel.Labs</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        .blinking {
-            animation: blink 1s step-end infinite;
-        }
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
-    </style>
+<meta charset="UTF-8">
+<title>Pixel Handheld Games</title>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    background: #ffb6c1; /* solid pink background */
+    color: #fff;
+    font-family: Arial, sans-serif;
+  }
+
+  nav {
+    margin-bottom: 40px;
+    margin-top: 10px;
+    text-align: center;
+    padding: 15px 0;
+  }
+
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  nav li {
+    display: inline;
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 6px 12px;
+    background: linear-gradient(to bottom, #ff69b4, #ff1493); /* pink gradient */
+    border: 2px solid #c71585;
+    border-radius: 3px;
+    box-shadow: 3px 3px 0px #aa0066;
+    font-family: 'Pixelify Sans', monospace;
+    transition: all 0.2s ease-in-out;
+  }
+
+  nav a:hover {
+    background: linear-gradient(to bottom, #ff85c1, #ff4da6);
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 0px #990050;
+  }
+
+  .container {
+    width: 700px;
+    margin: 0 auto;
+  }
+
+  .psp {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .psp img {
+    width: 100%;
+    display: block;
+  }
+
+  .screen {
+    position: absolute;
+    top: 22px;
+    left: 150px;
+    width: 400px;
+    height: 230px;
+    background: #000;
+    overflow: hidden;
+    border-radius: 6px;
+  }
+
+  .screen iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .row {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .handheld {
+    position: relative;
+    flex: 1;
+    max-width: 345px;
+  }
+
+  .handheld img {
+    width: 100%;
+    display: block;
+  }
+
+  .screen2 {
+    position: absolute;
+    background: #000;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .screen2 iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .tamagotchis {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .handheld.tiny {
+    max-width: 200px;
+    position: relative;
+  }
+
+  .handheld.tiny img {
+    width: 100%;
+  }
+
+</style>
 </head>
-<body class="games">
+<body>
 
-  <!-- Sidebar Navigation -->
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="art.html">Art</a></li>
-      <li><a href="poetry.html">Poetry</a></li>
-      <li><a href="coding.html">Coding</a></li>
-      <li><a href="games.html">Games</a></li>
-      <li><a href="blog.html">Blog</a></li>
-    </ul>
-  </nav>
+<h1 style="text-align: center; margin-top: 40px; margin-bottom: 10px; font-family: 'Pixelify Sans', monospace; color: #c71585;">
+  Pixel Handheld Games
+</h1>
 
-  <!-- Main Content Wrapper -->
-  <div class="content">
+<nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="art.html">Art</a></li>
+    <li><a href="poetry.html">Poetry</a></li>
+    <li><a href="coding.html">Coding</a></li>
+    <li><a href="games.html">Games</a></li>
+    <li><a href="blog.html">Blog</a></li>
+  </ul>
+</nav>
 
-    <header>
-      <h1 class="blinking">Games</h1>
-    </header>
+<div class="container">
 
-    <main>
-      <section>
-        <h2>Hello World</h2>
-        <p>
-          I’m Ansel — an electrical engineer, Linux tinkerer, and lifelong artist.
-          This site is my little lab where circuits, sketches, code, and poems all share the same bench.
-        </p>
-        <p>
-          Explore some of my projects and creations through the selection below.
-        </p>
-      </section>
-    </main>
-
-    <footer>
-      <p>Made by Ansel • <a href="https://github.com/AnselLabs">GitHub</a></p>
-    </footer>
-
+  <!-- PSP on top -->
+  <div class="psp">
+    <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fofficialpsds.com%2Fimageview%2F7n%2F9p%2F7n9pn9_large.png" alt="PSP Frame">
+    <div class="screen">
+      <iframe src="https://www.jopi.com/gam/key-quest/" frameborder="0" scrolling="no"></iframe>
+    </div>
   </div>
+
+  <div class="row">
+    <!-- Game Boy -->
+    <div class="handheld" style="margin-top: 50px;">
+      <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fassets.stickpng.com%2Fimages%2F5a6a3becab538104d4a30e2c.png" alt="Game Boy">
+      <div class="screen2" style="top:63px; left:75px; right:73px; bottom:340px;">
+        <iframe src="https://www.jopi.com/gam/space-slide/" frameborder="0" scrolling="no"></iframe>
+      </div>
+    </div>
+
+    <!-- Tamagotchis -->
+    <div class="tamagotchis">
+      <!-- Tamagotchi 1 -->
+      <div class="handheld tiny">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pngkit.com%2Fpng%2Ffull%2F740-7402372_tamagotchi-png.png" style="transform: rotate(-40deg);" alt="Tamagotchi 1">
+        <div class="screen2" style="top:86px; left:90px; right:33px; bottom:72px; transform: rotate(-20deg); transform-origin:center;">
+          <iframe src=""></iframe>
+        </div>
+      </div>
+
+      <!-- Tamagotchi 2 -->
+      <div class="handheld tiny">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg1.picmix.com%2Foutput%2Fstamp%2Fnormal%2F9%2F4%2F1%2F3%2F2393149_99a95.png" style="transform: rotate(15deg);" alt="Tamagotchi 2">
+        <div class="screen2" style="top:55px; left:65px; right:62px; bottom:72px; transform: rotate(15deg); transform-origin:center;">
+          <iframe src=""></iframe>
+        </div>
+      </div>
+
+      <!-- Tamagotchi 3 -->
+      <div class="handheld tiny">
+        <img src="https://i.pinimg.com/originals/5b/3e/6d/5b3e6df4fb518fff631ccf8cfaa0bc01.png" style="transform: rotate(-25deg);" alt="Tamagotchi 3">
+        <div class="screen2" style="top:48px; left:32px; right:86px; bottom:53px; transform: rotate(-8deg); transform-origin:center;">
+          <iframe src=""></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
