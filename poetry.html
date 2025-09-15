@@ -9,13 +9,21 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet" />
 
-<style>
 body {
   background-image: url('assets/pb.png');
   margin: 0;
   color: #613f3f;
-  overflow-y: scroll; /* ✅ allow vertical scroll */
-  overflow-x: hidden; /* keep horizontal hidden */
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  /* Animate background from top to bottom */
+  background-repeat: repeat;
+  animation: bg-scroll 30s linear infinite;
+}
+
+@keyframes bg-scroll {
+  from { background-position: 0 0; }
+  to { background-position: 0 1000px; } /* adjust 1000px to your desired scroll length */
 }
 
 #all {
