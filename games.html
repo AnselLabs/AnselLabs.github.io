@@ -121,6 +121,56 @@ box-shadow: 4px 4px 0px #5b3a21;
     display: block;
   }
 
+.ds {
+    position: relative;
+    width: 700px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .ds img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .ds-top-screen {
+    position: absolute;
+    top: 54px;        /* Fixed position relative to DS image */
+    left: 187px;      /* Fixed position relative to DS image */
+    width: 329px;     /* Fixed pixel width - won't scale with zoom */
+    height: 247px;    /* Fixed pixel height - won't scale with zoom */
+    background: #000;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .ds-top-screen iframe {
+    width: 100%;
+    height: 100%;  /* Fixed iframe height in pixels */
+    transform-origin: center;
+    border: none;
+  }
+
+  /* DS Bottom Screen (touchscreen) - Fixed pixel dimensions, positioned relative to DS */
+  .ds-bottom-screen {
+    position: absolute;
+    top: 428px;       /* Fixed position relative to DS image */
+    left: 186px;      /* Fixed position relative to DS image */
+width: 330px;     /* Fixed pixel width - won't scale with zoom */
+    height: 247px;    /* Fixed pixel height - won't scale with zoom */
+    background: #000;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .ds-bottom-screen iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+
   .screen2 {
     position: absolute;
     top: 51px;
@@ -337,23 +387,29 @@ function draw(){
 
 let game = setInterval(draw, 120);
 </script>
-
-
-
-
-
   </div>
-
 </div>
-
-
 </div>
-<div style="text-align:center; margin-top:40px; margin-bottom:40px;">
+<div class="ds" style="text-align:center; margin-top:40px; margin-bottom:40px;">
   <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.seekpng.com%2Fpng%2Ffull%2F236-2361549_nintendo-ds-png.png&f=1&nofb=1&ipt=c17a2d6b9d823994ea99b9f52551e94c99750033e482b40dde959419d94b8c6d" 
-       alt="CRT TV" 
+       alt="Nintendo DS" 
        style="width:700px; max-width:100%; height:auto;">
+  
+  <!-- Top Screen -->
+  <div class="ds-top-screen">
+    <iframe src="https://tinyplay.io/game/flippy-race/" frameborder="0" scrolling="no"></iframe>
+  </div>
+  
+  <!-- Bottom Screen -->
+  <div class="ds-bottom-screen"
+    style="position: absolute;
+              transform-origin: center;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              overflow: hidden;">
+<img src="https://giffiles.alphacoders.com/163/163071.gif" style="max-width: 100%; max-height: 100%; object-fit: cover;">
 </div>
-
 </div>
 
 </body>
