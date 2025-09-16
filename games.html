@@ -242,11 +242,106 @@ min-height: 100vh;
 </div>
 
   <!-- Tamagotchi 3 -->
-  <div class="handheld tiny">
-    <img src="https://i.pinimg.com/originals/5b/3e/6d/5b3e6df4fb518fff631ccf8cfaa0bc01.png" style="width: 260px;transform: rotate(-17deg)"alt="Tamagotchi 3">
-    <div class="screen2" style="top:60px; left:46px; right:79px; bottom:75px; transform: rotate(-1deg); transform-origin: center;">
-<iframe src="https://www.jopi.com/gam/summer-maze/" frameborder="0" scrolling="no" width="800px" height="600px" ></iframe>
-    </div>
+<div class="handheld tiny">
+  <img src="https://i.pinimg.com/originals/5b/3e/6d/5b3e6df4fb518fff631ccf8cfaa0bc01.png" 
+       style="width: 260px; transform: rotate(-17deg);" 
+       alt="Tamagotchi 3">
+  
+  <div class="screen2" 
+       style="top:60px; left:46px; right:79px; bottom:75px; transform: rotate(-1deg); transform-origin: center; text-align:center;">
+    <canvas id="game" width="120" height="120" style="width:100%; height:100%;"></canvas>
+  </div>
+</div>
+
+<script>
+const canvas = document.getElementById("game");
+const ctx = canvas.getContext("2d");
+const box = 10;
+let snake = [{x:60, y:60}];
+let dir = "RIGHT";
+
+// background image
+const bg = new Image();
+bg.src = "https://sadhost.neocities.org/images/tiles/background038.gif";
+
+let food = {
+  x: Math.floor(Math.random() * (canvas.width / box)) * box,
+  y: Math.floor(Math.random() * (canvas.height / box)) * box
+};
+
+document.addEventListener("keydown", direction);
+function direction(event){
+  const key = event.key.toLowerCase(); // WASD only
+  if(key === "a" && dir !== "RIGHT") dir = "LEFT";
+  else if(key === "w" && dir !== "DOWN") dir = "UP";
+  else if(key === "d" && dir !== "LEFT") dir = "RIGHT";
+  else if(key === "s" && dir !== "UP") dir = "DOWN";
+}
+
+function draw(){
+  // draw background
+  ctx.drawImage(bg, 0, 0, canvas.width, canvas.height);
+  // tint it darker
+  ctx.fillStyle = "rgba(0,0,0,0.5)";
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+
+  // draw snake
+  for(let i=0; i<snake.length; i++){
+    ctx.fillStyle = (i === 0) ? "lime" : "green";
+    ctx.fillRect(snake[i].x, snake[i].y, box, box);
+  }
+  
+  // draw food
+  ctx.fillStyle = "red";
+  ctx.fillRect(food.x, food.y, box, box);
+
+  // move snake
+  let headX = snake[0].x;
+  let headY = snake[0].y;
+  if(dir === "LEFT") headX -= box;
+  if(dir === "UP") headY -= box;
+  if(dir === "RIGHT") headX += box;
+  if(dir === "DOWN") headY += box;
+
+  // wrap edges
+  if(headX < 0) headX = canvas.width - box;
+  if(headY < 0) headY = canvas.height - box;
+  if(headX >= canvas.width) headX = 0;
+  if(headY >= canvas.height) headY = 0;
+
+  // self collision
+  if(snake.some((s,i) => i > 0 && s.x === headX && s.y === headY)){
+    clearInterval(game);
+    alert("Game Over!");
+    return;
+  }
+
+  // eat food
+  if(headX === food.x && headY === food.y){
+    food = {
+      x: Math.floor(Math.random() * (canvas.width / box)) * box,
+      y: Math.floor(Math.random() * (canvas.height / box)) * box
+    };
+  } else {
+    snake.pop();
+  }
+
+  snake.unshift({x: headX, y: headY});
+
+  // draw tiny neon-green WASD at bottom
+  ctx.fillStyle = "lime";
+  ctx.font = "6px monospace";
+  ctx.textAlign = "center";
+  ctx.fillText("WASD", canvas.width/2, canvas.height - 2);
+}
+
+let game = setInterval(draw, 120);
+</script>
+
+
+
+
+
   </div>
 
 </div>
