@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Handheld Game Gallery</title>
 <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Uncial+Antiqua&display=swap" rel="stylesheet">
 <style>
   body {
     margin: 0;
@@ -12,46 +13,51 @@
     font-family: Arial, sans-serif;
   }
 
-  nav {
-    margin-bottom: 40px;
-        margin-top: 10px;
+nav {
+margin: 10px auto 40px auto; /* centered with auto sides */
+padding: 15px 0;
+max-width: 700px; /* constrain width */
+text-align: center;
+background: linear-gradient(to bottom, #f4e3c1, #d9c294); /* parchment gradient */
+border: 3px solid #8b5e3c; /* rough parchment edge */
+border-radius: 12px;
+box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+font-family: 'Uncial Antiqua', 'MedievalSharp', cursive;
+}
 
-    text-align: center;
-    padding: 15px 0;
-  }
+nav ul {
+list-style: none;
+padding: 0;
+margin: 0 auto; /* center the ul */
+display: flex;
+justify-content: center;
+flex-wrap: wrap; /* wrap if screen is narrow */
+gap: 20px;
+}
 
-  nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-  }
+nav li {
+display: inline;
+}
 
-  nav li {
-    display: inline;
-  }
+nav a {
+color: #5b3a21; /* dark brown text */
+text-decoration: none;
+font-weight: bold;
+font-size: 1.2rem;
+padding: 6px 12px;
+background: rgba(255, 238, 200, 0.6); /* semi-transparent parchment effect */
+border: 2px solid #8b5e3c;
+border-radius: 6px;
+box-shadow: 2px 2px 0 #7a4e2f;
+transition: all 0.2s ease-in-out;
+}
 
-  nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1rem;
-    padding: 6px 12px;
-    background: linear-gradient(to bottom, #0a62d0, #084e9c);
-    border: 2px solid #003399;
-    border-radius: 3px;
-    box-shadow: 3px 3px 0px #222;
-    font-family: 'Pixelify Sans', monospace;
-    transition: all 0.2s ease-in-out;
-  }
+nav a:hover {
+background: rgba(255, 238, 200, 0.8);
+transform: translateY(-2px);
+box-shadow: 4px 4px 0px #5b3a21;
+}
 
-  nav a:hover {
-    background: linear-gradient(to bottom, #0c7af0, #0a62d0);
-    transform: translateY(-2px);
-    box-shadow: 4px 4px 0px #000;
-  }
 
   .container {
     width: 700px;
@@ -149,7 +155,16 @@
 
 </style>
 </head>
-<body>
+<body style="
+background-image: url('https://sadhost.neocities.org/images/tiles/bubblespurplebg.jpg');
+background-repeat: repeat;
+background-position: top left;
+background-attachment: fixed;
+background-color: rgba(43, 15, 58, 0.8); /* dark purple tint */
+background-blend-mode: multiply; /* blends color + image */
+margin: 0;
+min-height: 100vh;
+">
 
 <h1 style="text-align: center; margin-top: 40px; margin-bottom: 10px; font-family: 'Pixelify Sans', monospace; color: #0c7af0;">
   Games
@@ -230,19 +245,13 @@
 
 
 </div>
-<div style="text-align:right; margin-top:40px; margin-bottom:40px;">
+<div style="text-align:center; margin-top:40px; margin-bottom:40px;">
   <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.seekpng.com%2Fpng%2Ffull%2F236-2361549_nintendo-ds-png.png&f=1&nofb=1&ipt=c17a2d6b9d823994ea99b9f52551e94c99750033e482b40dde959419d94b8c6d" 
        alt="CRT TV" 
        style="width:500px; max-width:100%; height:auto;">
 </div>
 
 </div>
-<div style="text-align:center; margin-top:40px; margin-bottom:40px;">
-  <img src="assets/apple.png" 
-       alt="CRT TV" 
-       style="width:700px; max-width:100%; height:auto;">
-</div>
-
 
 </body>
 </html>
