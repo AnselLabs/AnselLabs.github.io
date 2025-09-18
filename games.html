@@ -6,12 +6,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Uncial+Antiqua&display=swap" rel="stylesheet">
 <style>
-  body {
-    margin: 0;
-    background: #ffffff;
-    color: #000;
-    font-family: Arial, sans-serif;
-  }
+body {
+  background-image: url('https://sadhost.neocities.org/images/tiles/bubblespurplebg.jpg');
+  margin: 0;
+  color: #613f3f;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  /* Animate background from top to bottom */
+  background-repeat: repeat;
+  animation: bg-scroll 30s linear infinite;
+}
+
+@keyframes bg-scroll {
+  from { background-position: 0 0; }
+  to { background-position: 0 -1000px; }
+}
 
 h1 {
 text-align: center;
@@ -215,16 +225,7 @@ width: 330px;     /* Fixed pixel width - won't scale with zoom */
 
 </style>
 </head>
-<body style="
-background-image: url('https://sadhost.neocities.org/images/tiles/bubblespurplebg.jpg');
-background-repeat: repeat;
-background-position: top left;
-background-attachment: fixed;
-background-color: rgba(43, 15, 58, 0.8); /* dark purple tint */
-background-blend-mode: multiply; /* blends color + image */
-margin: 0;
-min-height: 100vh;
-">
+<body>
 
 <h1>Games</h1>
 <!-- Navigation -->
