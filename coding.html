@@ -1,59 +1,349 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ansel.Labs</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        .blinking {
-            animation: blink 1s step-end infinite;
-        }
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
-    </style>
+	<title>Project Template</title>
+	<meta name="description" content="A simple project-themed template">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+
+	<style>
+	/* quick customization */
+	:root {
+		--width: 900px; 
+		--headingfont: "Georgia"; 
+		--bodyfont: "Verdana"; 
+		--borderwidth: 7px;
+		--borderstyle: dotted;
+	}
+
+	/* light mode colors */
+	:root {
+		--text: #463239;
+		--section: #FFFDED; 
+		--border: #FFB17A;
+		--link: #A04668;
+	}
+
+	/* dark mode colors */
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--text: #FFFDED;
+			--section: #463239; 
+			--border: #C57B57;
+			--link: #F7BCBC;
+		}
+	}
+
+	/* page layout */ 	
+	* { 
+		scrollbar-color: var(--link) var(--border);
+		overscroll-behavior: none;
+		box-sizing: border-box;
+		max-width: 100%; 
+	}
+
+body {
+  background-image: url('https://sadhost.neocities.org/images/tiles/comp016.gif');
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  /* Animate background from top to bottom */
+  background-repeat: repeat;
+  animation: bg-scroll 30s linear infinite;
+  		margin: 0; padding: 0;
+		color: var(--text);
+	font-family: var(--bodyfont), sans-serif;
+}
+
+@keyframes bg-scroll {
+  from { background-position: 0 0; }
+  to { background-position: 0 1000px; }
+}
+body { 
+		margin: 0; padding: 0;
+		color: var(--text);
+		background: url('https://sadhost.neocities.org/images/tiles/comp016.gif') repeat fixed;
+		font-family: var(--bodyfont), sans-serif;
+	}
+.container { 
+    position: relative; /* needed for overlay */
+    max-width: var(--width);
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 1rem calc(2.25rem + 1vw); 
+    background: url('https://sadhost.neocities.org/images/tiles/comp020.gif') repeat center;
+    --mask: 
+        radial-gradient(25.81px at 36px 50%,#000 99%,#0000 101%) 0 calc(50% - 30px)/51% 60px repeat-y,
+        radial-gradient(25.81px at -21px 50%,#0000 99%,#000 101%) 15px 50%/calc(51% - 15px) 60px repeat-y,
+        radial-gradient(25.81px at calc(100% - 36px) 50%,#000 99%,#0000 101%) 100% calc(50% - 30px)/51% 60px repeat-y,
+        radial-gradient(25.81px at calc(100% + 21px) 50%,#0000 99%,#000 101%) calc(100% - 15px) 50%/calc(51% - 15px) 60px repeat-y;
+    -webkit-mask: var(--mask);
+    mask: var(--mask);
+}
+
+/* Overlay darkener */
+.container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5); /* adjust darkness */
+    pointer-events: none; /* so content is still clickable */
+    border-radius: inherit;
+    z-index: 0;
+}
+
+/* Make content above overlay */
+.container > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+	main { 
+		margin: 1rem 0;
+	}
+	nav { 
+		margin: 1.5rem 0 1rem 0;
+		padding: 0.5rem 0 1rem 0;
+		border-top: var(--borderwidth) var(--borderstyle) var(--border);
+		border-bottom: var(--borderwidth) var(--borderstyle) var(--border);
+	}
+	nav li { 
+		margin: 0.25rem;
+	}
+	footer {
+		padding: 1rem 0 1.5rem 0;
+	}
+	hr { 
+		border: 0;
+		border-top: var(--borderwidth) var(--borderstyle) var(--border);
+	}
+	.container > ul, footer p { 
+		margin: 0;
+		padding: 0;
+		text-align: right;
+	}
+	.container > ul li { 
+		list-style-type: none;
+		display: inline-block;
+		padding: 0 0.5rem;
+	}
+	
+	/* headings */
+	h1, h2, h3, h4, nav p { 
+		font-family: var(--headingfont), serif;
+		line-height: 1;
+		font-weight: bold;
+		margin: 1rem 0;
+	}
+	h1 { 
+		font-size: calc(2.25rem + 2.5vw);
+		margin: 3rem 0 1.5rem 0;
+		border-bottom: var(--borderwidth) var(--borderstyle) var(--border);
+		padding-bottom: 1rem;
+	}
+	h2, nav p { 
+		font-size: calc(1.75rem + 1.25vw);
+	}
+	h3 { 
+		font-size: calc(1.25rem + 1.125vw);
+	}
+	h4 { 
+		font-size: calc(1rem + 1vw);
+	}
+	
+	/* link style */
+	a:link { 
+		color: var(--link);
+		text-underline-offset: 2px;
+		text-decoration-thickness: 2px;
+		text-decoration-color: var(--border);
+	}
+	a:visited { 
+		color: var(--text);
+		text-decoration-color: var(--border);
+	}
+	a:hover, a:focus { 
+		color: var(--link);
+		text-decoration-style: wavy;
+		text-decoration-thickness: 1px;
+	}
+	
+	/* other page elements */
+	p, ul, ol, details, table {
+		margin: 1rem 0;
+	}
+	p, li, dd, dt, cite, code { 
+		line-height: 1.4;
+	}
+	sup, sub { 
+		line-height: 0.5;
+	}
+	s, del { 
+		text-decoration-color: var(--link); 
+		text-decoration-thickness: 2px;
+	}
+	ul ul, ol ul {
+		margin: 0;
+	}
+	ul li::marker { 
+		color: var(--border);
+		font-size: 125%;
+		line-height: 1;
+	}
+	ul ul li::marker, ol ul li::marker { 
+		color: var(--text);
+	}
+	figure { 
+		background: var(--border);
+		border: 10px solid var(--border);
+		border-radius: 8px;
+		margin: 1rem auto;
+		width: fit-content;
+		display: table;
+	}
+	figure img { 
+		border-radius: 5px;
+	}
+	figcaption { 
+		text-align: center;
+		display: table-caption;
+		caption-side: bottom;
+		background: var(--border);
+		border: 10px solid var(--border);
+		border-radius: 0 0 8px 8px;
+		margin-top: -10px;
+		padding: 0 10px 10px 10px;
+	}
+	figcaption a:link, figcaption a:visited {
+		text-decoration-color: var(--section);
+	}
+	table { 
+		max-width: 100%;
+		margin: 1rem auto;
+	}
+	th, td { 
+		border-radius: 8px;
+		padding: 3px 5px;
+	}
+	th { 
+		color: var(--section);
+		background: var(--link);
+		border: 2px solid var(--link);
+	}
+	td { 
+		border: 2px solid var(--border);
+	}
+	code { 
+		display: inline-block;
+		border: 2px solid var(--border);
+		border-radius: 8px;
+		padding: 2px 5px;
+	}
+	pre code { 
+		display: block;
+		overflow-x: auto;
+	}
+	blockquote {
+		border-left: var(--borderwidth) var(--borderstyle) var(--border);
+		margin: 1rem 0 1rem 1rem;
+		padding-left: 1rem;
+	}
+	details { 
+		background: var(--border);
+		border-radius: 8px;
+		padding: 1rem 2rem 1rem 1rem;
+	}
+	details summary { 
+		cursor: pointer;
+	}
+	details > *:not(summary) { 
+		margin-left: 1.5rem;
+	}
+	details ul li::marker {
+		color: var(--text);
+	}
+	details a:link, details a:visited {
+		text-decoration-color: var(--section);
+	}
+	details code {
+		border: 2px solid var(--section);
+	}
+	details table { 
+		max-width: 100%;
+		margin: 1rem auto;
+	}
+	details td { 
+		border: 2px solid var(--section);
+	}
+	::selection {
+		color: var(--section);
+		background-color: var(--text);
+	}
+	</style>
 </head>
-<body class="coding">
+<body>
 
-  <!-- Sidebar Navigation -->
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="art.html">Art</a></li>
-      <li><a href="poetry.html">Poetry</a></li>
-      <li><a href="coding.html">Coding</a></li>
-      <li><a href="games.html">Games</a></li>
-      <li><a href="blog.html">Blog</a></li>
-    </ul>
-  </nav>
+	<div class="container">
+	
+		<ul>
+			<li><a href="/">home</a></li>
+			<li><a href="#nav">navigation</a></li>
+		</ul>
+	
+		<main>
 
-  <!-- Main Content Wrapper -->
-  <div class="content">
+			<h1>Projects</h1>
+			
+			<blockquote>
+				<p>About this project:</p>
+			</blockquote>
+			
+			<h2>Big</h2>
+			<h3>Med</h3>
+			<h4>Small</h4>
+			
+			<p>
+			Projects coming soon!
+			</p>
+			
+	
+			<figure>
+				<img src="https://picsum.photos/500/400" alt="placeholder image" style="width:500px;aspect-ratio: 5 / 4;">
+				<figcaption>All things are temporary...</figcaption>
+			</figure>
 
-    <header>
-      <h1 class="blinking">Coding</h1>
-    </header>
+			<pre><code>// Example code block
+function greet() {
+  console.log("Hello, project world!");
+}</code></pre>
+				
+			<details>
+				<summary>More Project Notes</summary>
+				<p>More project fun!!
 
-    <main>
-      <section>
-        <h2>Hello World</h2>
-        <p>
-          I’m Ansel — an electrical engineer, Linux tinkerer, and lifelong artist.
-          This site is my little lab where circuits, sketches, code, and poems all share the same bench.
-        </p>
-        <p>
-          Explore some of my projects and creations through the selection below.
-        </p>
-      </section>
-    </main>
-
-    <footer>
-      <p>Made by Ansel • <a href="https://github.com/AnselLabs">GitHub</a></p>
-    </footer>
-
-  </div>
+				<pre><code>// Extra code or data can go here.</code></pre>
+			</details>
+			
+		</main>
+		
+		<nav id="nav">
+			<p>Navigation</p>
+			<ul>
+				<li><a href="#">Overview</a></li>
+				<li><a href="#">Details</a></li>
+				<li><a href="#">Gallery</a></li>
+				<li><a href="#">Code</a></li>
+				<li><a href="#">Resources</a></li>
+				<li><a href="#">Contact</a></li>
+				<ul>
+					<li><a href="#">Nested link</a></li>
+				</ul>
+				<li><a href="#">Last link</a></li>
+			</ul>
+		</nav>
+			
+	</div>
 
 </body>
 </html>
