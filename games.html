@@ -10,6 +10,8 @@ body {
   background-image: url('https://sadhost.neocities.org/images/tiles/bubblespurplebg.jpg');
   margin: 0;
   color: #613f3f;
+  background-color: rgba(43, 15, 58, 0.8); /* dark purple tint */
+background-blend-mode: multiply; /* blends color + image */
   overflow-y: scroll;
   overflow-x: hidden;
 
@@ -20,7 +22,7 @@ body {
 
 @keyframes bg-scroll {
   from { background-position: 0 0; }
-  to { background-position: 0 -1000px; }
+  to { background-position: 0 -100%; }
 }
 
 h1 {
@@ -391,9 +393,17 @@ let game = setInterval(draw, 120);
   </div>
 </div>
 </div>
+
 <div class="ds" style="text-align:center; margin-top:40px; margin-bottom:40px;">
+
   <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.seekpng.com%2Fpng%2Ffull%2F236-2361549_nintendo-ds-png.png&f=1&nofb=1&ipt=c17a2d6b9d823994ea99b9f52551e94c99750033e482b40dde959419d94b8c6d" 
+
+
+       alt="CRT TV" 
+
+
        alt="Nintendo DS" 
+
        style="width:700px; max-width:100%; height:auto;">
   
   <!-- Top Screen -->
