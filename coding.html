@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Project Template</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Coral+Pixels&display=swap" rel="stylesheet">	
+<title>ansel.labs</title>
 	<meta name="description" content="A simple project-themed template">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
@@ -14,24 +17,12 @@
 		--bodyfont: "Verdana"; 
 		--borderwidth: 7px;
 		--borderstyle: dotted;
-	}
 
-	/* light mode colors */
-	:root {
-		--text: #463239;
-		--section: #FFFDED; 
-		--border: #FFB17A;
-		--link: #A04668;
-	}
-
-	/* dark mode colors */
-	@media (prefers-color-scheme: dark) {
-		:root {
-			--text: #FFFDED;
-			--section: #463239; 
-			--border: #C57B57;
-			--link: #F7BCBC;
-		}
+		/* dark mode colors only */
+		--text: #FFFDED;
+		--section: #463239; 
+		--border: #0275d8;
+		--link: #00ff00;
 	}
 
 	/* page layout */ 	
@@ -41,63 +32,71 @@
 		box-sizing: border-box;
 		max-width: 100%; 
 	}
-
 body {
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+  font-family: var(--bodyfont), sans-serif;
+
+
+
+  /* background */
   background-image: url('https://sadhost.neocities.org/images/tiles/comp016.gif');
+  background-repeat: repeat;
+  background-attachment: fixed; /* keeps it locked while animating */
   overflow-y: scroll;
   overflow-x: hidden;
 
-  /* Animate background from top to bottom */
-  background-repeat: repeat;
+  /* smooth scroll animation */
   animation: bg-scroll 30s linear infinite;
-  		margin: 0; padding: 0;
-		color: var(--text);
-	font-family: var(--bodyfont), sans-serif;
 }
 
 @keyframes bg-scroll {
   from { background-position: 0 0; }
-  to { background-position: 0 1000px; }
+  to { background-position: 0 100%; }
 }
-body { 
-		margin: 0; padding: 0;
-		color: var(--text);
-		background: url('https://sadhost.neocities.org/images/tiles/comp016.gif') repeat fixed;
-		font-family: var(--bodyfont), sans-serif;
+
+
+	.container { 
+	    position: relative; /* needed for overlay */
+  max-width: 700px;   /* maximum width */
+  min-height: 100vh;
+	    margin: 0 auto;
+	    padding: 1rem calc(2.25rem + 1vw); 
+	    background: url('https://sadhost.neocities.org/images/tiles/comp020.gif') repeat center;
+	    --mask: 
+	        radial-gradient(25.81px at 36px 50%,#000 99%,#0000 101%) 0 calc(50% - 30px)/51% 60px repeat-y,
+	        radial-gradient(25.81px at -21px 50%,#0000 99%,#000 101%) 15px 50%/calc(51% - 15px) 60px repeat-y,
+	        radial-gradient(25.81px at calc(100% - 36px) 50%,#000 99%,#0000 101%) 100% calc(50% - 30px)/51% 60px repeat-y,
+	        radial-gradient(25.81px at calc(100% + 21px) 50%,#0000 99%,#000 101%) calc(100% - 15px) 50%/calc(51% - 15px) 60px repeat-y;
+	    -webkit-mask: var(--mask);
+	    mask: var(--mask);
 	}
-.container { 
-    position: relative; /* needed for overlay */
-    max-width: var(--width);
-    min-height: 100vh;
-    margin: 0 auto;
-    padding: 1rem calc(2.25rem + 1vw); 
-    background: url('https://sadhost.neocities.org/images/tiles/comp020.gif') repeat center;
-    --mask: 
-        radial-gradient(25.81px at 36px 50%,#000 99%,#0000 101%) 0 calc(50% - 30px)/51% 60px repeat-y,
-        radial-gradient(25.81px at -21px 50%,#0000 99%,#000 101%) 15px 50%/calc(51% - 15px) 60px repeat-y,
-        radial-gradient(25.81px at calc(100% - 36px) 50%,#000 99%,#0000 101%) 100% calc(50% - 30px)/51% 60px repeat-y,
-        radial-gradient(25.81px at calc(100% + 21px) 50%,#0000 99%,#000 101%) calc(100% - 15px) 50%/calc(51% - 15px) 60px repeat-y;
-    -webkit-mask: var(--mask);
-    mask: var(--mask);
-}
+    
+        h1 {
+      text-align: center;            /* horizontal center */
+    font-family: 'Coral Pixels'; /* apply the font */      font-size: 6rem;               /* bigger size for emphasis */
+      color: var(--text);            /* optional: use your theme color */
+    }
 
-/* Overlay darkener */
-.container::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5); /* adjust darkness */
-    pointer-events: none; /* so content is still clickable */
-    border-radius: inherit;
-    z-index: 0;
-}
+	/* Overlay darkener */
+	.container::before {
+	    content: '';
+	    position: absolute;
+	    inset: 0;
+	    background: rgba(0, 0, 0, 0.5); /* adjust darkness */
+	    pointer-events: none; /* so content is still clickable */
+	    border-radius: inherit;
+	    z-index: 0;
+          max-width: 700px;   /* maximum width */
+	}
 
-/* Make content above overlay */
-.container > * {
-    position: relative;
-    z-index: 1;
-}
-
+	/* Make content above overlay */
+	.container > * {
+	    position: relative;
+	    z-index: 1;
+          max-width: 700px;   /* maximum width */
+	}
 
 	main { 
 		margin: 1rem 0;
@@ -111,6 +110,8 @@ body {
 	nav li { 
 		margin: 0.25rem;
 	}
+
+    
 	footer {
 		padding: 1rem 0 1.5rem 0;
 	}
@@ -130,14 +131,13 @@ body {
 	}
 	
 	/* headings */
-	h1, h2, h3, h4, nav p { 
+	h2, h3, h4, nav p { 
 		font-family: var(--headingfont), serif;
 		line-height: 1;
 		font-weight: bold;
 		margin: 1rem 0;
 	}
 	h1 { 
-		font-size: calc(2.25rem + 2.5vw);
 		margin: 3rem 0 1.5rem 0;
 		border-bottom: var(--borderwidth) var(--borderstyle) var(--border);
 		padding-bottom: 1rem;
@@ -296,7 +296,7 @@ body {
 			<h1>Projects</h1>
 			
 			<blockquote>
-				<p>About this project:</p>
+				<p>About this project: There are no projects yet :(</p>
 			</blockquote>
 			
 			<h2>Big</h2>
@@ -309,7 +309,7 @@ body {
 			
 	
 			<figure>
-				<img src="https://picsum.photos/500/400" alt="placeholder image" style="width:500px;aspect-ratio: 5 / 4;">
+				<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2F26hiu3mZVquuykwhy%2Fgiphy.gif&f=1&nofb=1&ipt=5e5e34f70b340b0636ca6fc40dc77fd700b243d8dacb93137ae91cdb206aa4ac" alt="placeholder image" style="width:500px;aspect-ratio: 5 / 4;">
 				<figcaption>All things are temporary...</figcaption>
 			</figure>
 
@@ -327,21 +327,17 @@ function greet() {
 			
 		</main>
 		
-		<nav id="nav">
-			<p>Navigation</p>
-			<ul>
-				<li><a href="#">Overview</a></li>
-				<li><a href="#">Details</a></li>
-				<li><a href="#">Gallery</a></li>
-				<li><a href="#">Code</a></li>
-				<li><a href="#">Resources</a></li>
-				<li><a href="#">Contact</a></li>
-				<ul>
-					<li><a href="#">Nested link</a></li>
-				</ul>
-				<li><a href="#">Last link</a></li>
-			</ul>
-		</nav>
+<nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="art.html">Art</a></li>
+    <li><a href="poetry.html">Poetry</a></li>
+    <li><a href="coding.html">Coding</a></li>
+    <li><a href="games.html">Projects</a></li>
+    <li><a href="blog.html">Blog</a></li>
+  </ul>
+</nav>
 			
 	</div>
 
