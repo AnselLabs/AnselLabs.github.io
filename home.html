@@ -50,15 +50,6 @@ a:hover {color:#00FF00;}
 
 img {border:0;}
 
-::-webkit-scrollbar-thumb {
-background-color: green;
-border-radius: 3px;}
-::-webkit-scrollbar {
-width: 5px; height: 0px;
-background: transparent;}
-
-
-
 .title {
   display:inline-block;
   background:#051105;
@@ -170,6 +161,32 @@ transform: translate(0, -0px);
   color: #44ff99;
 }
 
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #050; /* dark green */
+  border: 1px solid #0f0;
+  box-shadow: inset 0 0 5px #0f0;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #0f0, #060);
+  border: 1px solid #00ff00;
+  border-radius: 5px;
+  box-shadow: 0 0 6px #0f0, 0 0 12px #0f0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #44ff99, #0f0);
+  box-shadow: 0 0 8px #44ff99, 0 0 16px #0f0;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;              /* "auto" | "thin" | "none" */
+  scrollbar-color: #0f0 #050;         /* thumb | track */
+}
 </style>
 
 <script type="text/javascript">
@@ -260,8 +277,8 @@ function linkit(q) {
     <ul style="list-style:none; margin:0; padding:0;">
       <li style="display:inline; margin-right:8px;"><a href="index.html">Home</a></li>
       <li style="display:inline; margin-right:8px;"><a href="about.html">About</a></li>
-      <li style="display:inline; margin-right:8px;"><a href="art.html">Art</a></li>
       <li style="display:inline; margin-right:8px;"><a href="poetry.html">Poetry</a></li>
+<li style="display:inline; margin-right:8px;"><a href="art.html">Art</a></li>
       <li style="display:inline; margin-right:8px;"><a href="coding.html">Projects</a></li>
       <li style="display:inline; margin-right:8px;"><a href="games.html">Games</a></li>
       <li style="display:inline;"><a href="blog.html">Blog</a></li>

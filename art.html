@@ -138,6 +138,34 @@
   padding: 0;
 }
 
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a1a2f; /* dark navy track */
+  border: 1px solid #3b82f6; /* bright retro blue border */
+  box-shadow: inset 0 0 6px #2563eb; /* inner neon glow */
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #38bdf8, #1e40af); /* cyan → deep blue */
+  border: 1px solid #3b82f6;
+  border-radius: 6px;
+  box-shadow: 0 0 8px #38bdf8aa, 0 0 14px #2563ebaa; /* glowing retro effect */
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #60a5fa, #1e3a8a); /* lighter hover blue */
+  box-shadow: 0 0 10px #60a5facc, 0 0 18px #3b82f6cc;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #38bdf8 #0a1a2f; /* thumb | track */
+}
+
+
 </style>
 </head>
 <body>

@@ -165,6 +165,34 @@ transform:scale(0.95)
   pointer-events: none;
   z-index: 1;
 }
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #3b2b1a; /* dark brown track */
+  border: 1px solid #a9825f; /* muted bronze */
+  box-shadow: inset 0 0 5px #a9825f;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #c9a36a, #5c4027); /* sepia gradient */
+  border: 1px solid #a9825f;
+  border-radius: 5px;
+  box-shadow: 0 0 6px #a9825f55, 0 0 12px #c9a36a55; /* subtle warm glow */
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #e2c089, #7a5734); /* lighter gold on hover */
+  box-shadow: 0 0 8px #e2c08977, 0 0 16px #c9a36a77;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #c9a36a #3b2b1a; /* thumb | track */
+}
+
 </style>
 </head>
 
