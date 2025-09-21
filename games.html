@@ -26,59 +26,90 @@ background-blend-mode: multiply; /* blends color + image */
 }
 
 h1 {
-text-align: center;
-margin-top: 40px;
-margin-bottom: 10px;
-font-family: 'Uncial Antiqua', 'MedievalSharp', cursive;
-color: #4b2e1e; /* dark parchment text color */
-text-shadow: 2px 2px 0 #e6d3a0; /* subtle parchment highlight */
-font-size: 3rem;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  font-family: 'Uncial Antiqua', 'MedievalSharp', cursive;
+  color: #ffb7f5 ; /* bright kawaii pink */
+  text-shadow: 2px 2px 0 #d94fff, 0 0 6px #c77dff; /* soft pastel glow */
+  font-size: 48px; /* fixed size instead of 3rem */
+  width: 700px; /* fixed width like nav */
+  margin-left: auto;
+  margin-right: auto; /* keeps it centered */
 }
 
+  /* stars container */
+  .stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  .star {
+    position: absolute;
+    background: pink;
+    border-radius: 50%;
+    opacity: 1; /* make them fully bright */
+    filter: blur(0.5px);
+    box-shadow: 0 0 4px white, 0 0 8px white; /* glowing effect */
+    animation: fall linear infinite;
+  }
+
+  @keyframes fall {
+    0% { transform: translateY(110vh) rotate(0deg); opacity:1; }
+    100% { transform: translateY(-10vh) rotate(20deg); opacity:.5; }
+  }
+
 nav {
-margin: 10px auto 40px auto; /* centered with auto sides */
-padding: 15px 0;
-max-width: 700px; /* constrain width */
-text-align: center;
-background: linear-gradient(to bottom, #f4e3c1, #d9c294); /* parchment gradient */
-border: 3px solid #8b5e3c; /* rough parchment edge */
-border-radius: 12px;
-box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
-font-family: 'Uncial Antiqua', 'MedievalSharp', cursive;
+  margin: 10px auto 40px auto;
+  padding: 15px 0;
+  width: 700px; /* fixed instead of max-width */
+  text-align: center;
+  background: linear-gradient(to bottom, #c6a8f7, #a067d6); /* pink to purple */
+  border: 3px solid #a067d6; /* deeper purple border */
+  border-radius: 20px; /* rounder, cuter */
+  box-shadow: 4px 4px 12px rgba(200, 100, 255, 0.6);
+  font-family: 'Uncial Antiqua', 'MedievalSharp', cursive;
 }
 
 nav ul {
-list-style: none;
-padding: 0;
-margin: 0 auto; /* center the ul */
-display: flex;
-justify-content: center;
-flex-wrap: wrap; /* wrap if screen is narrow */
-gap: 15px;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap; /* prevent wrapping */
+  gap: 15px;
 }
 
 nav li {
-display: inline;
+  display: inline;
 }
 
 nav a {
-color: #5b3a21; /* dark brown text */
-text-decoration: none;
-font-weight: bold;
-font-size: 1rem;
-padding: 6px 12px;
-background: rgba(255, 238, 200, 0.6); /* semi-transparent parchment effect */
-border: 2px solid #8b5e3c;
-border-radius: 6px;
-box-shadow: 2px 2px 0 #7a4e2f;
-transition: all 0.2s ease-in-out;
+  color: #ffb7f5; /* pure white text */
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 6px 12px;
+  background: linear-gradient(to bottom, #ff9de1, #a067d6); /* kawaii pink-purple buttons */
+  border: 2px solid #a067d6;
+  border-radius: 10px;
+  box-shadow: 2px 2px 0 #7b4cbf;
+  transition: all 0.2s ease-in-out;
 }
 
 nav a:hover {
-background: rgba(255, 238, 200, 0.8);
-transform: translateY(-2px);
-box-shadow: 4px 4px 0px #5b3a21;
+  background: linear-gradient(to bottom, #ff9de1, #645394); /* softer glow on hover */
+  transform: translateY(-3px);
+  box-shadow: 4px 4px 0px #6a35a3;
 }
+
 
 
   .container {
@@ -256,7 +287,7 @@ width: 330px;     /* Fixed pixel width - won't scale with zoom */
 </style>
 </head>
 <body>
-
+  <div class="stars" aria-hidden="true"></div>
 <h1>Games</h1>
 <!-- Navigation -->
 <nav>
@@ -453,7 +484,26 @@ let game = setInterval(draw, 120);
 
 </body>
 </html>
+ <script>
+  const starContainer = document.querySelector('.stars');
+  if (starContainer) {
+    const numStars = 120; // more stars for brightness
+    for (let i = 0; i < numStars; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      const size = 1 + Math.random() * 3; // slightly bigger variation
+      star.style.width = `${size}px`;
+      star.style.height = `${size}px`;
+      star.style.left = `${Math.random() * 100}vw`;
+      star.style.animationDuration = `${3 + Math.random() * 6}s`;
+      star.style.animationDelay = `${Math.random() * 6}s`;
+      star.style.top = `${-5 - Math.random() * 20}vh`;
+      starContainer.appendChild(star);
+    }
+  }
+  </script>
 </body>
-<script>NekoType="earth"</script>
-<h1 id=nl><script src="https://webneko.net/n20171213.js"></script></h1>
+<script>NekoType="rose"</script>
+<h1 id=nl><script src="https://webneko.net/n20171213.js"></script><a 
+href="https://webneko.net">Neko</a></h1>
 </html>
