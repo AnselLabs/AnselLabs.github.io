@@ -163,7 +163,10 @@ h3 {
 	h4 { 
 		font-size: calc(1rem + 1vw);
 	}
-	
+	html {
+    scroll-behavior: smooth;
+}
+
 	/* link style */
 	a:link { 
 		color: var(--link);
@@ -313,31 +316,30 @@ h3 {
 
 			<h1>Projects</h1>
 			
-			<h4>Table of Contents</h4>
-            <blockquote>
-				<p>Published Research</p>
-			</blockquote>
-            <blockquote>
-				<p>Microelectronics</p>
-              </blockquote>
-                  <blockquote>
-				<p>Linux Ricing</p>
+			<h2>Table of Contents</h2>
+  <blockquote>
+    <p><a href="#published-research">Published Research</a></p>
+</blockquote>
+<blockquote>
+    <p><a href="#microelectronics">Microelectronics</a></p>
+</blockquote>
+<blockquote>
+    <p><a href="#linux-ricing">Linux Ricing</a></p>
+</blockquote>
+<blockquote>
+    <p><a href="#web-development">Web Development</a></p>
+</blockquote>
 
-			</blockquote>
-                  <blockquote>
-				<p>Web Development</p>
-              </blockquote>
 <br>
+      			<h2 id="published-research">Published Research</h2>
 <br>
-      			<h2>Published Research</h1>
-<br>
-			<h3>Bioelectronic Control of Bacterial Growth Using Potassium Ions</h3>
+			<h4>Bioelectronic Control of Bacterial Growth Using Potassium Ions</h3>
       <p><strong>DARPA-FUNDED RESEARCH AT UC SANTA CRUZ AND UC SAN DIEGO</strong></p>
 
 <figure>
   <img src="https://spectrum.ieee.org/media-library/close-up-of-actuator-device-used-for-accelerated-wound-healing.jpg?id=62098057&width=1200&height=750" 
        alt="Bioelectronic Ion Pump" 
-       style="width:500px; filter: hue-rotate(90deg) saturate(1.2);">
+       style="width:500px; filter: hue-rotate(90deg) saturate(1.5);">
   <figcaption>Bioelectronic ion pump delivering potassium to control bacterial growth</figcaption>
 </figure>
       <p><strong>ABSTRACT</strong></p>
@@ -362,7 +364,7 @@ h3 {
 
 
 			<details>
-				<summary>Images</summary>
+				<summary>More Images</summary>
         <p></p>
         <img src="https://news.ucsc.edu/wp-content/uploads/2024/02/fig1_450b-1.png" style="width:525px;">
                 <p></p>
@@ -373,9 +375,9 @@ h3 {
                 <img src="https://spectrum.ieee.org/media-library/a-pig-wearing-an-onesie-equipped-with-bioelectric-technology-during-an-experiment.jpg?id=62098090&width=700&quality=85" style="width:525px;">
 			</details>
 <br>
-    			<h2>Microelectronics</h1>
+<h2 id="microelectronics">Microelectronics</h2>
 <br>
-			<h3>Biomimetic Leaf Wetness Sensor</h3>
+			<h4>Biomimetic Leaf Wetness Sensor</h4>
       <p><strong>DARPA-FUNDED RESEARCH AT UC SANTA CRUZ</strong></p>
       <figure>
   <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.researchgate.net%2Fpublication%2F368417771%2Ffigure%2Ffig1%2FAS%3A11431281179445368%401691192155645%2FSchematic-of-bio-mimetic-leaf-wetness-sensor-The-replica-molded-surface-made-of-soft.png&f=1&nofb=1&ipt=a7e6190884069ac04a4f6c2b37052a0f3bac1cd9b14aacca4a03772ab9fa40ce" 
@@ -392,26 +394,31 @@ h3 {
 
       <p><strong>DIGITAL LEAF WETNESS SENSOR</strong></p>
 <p>Building on the biomimetic leaf sensor approach, I developed a digital microscope system to improve plant disease prediction with higher precision. Traditional leaf wetness sensors measure general moisture but cannot capture the unique surface properties of different leaf species, which vary in shape, texture, and water-repelling ability. Using a Raspberry Pi 4 with dual Arducam Pi-HAT cameras, the system captures simultaneous top and side views of dew droplets, enabling accurate measurement of droplet shape and water interaction on the leaf surface.</p> <p>Images are processed in ImageJ to calculate the contact angle of each droplet, a measure of leaf hydrophilicity. Larger angles indicate water-repelling leaves, while smaller angles show longer water retention, increasing disease risk. By comparing measured angles to a database of ideal hydrophilicity values for each leaf species maintained by the UC Santa Cruz Agricultural team, we calculate deviations that serve as early indicators of disease susceptibility.</p> <p>In the future, this microscope could be mounted on drones or robotic platforms to autonomously survey crop fields, capturing and analyzing leaf images in real time.</p>
-
-    			<h3>Sound-Reactive LED Strip with Frequency Visualization</h3>
+<br>
+    			<h4>Sound-Reactive LED Strip with Frequency Visualization</h4>
       <p><strong>INDEPENDENT PROJECT AT UC SANTA CRUZ</strong></p>
-
+      <p><strong>ABSTRACT</strong></p>
 <p>This project creates a dynamic LED light strip that responds to sound in real time using multiple sound thresholds, rather than a single threshold like many commercial products. This approach produces engaging patterns that synchronize precisely with local audio. Designed for community use, the system brings a concert-like visual experience to homes, dorms, or small event spaces.</p>
 
 <p>The setup includes a WS2812B LED strip controlled by a Raspberry Pi Zero 2 W—a 64-bit, quad-core SBC with 512 MB RAM—providing high processing power in a compact form. Audio input is captured using an ADS I2S digital microphone, while two 10k potentiometers on the top panel allow users to adjust brightness and cycle through a series of lighting patterns. All non-LED components, including the microphone, microcontroller, and power source, are housed in a compact control box connected to the strip via a long cable.</p>
 
 <p>The system translates sound frequencies into real-time lighting effects by performing a fast Fourier transform (FFT) on 2048 raw audio samples each frame. The resulting spectrogram is interpolated into 300 frequency magnitudes, which determine LED brightness. Color mapping correlates frequency to position: lower frequencies appear on leftward LEDs with redder hues, and higher frequencies appear on rightward LEDs with cooler colors. This visualization not only enhances the auditory experience but can also provide an accessible, immersive interface for music lovers, the hearing-impaired, or anyone seeking interactive audiovisual engagement. Future development plans include smart power management (sleep mode/auto-shutdown) and wireless control via a mobile app.</p>
 <br>
-          			<h2>Linux Ricing</h1>
+<h2 id="linux-ricing">Linux Ricing</h2>
 <br>
+<p>Linux is a free, open-source operating system known for its security, flexibility, and customizability. Linux ricing is the practice of personalizing and styling the desktop environment—through themes, icons, fonts, and layouts—to create a visually appealing, efficient, and uniquely tailored computing experience.</p>
 <br>
-    			<h2>Web Development</h1>
+<h2 id="web-development">Web Development</h2>
 <br>
-			<h3>Rolandi Research Group</h3>
+			<h4>Rolandi Research Group</h4>
       <p>The Rolandi Research Group develops bioelectronic devices that interface with living systems to monitor and control biological processes. Their work includes ion pumps for bacteria, biomimetic sensors for agriculture, and electronic platforms for tissue engineering, combining electronics, soft materials, and computational analysis to advance health, sustainability, and understanding of cellular systems.</p>
-			<h3>Cruz Group Auto</h3>
+      <br>
+
+			<h4>Cruz Group Auto</h4>
       <p>A women-owned, family-run local auto shop offering complete vehicle repairs, maintenance, and bodywork, with bilingual Spanish-speaking staff.</p>
-			<h3>Care From The Heart</h3>
+      <br>
+
+			<h4>Care From The Heart</h4>
       <p>A woman-owned in-home care organization providing trained nursing support and specialized services for individuals with dementia, committed to compassionate, personalized care.</p>
 
 			<pre><code>// Example code block
