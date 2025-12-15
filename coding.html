@@ -101,15 +101,26 @@ body {
 	main { 
 		margin: 1rem 0;
 	}
-	nav { 
-		margin: 1.5rem 0 1rem 0;
-		padding: 0.5rem 0 1rem 0;
-		border-top: var(--borderwidth) var(--borderstyle) var(--border);
-		border-bottom: var(--borderwidth) var(--borderstyle) var(--border);
-	}
-	nav li { 
-		margin: 0.25rem;
-	}
+	
+nav { 
+	margin: 1.5rem 0 1rem 0;
+	padding: 0.75rem 0;
+	border-top: var(--borderwidth) var(--borderstyle) var(--border);
+	border-bottom: var(--borderwidth) var(--borderstyle) var(--border);
+}
+
+nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	gap: 1.5rem;
+}
+
+nav li {
+	margin: 0;
+}
 
     
 	footer {
@@ -145,9 +156,10 @@ body {
 	h2, nav p { 
 		font-size: calc(1.75rem + 1.25vw);
 	}
-	h3 { 
-		font-size: calc(1.25rem + 1.125vw);
-	}
+h3 { 
+    font-size: calc((1.25rem + 1.125vw) * 0.7); /* 90% of original size */
+}
+
 	h4 { 
 		font-size: calc(1rem + 1vw);
 	}
@@ -301,36 +313,107 @@ body {
 
 			<h1>Projects</h1>
 			
-			<blockquote>
-				<p>About this project: There are no projects yet :(</p>
+			<h2>Table of Contents</h2>
+            <blockquote>
+				<p>Published Research</p>
 			</blockquote>
-			
-			<h2>Big</h2>
-			<h3>Med</h3>
-			<h4>Small</h4>
-			
-			<p>
-			Projects coming soon!
-			</p>
-			
-	
-			<figure>
-				<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2F26hiu3mZVquuykwhy%2Fgiphy.gif&f=1&nofb=1&ipt=5e5e34f70b340b0636ca6fc40dc77fd700b243d8dacb93137ae91cdb206aa4ac" alt="placeholder image" style="width:500px;aspect-ratio: 5 / 4;">
-				<figcaption>All things are temporary...</figcaption>
-			</figure>
+            <blockquote>
+				<p>Microelectronics</p>
+              </blockquote>
+                  <blockquote>
+				<p>Linux Ricing</p>
+
+			</blockquote>
+                  <blockquote>
+				<p>Web Development</p>
+              </blockquote>
+
+      			<h2>Published Research</h1>
+			<h3>Bioelectronic Control of Bacterial Growth Using Potassium Ions</h3>
+      <p><strong>DARPA-FUNDED RESEARCH AT UC SANTA CRUZ AND UC SAN DIEGO</strong></p>
+
+<figure>
+  <img src="https://spectrum.ieee.org/media-library/close-up-of-actuator-device-used-for-accelerated-wound-healing.jpg?id=62098057&width=1200&height=750" 
+       alt="Bioelectronic Ion Pump" 
+       style="width:500px; aspect-ratio: 5 / 4; filter: hue-rotate(90deg) saturate(1.2);">
+  <figcaption>Bioelectronic ion pump delivering potassium to control bacterial growth</figcaption>
+</figure>
+      <p><strong>ABSTRACT</strong></p>
+
+<p>Cells communicate not only through chemicals but also using electrical signals, which help coordinate behavior, growth, and organization. While well known in neurons, bacteria also use electrical signals within biofilms. In this project, we studied how carefully controlled delivery of potassium ions (K⁺) can influence membrane voltage and growth, demonstrating that bioelectronic devices can steer bacterial behavior in specific areas using electronic signals.</p>
+
+
+<p>This work demonstrates that bioelectronics can actively shape living systems. By controlling ion flow, we can influence how cells communicate, organize, and grow. Beyond bacteria, this approach could guide human or animal cell regrowth, pointing toward applications like “electronic bandages” that help tissue regenerate. It also has broader uses in synthetic biology, engineered living materials, biofilm control, regenerative medicine, and studying collective cell behavior.</p>
+
+      <p><strong>BIOELECTRONIC ION PUMPS</strong></p>
+<p>We developed small bioelectronic devices called ion pumps that push potassium ions through a special hydrogel directly into targeted parts of a biofilm. This lets us control where and when ions are delivered much more precisely than traditional methods.</p>
+
+<p><strong>CONTROLLING ELECTRICAL ACTIVITY AND BIOFILM GROWTH</strong></p>
+<p>Our experiments show that delivering potassium ions to specific regions of a biofilm both changes the electrical activity of bacterial cells and influences how the biofilm grows:</p>
+<ul>
+  <li>Active regions respond strongly to potassium, while dormant regions show little change</li>
+  <li>The effects decrease with distance from the ion pump</li>
+  <li>Early potassium delivery directs biofilm growth toward the ion pump, with stronger effects at higher doses</li>
+  <li>Directional growth persists over multiple days, while untreated biofilms grow uniformly</li>
+</ul>
+<p>These results demonstrate that localized electronic signals can be used to steer both the electrical activity and growth patterns of bacterial biofilms.</p>
+
+
+			<details>
+				<summary>Images</summary>
+        <p></p>
+        <img src="https://news.ucsc.edu/wp-content/uploads/2024/02/fig1_450b-1.png" style="width:525px;aspect-ratio: 5 / 4;">
+                <p></p>
+                             <img src="https://advanced.onlinelibrary.wiley.com/cms/asset/f975b341-8bd8-4f6c-86b8-9a9752b5eb7a/admt202301115-fig-0001-m.jpg" style="width:525px;aspect-ratio: 5 / 4;">
+                                     <p></p>
+                        <img src=" https://advanced.onlinelibrary.wiley.com/cms/asset/a107e2ef-2d36-4e2e-ad12-de5a8d119681/admt70039-fig-0001-m.jpg" style="width:525px;aspect-ratio: 5 / 4;">
+                                <p></p>
+                <img src="https://spectrum.ieee.org/media-library/a-pig-wearing-an-onesie-equipped-with-bioelectric-technology-during-an-experiment.jpg?id=62098090&width=700&quality=85" style="width:525px;aspect-ratio: 5 / 4;">
+			</details>
+
+    			<h2>Microelectronics</h1>
+			<h3>Biomimetic Leaf Wetness Sensor</h3>
+      <p><strong>DARPA-FUNDED RESEARCH AT UC SANTA CRUZ</strong></p>
+      <figure>
+  <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.researchgate.net%2Fpublication%2F368417771%2Ffigure%2Ffig1%2FAS%3A11431281179445368%401691192155645%2FSchematic-of-bio-mimetic-leaf-wetness-sensor-The-replica-molded-surface-made-of-soft.png&f=1&nofb=1&ipt=a7e6190884069ac04a4f6c2b37052a0f3bac1cd9b14aacca4a03772ab9fa40ce" 
+       alt="Bioelectronic Ion Pump" 
+       style="width:500px; filter: hue-rotate(90deg) saturate(1.2);">
+  <figcaption>Bioelectronic ion pump delivering potassium to control bacterial growth</figcaption>
+</figure>
+      <p><strong>ABSTRACT</strong></p>
+<p>Plant diseases cause significant crop losses worldwide, costing hundreds of billions of dollars annually. Wet leaves create ideal conditions for pathogens to germinate and spread, making accurate monitoring of leaf wetness critical for disease forecasting and crop management. Traditional commercial sensors measure leaf wetness broadly, but they cannot account for the unique surface properties of different plant species, leading to inaccurate predictions.</p>
+
+<p>We developed a biomimetic leaf wetness sensor to address this problem. These sensors replicate the shape, texture, and water-repelling properties of actual leaves using silicone molds placed over a humidity-sensing chip. By mimicking individual plant surfaces, the sensors measure how long leaves stay wet more accurately than generic sensors, enabling better prediction of disease risk and management decisions.</p>
+
+<p>The sensors are inexpensive to produce, adaptable to any crop or plant species, and have potential applications in organic and conventional agriculture. By improving disease forecasting, they help reduce crop loss, optimize irrigation, and limit unnecessary pesticide use. The researchers hope to deploy these sensors in farms and wild ecosystems, offering a scalable, precise, and environmentally friendly tool for plant health monitoring.</p>
+
+      <p><strong>DIGITAL LEAF WETNESS SENSOR</strong></p>
+<p>Building on the biomimetic leaf sensor approach, I developed a digital microscope system to improve plant disease prediction with higher precision. Traditional leaf wetness sensors measure general moisture but cannot capture the unique surface properties of different leaf species, which vary in shape, texture, and water-repelling ability. Using a Raspberry Pi 4 with dual Arducam Pi-HAT cameras, the system captures simultaneous top and side views of dew droplets, enabling accurate measurement of droplet shape and water interaction on the leaf surface.</p> <p>Images are processed in ImageJ to calculate the contact angle of each droplet, a measure of leaf hydrophilicity. Larger angles indicate water-repelling leaves, while smaller angles show longer water retention, increasing disease risk. By comparing measured angles to a database of ideal hydrophilicity values for each leaf species maintained by the UC Santa Cruz Agricultural team, we calculate deviations that serve as early indicators of disease susceptibility.</p> <p>In the future, this microscope could be mounted on drones or robotic platforms to autonomously survey crop fields, capturing and analyzing leaf images in real time.</p>
+
+    			<h3>Sound-Reactive LED Strip with Frequency Visualization</h3>
+      <p><strong>INDEPENDENT PROJECT AT UC SANTA CRUZ</strong></p>
+
+<p>This project creates a dynamic LED light strip that responds to sound in real time using multiple sound thresholds, rather than a single threshold like many commercial products. This approach produces engaging patterns that synchronize precisely with local audio. Designed for community use, the system brings a concert-like visual experience to homes, dorms, or small event spaces.</p>
+
+<p>The setup includes a WS2812B LED strip controlled by a Raspberry Pi Zero 2 W—a 64-bit, quad-core SBC with 512 MB RAM—providing high processing power in a compact form. Audio input is captured using an ADS I2S digital microphone, while two 10k potentiometers on the top panel allow users to adjust brightness and cycle through a series of lighting patterns. All non-LED components, including the microphone, microcontroller, and power source, are housed in a compact control box connected to the strip via a long cable.</p>
+
+<p>The system translates sound frequencies into real-time lighting effects by performing a fast Fourier transform (FFT) on 2048 raw audio samples each frame. The resulting spectrogram is interpolated into 300 frequency magnitudes, which determine LED brightness. Color mapping correlates frequency to position: lower frequencies appear on leftward LEDs with redder hues, and higher frequencies appear on rightward LEDs with cooler colors. This visualization not only enhances the auditory experience but can also provide an accessible, immersive interface for music lovers, the hearing-impaired, or anyone seeking interactive audiovisual engagement. Future development plans include smart power management (sleep mode/auto-shutdown) and wireless control via a mobile app.</p>
+
+          			<h2>Linux Ricing</h1>
+
+    			<h2>Web Development</h1>
+			<h3>Rolandi Research Group</h3>
+      <p>The Rolandi Research Group develops bioelectronic devices that interface with living systems to monitor and control biological processes. Their work includes ion pumps for bacteria, biomimetic sensors for agriculture, and electronic platforms for tissue engineering, combining electronics, soft materials, and computational analysis to advance health, sustainability, and understanding of cellular systems.</p>
+			<h3>Cruz Group Auto</h3>
+      <p>A women-owned, family-run local auto shop offering complete vehicle repairs, maintenance, and bodywork, with bilingual Spanish-speaking staff.</p>
+			<h3>Care From The Heart</h3>
+      <p>A woman-owned in-home care organization providing trained nursing support and specialized services for individuals with dementia, committed to compassionate, personalized care.</p>
 
 			<pre><code>// Example code block
 function greet() {
   console.log("Hello, project world!");
 }</code></pre>
 				
-			<details>
-				<summary>More Project Notes</summary>
-				<p>More project fun!!
-
-				<pre><code>// Extra code or data can go here.</code></pre>
-			</details>
-			
 		</main>
 		
 	</div>
